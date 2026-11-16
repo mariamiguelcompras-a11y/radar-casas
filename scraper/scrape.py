@@ -428,12 +428,55 @@ def main():
             guardados[k] = d
             novos += 1
 
+    # 2b. Outros portais (OLX, CustoJusto, Casa Sapo), sem repetir casas já guardadas
+    import outros
+    vistos_outros = set()
+    repetidos = 0
+    for d in outros.recolher():
+        k = d.pop("chave")
+        d.pop("quartos", None)
+        vistos_outros.add(k)
+        if k not in guardados:
+            dup = next((x for kk, x in guardados.items()
+                        if x.get("zona") == d["zona"] and x.get("preco") and abs(x["preco"] - d["preco"]) <= 1000
+                        and x.get("area") and d.get("area") and abs(x["area"] - d["area"]) <= 3), None)
+            if dup:
+                links = dup.setdefault("outrosLinks", [])
+                if d["url"] not in links and d["url"] != dup.get("url"):
+                    links.append(d["url"])
+                if dup.get("garagem") not in ("Sim", "À parte (opcional)") and d.get("garagem") in ("Sim", "À parte (opcional)"):
+                    dup["garagem"], dup["garagemFrase"] = d["garagem"], d.get("garagemFrase", "")
+                    dup["notas"] = (dup.get("notas", "") + f" Garagem (no {d['fonte']}): \"{d.get('garagemFrase', '')[:160]}\".").strip()
+                if not dup.get("wc") and d.get("wc"):
+                    dup["wc"] = d["wc"]
+                repetidos += 1
+                continue
+        antigo = guardados.get(k)
+        if antigo:
+            hist = antigo.get("historicoPrecos", [])
+            if antigo.get("preco") and d["preco"] != antigo["preco"]:
+                hist.append({"data": HOJE, "de": antigo["preco"], "para": d["preco"]})
+            antigo.update({kk: vv for kk, vv in d.items() if vv is not None and not (kk == "noMercadoDesde" and antigo.get("noMercadoDesde"))})
+            antigo.update({"historicoPrecos": hist, "ultimaVerificacao": HOJE, "disponibilidade": "Ativo"})
+        else:
+            d.update({"chave": k, "primeiraVez": HOJE, "ultimaVerificacao": HOJE, "disponibilidade": "Ativo",
+                      "historicoPrecos": [], "noMercadoDesde": d.get("noMercadoDesde") or HOJE})
+            guardados[k] = d
+            novos += 1
+    print(f"Outros portais: {len(vistos_outros)} lidos, {repetidos} repetidos de casas já guardadas")
+
     # 3. Anúncios guardados que não apareceram: confirmar se ainda existem
     for k, x in guardados.items():
-        if k in vistos or x.get("disponibilidade") == "Removido":
+        if k in vistos or k in vistos_outros or x.get("disponibilidade") == "Removido":
             continue
         status, html, final = get(x["url"])
         pausa()
+        if x.get("fonte") and x["fonte"] != "Imovirtual":
+            if status in (404, 410) or (status == 200 and re.search(r"j[aá] n[aã]o est[aá] dispon[ií]vel|an[uú]ncio (removido|desativado|expirado)|n[aã]o encontr", html.lower()[:200000])):
+                x["disponibilidade"] = "Removido"
+                removidos += 1
+            x["ultimaVerificacao"] = HOJE
+            continue
         ok = status == 200 and "/pt/anuncio/" in final and next_data(html) and (next_data(html).get("props", {}).get("pageProps", {}).get("ad"))
         if status in (404, 410) or (status == 200 and not ok):
             x["disponibilidade"] = "Removido"
