@@ -152,6 +152,40 @@ def num(v):
     return float(m.group(0).replace(",", ".")) if m else None
 
 
+GAR = r"(garagem|box|parqueamento|lugar(?:es)? de (?:estacionamento|garagem|parqueamento)|estacionamento)"
+GAR_A_PARTE = re.compile(r"(possibilidade de (?:adquirir|comprar)|pode(?:r[aá])? (?:adquirir|comprar)|op[cç]ional|valor adicional|[aà] parte|n[aã]o inclu[ií]d|acresce|por mais|vendid[oa] separadamente|em separado)[^.;\n]{0,60}" + GAR + "|" + GAR + r"[^.;\n]{0,60}(op[cç]ional|[aà] parte|n[aã]o inclu[ií]d|valor adicional|vendid[oa] separadamente|em separado|por mais \d|acresce)")
+GAR_SIM = re.compile(r"(com|inclui|incluindo|inclu[ií]d[oa]s?|disp[oõ]e de|tem|possui|e|\+)\s+(?:um |uma |dois |duas |\d |o |a )?(?:\w+ ){0,2}(garagem|box|lugar(?:es)? de (?:estacionamento|garagem|parqueamento)|parqueamento|estacionamento privativo)"
+                     r"|\b(box (?:fechad|individual|privativ|para \w+ carro)|garagem (?:fechad|individual|privativ|box|com|para \w+ (?:carro|viatura))|lugar de (?:garagem|parqueamento)|estacionamento (?:privativo|coberto|na cave|em cave)|parqueamento (?:privativo|coberto)|lugar(?:es)? de estacionamento (?:na cave|privativ|coberto|em garagem|na garagem))")
+GAR_RUA = re.compile(r"sem garagem|sem estacionamento|estacionamento (?:f[aá]cil|p[uú]blico|na rua|gratuito|abundante)|f[aá]cil estacionamento|facilidade de estacionamento|estacionar na rua")
+
+
+def frase(texto, m):
+    """A frase do anúncio onde está a correspondência (corta em '. ' ou mudança de linha)."""
+    i, j = m.start(), m.end()
+    cortes_antes = [k.end() for k in re.finditer(r"\.\s|\n", texto[:i])]
+    ini = max(cortes_antes[-1] if cortes_antes else 0, i - 120)
+    depois = re.search(r"\.\s|\n", texto[j:])
+    fim = min(j + depois.start() + 1 if depois else len(texto), j + 120)
+    return re.sub(r"\s+", " ", texto[ini:fim]).strip()
+
+
+def classificar_garagem(extras, tl, dl):
+    """Devolve (classificação, frase do anúncio que a justifica)."""
+    texto = tl + ". " + dl
+    m_parte = GAR_A_PARTE.search(texto)
+    m_sim = GAR_SIM.search(texto)
+    if m_parte and not ("garage" in extras and not m_sim):
+        return "À parte (opcional)", frase(texto, m_parte)
+    if "garage" in extras:
+        return "Sim", (frase(texto, m_sim) if m_sim else "Assinalada nas características do anúncio")
+    if m_sim:
+        return "Sim", frase(texto, m_sim)
+    m_rua = GAR_RUA.search(texto)
+    if m_rua:
+        return "Só na rua", frase(texto, m_rua)
+    return "Não indicado", ""
+
+
 def ficha(slug, tipologia_pesquisa, tipo):
     """Lê a ficha de um anúncio. Devolve (status, dados ou None)."""
     url = f"{BASE}/pt/anuncio/{slug}"
@@ -186,12 +220,7 @@ def ficha(slug, tipologia_pesquisa, tipo):
     cs = ",".join(t.get("Construction_status") or [])
     nova = (t.get("MarketType") == "primary") or bool(re.search(r"\b(a estrear|nova constru|em constru)", tl + " " + dl))
 
-    if "garage" in extras or re.search(r"\b(garagem|box)\b", tl):
-        garagem = "Sim"
-    elif re.search(r"\b(garagem|box|parqueamento|lugar de estacionamento|estacionamento privativo)\b", dl):
-        garagem = "Por confirmar"
-    else:
-        garagem = "Não indicado"
+    garagem, garagem_frase = classificar_garagem(extras, tl, dl)
     if re.search(r"sem elevador", dl + " " + tl):
         elevador = "Não"
     elif "lift" in extras or "elevador" in dl:
@@ -239,8 +268,8 @@ def ficha(slug, tipologia_pesquisa, tipo):
     notas = []
     if re.search(r"\bsu[ií]te\b", dl + " " + tl):
         notas.append("Com suite.")
-    if garagem == "Por confirmar":
-        notas.append("A descrição fala de estacionamento: confirmar se é privativo.")
+    if garagem_frase:
+        notas.append(f"Garagem: \"{garagem_frase[:160]}\".")
     if arrendado == "Sim":
         i = m_arr.start(); txt = (dl + " " + tl)[max(0, i - 40): i + 60].strip()
         notas.append(f"Arrendado? A descrição diz: \"…{txt}…\" — confirmar.")
@@ -263,6 +292,7 @@ def ficha(slug, tipologia_pesquisa, tipo):
         "reservado": bool(re.search(r"reservad", tl)),
         "wc": wc,
         "garagem": garagem,
+        "garagemFrase": garagem_frase,
         "varanda": varanda,
         "elevador": elevador,
         "construcao": construcao,
