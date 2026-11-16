@@ -26,7 +26,7 @@ DATA_FILE = os.path.join(ROOT, "data", "imoveis.json")
 LOG_FILE = os.path.join(ROOT, "data", "ultima-execucao.json")
 
 PRECO_MAX = 360000          # teto (até 10 000 € acima de 350 000 € entra como "acima do teto")
-PRECO_MIN = 50000           # abaixo disto é quase sempre um arrendamento mal classificado
+PRECO_MIN = 120000          # abaixo disto são garagens, ruínas, casas pré-fabricadas ou erros
 BASE = "https://www.imovirtual.com"
 
 # Zonas pesquisadas no Imovirtual (caminho da pesquisa)
@@ -38,9 +38,11 @@ LOCAIS = [
     "lisboa/sintra/queluz-e-belas",
 ]
 TIPOS = ["apartamento", "moradia"]
-TIPOLOGIAS = ["t2", "t3", "t4", "t5"]
+TIPOLOGIAS = ["t2", "t3", "t4"]   # "t5" não é um filtro válido no Imovirtual (devolve tudo)
 
 # Sub-zonas de Sintra que ficam longe de Oeiras/Cascais: não entram
+# Anúncios que não são casas para habitação própria
+EXCLUIR_TITULO = re.compile(r"ru[ií]na|reconstru[cç][aã]o total|resid[eê]ncia s[eé]nior|caf[eé]|alentejo|casa de madeira|pronta a montar|pr[eé]-fabricad|modular|terreno|loja|armaz[eé]m|escrit[oó]rio|garagem para venda|\btrespasse", re.I)
 SINTRA_EXCLUIR = ["belas", "idanha", "carregueira", "tala", "venda seca", "a-da-beja", "serra da silveira"]
 
 HEADERS = {
@@ -216,15 +218,19 @@ def ficha(slug, tipologia_pesquisa, tipo):
         entrega = (m.group(0).strip().capitalize() if m else "Não indicado")
 
     arrendado = "Não indicado"
-    if re.search(r"(arrendad[oa] (atualmente|actualmente|até|com contrato)|com inquilino|vendid[oa] com inquilino|contrato de arrendamento (em vigor|até|ativo)|encontra-se arrendad|está arrendad|atualmente arrendad|inquilin)", dl):
+    if re.search(r"(vendid[oa] com inquilino|com inquilino|atualmente arrendad|actualmente arrendad|encontra-se arrendad|est[aá] arrendad|arrendad[oa] at[eé]|contrato de arrendamento (em vigor|at[eé]|v[aá]lido|ativo)|com rendimento)", dl + " " + tl):
         arrendado = "Sim"
 
     pref = "Moradia " if tipo == "moradia" else ""
-    tip = pref + tipologia_pesquisa.upper()
-    if re.search(r"\bt\s?\d\s?\+\s?\d", tl):
-        m = re.search(r"\bt\s?(\d)\s?\+\s?(\d)", tl)
-        tip = f"{pref}T{m.group(1)}+{m.group(2)}"
-
+    # Tipologia: a do título manda (T2, T3+1, V3...). Sem título claro, usa a da pesquisa.
+    m = re.search(r"\b[tv]\s?(\d)(?:\s?\+\s?(\d))?\b", tl)
+    if re.search(r"\best[uú]dio\b", tl):
+        quartos, extra = 0, None
+    elif m:
+        quartos, extra = int(m.group(1)), m.group(2)
+    else:
+        quartos, extra = int(tipologia_pesquisa[1:]), None
+    tip = f"{pref}T{quartos}" + (f"+{extra}" if extra else "")
     notas = []
     if re.search(r"\bsu[ií]te\b", dl + " " + tl):
         notas.append("Com suite.")
@@ -247,6 +253,8 @@ def ficha(slug, tipologia_pesquisa, tipo):
         "preco": preco,
         "area": area,
         "tipologia": tip,
+        "quartos": quartos,
+        "reservado": bool(re.search(r"reservad", tl)),
         "wc": wc,
         "garagem": garagem,
         "varanda": varanda,
@@ -304,17 +312,20 @@ def main():
             continue
         if d["zona"] is None or d["preco"] is None or not (PRECO_MIN <= d["preco"] <= PRECO_MAX):
             continue
+        if d["quartos"] < 2 or EXCLUIR_TITULO.search(d["titulo"]):
+            continue
+        reservado = d.pop("reservado")
         antigo = guardados.get(k)
         if antigo:
             hist = antigo.get("historicoPrecos", [])
             if antigo.get("preco") and d["preco"] != antigo["preco"]:
                 hist.append({"data": HOJE, "de": antigo["preco"], "para": d["preco"]})
             antigo.update({kk: vv for kk, vv in d.items() if vv is not None})
-            antigo.update({"historicoPrecos": hist, "ultimaVerificacao": HOJE, "disponibilidade": "Ativo"})
+            antigo.update({"historicoPrecos": hist, "ultimaVerificacao": HOJE, "disponibilidade": "Reservado" if reservado else "Ativo"})
             atualizados += 1
         else:
             d.update({"chave": k, "primeiraVez": HOJE, "ultimaVerificacao": HOJE,
-                      "disponibilidade": "Ativo", "historicoPrecos": []})
+                      "disponibilidade": "Reservado" if reservado else "Ativo", "historicoPrecos": []})
             guardados[k] = d
             novos += 1
 
