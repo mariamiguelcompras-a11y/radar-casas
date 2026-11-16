@@ -1,9 +1,11 @@
 {
  "data": "2026-11-16",
  "encontrados": 407,
- "novos": 0,
+ "novos": 53,
  "atualizados": 344,
  "removidos": 0,
- "total": 344,
- "ativos": 343
+ "total": 60,
+ "ativos": 60,
+ "emPlanta": 3,
+ "emPlantaNovos": 3
 }
