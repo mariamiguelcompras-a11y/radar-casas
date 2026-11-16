@@ -1,46 +1,30 @@
-"""Exploração pontual: guarda amostras dos dados de empreendimentos do Imovirtual em debug/."""
-import json, os, re, sys
+"""Exploração pontual: estados dos empreendimentos e dados das frações (debug/)."""
+import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from scrape import get, next_data
-
+from scrape import get, next_data, pausa
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "debug")
 os.makedirs(OUT, exist_ok=True)
-urls = {
-    "emp_oeiras": "https://www.imovirtual.com/pt/resultados/comprar/empreendimento/lisboa/oeiras",
-    "emp_cascais": "https://www.imovirtual.com/pt/resultados/comprar/empreendimento/lisboa/cascais",
-    "emp_sintra": "https://www.imovirtual.com/pt/resultados/comprar/empreendimento/lisboa/sintra",
-    "apt_primary": "https://www.imovirtual.com/pt/resultados/comprar/apartamento/lisboa/oeiras?market=PRIMARY",
-}
-resumo = {}
-def corta(o, n=0):
-    if n > 4: return "…"
-    if isinstance(o, dict): return {k: corta(v, n+1) for k, v in list(o.items())[:60]}
-    if isinstance(o, list): return [corta(x, n+1) for x in o[:3]]
-    if isinstance(o, str): return o[:200]
-    return o
-for nome, u in urls.items():
-    st, html, final = get(u)
-    nd = next_data(html) if st == 200 else None
-    pp = (nd or {}).get("props", {}).get("pageProps", {})
-    data = pp.get("data") or {}
-    sa = data.get("searchAds") or {}
-    items = sa.get("items") or []
-    resumo[nome] = {"status": st, "final": final, "pageProps_keys": list(pp.keys())[:40], "data_keys": list(data.keys())[:40],
-                    "n_items": len(items), "total": (sa.get("pagination") or {}).get("totalItems")}
-    with open(os.path.join(OUT, nome + ".json"), "w", encoding="utf-8") as f:
-        json.dump({"items": corta(items[:3]), "data_other": corta({k: v for k, v in data.items() if k != "searchAds"})}, f, ensure_ascii=False, indent=1)
-    # abrir o primeiro empreendimento / anúncio
-    if items:
-        it = items[0]
-        href = it.get("href") or ""
-        slug = it.get("slug") or ""
-        alvo = ("https://www.imovirtual.com" + href.replace("[lang]", "pt").replace("ad/", "anuncio/")) if href.startswith("/") else f"https://www.imovirtual.com/pt/anuncio/{slug}"
-        st2, h2, f2 = get(alvo)
-        nd2 = next_data(h2) if st2 == 200 else None
-        pp2 = (nd2 or {}).get("props", {}).get("pageProps", {})
-        resumo[nome]["primeiro"] = {"alvo": alvo, "status": st2, "final": f2, "keys": list(pp2.keys())[:40]}
-        with open(os.path.join(OUT, nome + "_ficha.json"), "w", encoding="utf-8") as f:
-            json.dump(corta(pp2), f, ensure_ascii=False, indent=1)
-with open(os.path.join(OUT, "resumo.json"), "w", encoding="utf-8") as f:
-    json.dump(resumo, f, ensure_ascii=False, indent=1)
-print(json.dumps(resumo, ensure_ascii=False, indent=1))
+res = []
+primeira_unidade = None
+for loc in ["lisboa/oeiras", "lisboa/cascais", "lisboa/sintra", "lisboa/amadora"]:
+    st, html, _ = get(f"https://www.imovirtual.com/pt/resultados/comprar/empreendimento/{loc}?limit=72")
+    items = (((next_data(html) or {}).get("props", {}).get("pageProps", {}).get("data") or {}).get("searchAds") or {}).get("items") or []
+    for it in items:
+        st2, h2, _ = get(f"https://www.imovirtual.com/pt/empreendimento/{it['slug']}")
+        pausa()
+        ad = ((next_data(h2) or {}).get("props", {}).get("pageProps", {}) or {}).get("ad") or {}
+        units = (ad.get("paginatedUnits") or {}).get("items") or []
+        pag = {k: v for k, v in (ad.get("paginatedUnits") or {}).items() if k != "items"}
+        d = {"loc": loc, "slug": it["slug"], "title": ad.get("title"), "attrs": ad.get("attributes"),
+             "locs": ((ad.get("location") or {}).get("reverseGeocoding") or {}).get("locations"),
+             "n_units": len(units), "pag": pag,
+             "units": [{"slug": u.get("slug"), "chars": {c.get("key"): c.get("value") for c in (u.get("characteristics") or [])}} for u in units[:40]],
+             "desc_entrega": [s for s in (ad.get("description") or "").replace("<", " <").split(".") if any(w in s.lower() for w in ("entrega", "conclus", "previs", "trimestre", "202"))][:4]}
+        if units and primeira_unidade is None:
+            primeira_unidade = units[0]
+        res.append(d)
+with open(os.path.join(OUT, "empreendimentos.json"), "w", encoding="utf-8") as f:
+    json.dump(res, f, ensure_ascii=False, indent=1)
+with open(os.path.join(OUT, "unidade_exemplo.json"), "w", encoding="utf-8") as f:
+    json.dump(primeira_unidade, f, ensure_ascii=False, indent=1)
+print(len(res))
