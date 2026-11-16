@@ -440,6 +440,11 @@ def main():
             removidos += 1
         x["ultimaVerificacao"] = HOJE
 
+    # Só ficam casas com garagem (incluída ou à venda à parte no mesmo prédio); as outras não são mostradas.
+    sem_garagem = [k for k, x in guardados.items() if x.get("garagem") not in ("Sim", "À parte (opcional)")]
+    for k in sem_garagem:
+        del guardados[k]
+    print(f"Excluídas por não terem garagem: {len(sem_garagem)}")
     lista = sorted(guardados.values(), key=lambda x: (x.get("noMercadoDesde") or ""), reverse=True)
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(lista, f, ensure_ascii=False, indent=1)
