@@ -18,7 +18,7 @@ ZONAS = [
     ("Alfragide", r"alfragide"),
     ("Oeiras", r"linda-a-velha|linda a velha"),
     ("Algés", r"alg[eé]s|cruz quebrada|dafundo|miraflores"),
-    ("Carcavelos", r"carcavelos|parede"),
+    ("Carcavelos", r"carcavelos|\bparede\b(?!s)"),
     ("Alcabideche", r"alcabideche|alvide|murches|malveira da serra|amoreira"),
     ("Cascais", r"cascais|estoril|s[aã]o domingos de rana|abóboda|aboboda|tires|trajouce|talaíde|talaide|caparide|matarraque"),
     ("Oeiras", r"oeiras|pa[cç]o de arcos|caxias|porto salvo|barcarena|carnaxide|queijas|tercena|leceia|outurela"),
@@ -136,6 +136,8 @@ def olx():
                             pass
                     tip = (params.get("tipologia") or {}).get("value")
                     loc = (a.get("location") or {})
+                    if (loc.get("regionName") or "").lower() != "lisboa":
+                        continue
                     d = analisar(a.get("title"), a.get("description"), float(preco) if preco else None, area, None, tip)
                     d.update({
                         "zona": zona_texto(loc.get("cityName"), loc.get("pathName")) if not EXCLUIR_LOCAL.search(loc.get("pathName") or "") else None,

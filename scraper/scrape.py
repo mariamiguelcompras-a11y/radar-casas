@@ -174,6 +174,10 @@ def classificar_garagem(extras, tl, dl):
     texto = tl + ". " + dl
     m_parte = GAR_A_PARTE.search(texto)
     m_sim = GAR_SIM.search(texto)
+    # "lugares de estacionamento" numa praceta/rua/zona é estacionamento público, não garagem
+    if m_sim and re.search(r"estacionamento|parqueamento", m_sim.group(0)) and not re.search(r"privativ|cave|garagem|box|coberto|pr[oó]prio|inclu[ií]d|da fra[cç][aã]o", frase(texto, m_sim)) \
+            and re.search(r"pra[cç]eta|v[aá]rios|muitos|p[uú]blic|f[aá]cil|\brua\b|zona|abundante|exterior|em frente|nas imedia", frase(texto, m_sim)):
+        m_sim = None
     if m_parte and not ("garage" in extras and not m_sim):
         return "À parte (opcional)", frase(texto, m_parte)
     if "garage" in extras:
