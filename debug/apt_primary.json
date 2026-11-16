@@ -1,0 +1,680 @@
+{
+ "items": [
+  {
+   "id": 19301832,
+   "title": "Apartamento T3 em condomínio, para venda em Miraflores",
+   "slug": "apartamento-t3-em-condominio-para-venda-em-miraflores-ID1iZhS",
+   "estate": "FLAT",
+   "transaction": "SELL",
+   "images": [
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjN2MXBqeWJoZ242by1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjN2MXBqeWJoZ242by1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjN2MXBqeWJoZ242by1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InV2YzZoYXpocXBtbC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InV2YzZoYXpocXBtbC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InV2YzZoYXpocXBtbC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InhhNzV2c3UyMm1vYTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InhhNzV2c3UyMm1vYTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InhhNzV2c3UyMm1vYTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    }
+   ],
+   "tags": [
+    {
+     "value": "POOL",
+     "weight": 70,
+     "__typename": "AdvertListItemTag"
+    },
+    {
+     "value": "AIR_CONDITIONING",
+     "weight": 55,
+     "__typename": "AdvertListItemTag"
+    },
+    {
+     "value": "GARDEN",
+     "weight": 45,
+     "__typename": "AdvertListItemTag"
+    }
+   ],
+   "investmentEstimatedDelivery": null,
+   "investmentState": null,
+   "investmentUnitsFloorsRange": null,
+   "investmentUnitsAreaInSquareMeters": null,
+   "investmentUnitsNumber": null,
+   "investmentUnitsRoomsNumber": null,
+   "source": "urn:partner:ego",
+   "isCrossListed": false,
+   "agency": {
+    "id": 4688186,
+    "name": "Status Real Estate Solutions",
+    "type": "AGENCY",
+    "slug": "status-real-estate-solutions-ID4688186",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InpjajA1anB1bDIwZzEtQVBUIn0.ZpLCYgAELtH9aEAwaA6aULyV4VzuPVSB63wm8e9xjsk/image",
+    "brandingVisible": true,
+    "highlightedAds": false,
+    "enhancedBrandingFeatures": [
+     "ENHANCED_BRANDING_COMPANY_NAME",
+     "ENHANCED_BRANDING_LOGO_DISPLAY",
+     "ENHANCED_BRANDING_SELLER_TYPE"
+    ]
+   },
+   "areaInSquareMeters": 134.5,
+   "dateCreated": "2026-10-08T14:05:13Z",
+   "createdAtFirst": "2026-10-08T14:05:13+00:00",
+   "developmentId": 0,
+   "developmentTitle": "",
+   "developmentUrl": "",
+   "floorNumber": "NINTH",
+   "hasRemoteServices": false,
+   "hidePrice": false,
+   "isExclusiveOffer": false,
+   "isPrivateOwner": false,
+   "isPromoted": false,
+   "extendedAdvertiserType": "business",
+   "links": {
+    "localPlanUrl": "",
+    "walkaroundUrl": "",
+    "videoUrl": "",
+    "view3dUrl": ""
+   },
+   "location": {
+    "mapDetails": {
+     "radius": 100
+    },
+    "address": {
+     "street": {
+      "name": "…",
+      "number": "…"
+     },
+     "city": null,
+     "province": null
+    },
+    "reverseGeocoding": {
+     "locations": [
+      "…",
+      "…",
+      "…"
+     ]
+    }
+   },
+   "openDays": null,
+   "unifiedOpenDays": null,
+   "peoplePerRoom": null,
+   "priceFromPerSquareMeter": null,
+   "pricePerSquareMeter": {
+    "value": 7420.07,
+    "currency": "EUR"
+   },
+   "pushedUpAt": "2026-11-16T12:44:18Z",
+   "rentPrice": null,
+   "roomsNumber": "FOUR",
+   "shortDescription": null,
+   "specialOffer": null,
+   "terrainAreaInSquareMeters": null,
+   "totalPossibleImages": 45,
+   "totalPrice": {
+    "value": 998000,
+    "currency": "EUR"
+   },
+   "showPremiumTile": false,
+   "organisationAssignedMember": null,
+   "advertOwner": {
+    "name": "Status Real Estate Solutions",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InpjajA1anB1bDIwZzEtQVBUIn0.ZpLCYgAELtH9aEAwaA6aULyV4VzuPVSB63wm8e9xjsk/image",
+    "contacts": [
+     {
+      "name": "…",
+      "imageURLSmall": "…"
+     }
+    ]
+   },
+   "href": "[lang]/ad/apartamento-t3-em-condominio-para-venda-em-miraflores-ID1iZhS"
+  },
+  {
+   "id": 19357632,
+   "title": "Apartamento T3 em condomínio com piscina, ginásio e sauna em Mirafl...",
+   "slug": "apartamento-t3-em-condominio-com-piscina-ginasio-e-sauna-em-mirafl-ID1jdNS",
+   "estate": "FLAT",
+   "transaction": "SELL",
+   "images": [
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imx0cjlrbXB4NTFvMDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imx0cjlrbXB4NTFvMDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imx0cjlrbXB4NTFvMDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InBkY250azFob2FiZTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InBkY250azFob2FiZTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InBkY250azFob2FiZTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjZnZDY4dzR4dXo5NDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjZnZDY4dzR4dXo5NDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjZnZDY4dzR4dXo5NDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    }
+   ],
+   "tags": [
+    {
+     "value": "AIR_CONDITIONING",
+     "weight": 55,
+     "__typename": "AdvertListItemTag"
+    },
+    {
+     "value": "BALCONY",
+     "weight": 35,
+     "__typename": "AdvertListItemTag"
+    },
+    {
+     "value": "PARKING_SPOT",
+     "weight": 15,
+     "__typename": "AdvertListItemTag"
+    }
+   ],
+   "investmentEstimatedDelivery": null,
+   "investmentState": null,
+   "investmentUnitsFloorsRange": null,
+   "investmentUnitsAreaInSquareMeters": null,
+   "investmentUnitsNumber": null,
+   "investmentUnitsRoomsNumber": null,
+   "source": "urn:partner:ego",
+   "isCrossListed": false,
+   "agency": {
+    "id": 29580,
+    "name": "Dils",
+    "type": "AGENCY",
+    "slug": "dils-ID29580",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imw3enRob3o0dW9qZC1BUFQifQ.Mdp-U01Dhy_hVM4VyR7I_XWl8my0JoquiOdf2tzwhI8/image",
+    "brandingVisible": true,
+    "highlightedAds": false,
+    "enhancedBrandingFeatures": [
+     "ENHANCED_BRANDING_COMPANY_NAME",
+     "ENHANCED_BRANDING_GALLERY_CONTACT_SLIDE",
+     "ENHANCED_BRANDING_LOGO_DISPLAY"
+    ]
+   },
+   "areaInSquareMeters": 107.96,
+   "dateCreated": "2026-11-16T10:35:47Z",
+   "createdAtFirst": "2026-11-16T10:35:47+00:00",
+   "developmentId": 0,
+   "developmentTitle": "",
+   "developmentUrl": "",
+   "floorNumber": "SIXTH",
+   "hasRemoteServices": false,
+   "hidePrice": false,
+   "isExclusiveOffer": false,
+   "isPrivateOwner": false,
+   "isPromoted": false,
+   "extendedAdvertiserType": "business",
+   "links": {
+    "localPlanUrl": "",
+    "walkaroundUrl": "",
+    "videoUrl": "",
+    "view3dUrl": ""
+   },
+   "location": {
+    "mapDetails": {
+     "radius": 100
+    },
+    "address": {
+     "street": {
+      "name": "…",
+      "number": "…"
+     },
+     "city": null,
+     "province": null
+    },
+    "reverseGeocoding": {
+     "locations": [
+      "…",
+      "…",
+      "…"
+     ]
+    }
+   },
+   "openDays": null,
+   "unifiedOpenDays": null,
+   "peoplePerRoom": null,
+   "priceFromPerSquareMeter": null,
+   "pricePerSquareMeter": {
+    "value": 7224.9,
+    "currency": "EUR"
+   },
+   "pushedUpAt": null,
+   "rentPrice": null,
+   "roomsNumber": "FOUR",
+   "shortDescription": null,
+   "specialOffer": null,
+   "terrainAreaInSquareMeters": null,
+   "totalPossibleImages": 20,
+   "totalPrice": {
+    "value": 780000,
+    "currency": "EUR"
+   },
+   "showPremiumTile": false,
+   "organisationAssignedMember": null,
+   "advertOwner": {
+    "name": "Dils",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imw3enRob3o0dW9qZC1BUFQifQ.Mdp-U01Dhy_hVM4VyR7I_XWl8my0JoquiOdf2tzwhI8/image",
+    "contacts": [
+     {
+      "name": "…",
+      "imageURLSmall": "…"
+     }
+    ]
+   },
+   "href": "[lang]/ad/apartamento-t3-em-condominio-com-piscina-ginasio-e-sauna-em-mirafl-ID1jdNS"
+  },
+  {
+   "id": 19182790,
+   "title": "Future Mirear",
+   "slug": "future-mirear-ID1iujQ",
+   "estate": "INVESTMENT",
+   "transaction": "SELL",
+   "images": [
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImN6YzhkOG52ejYyaC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImN6YzhkOG52ejYyaC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImN6YzhkOG52ejYyaC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjJoNW85b2VobTRybzItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjJoNW85b2VobTRybzItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjJoNW85b2VobTRybzItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InQ3Ynd0eG44d2JiaS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InQ3Ynd0eG44d2JiaS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InQ3Ynd0eG44d2JiaS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw"
+    }
+   ],
+   "tags": [],
+   "investmentEstimatedDelivery": null,
+   "investmentState": "IN_BUILDING",
+   "investmentUnitsFloorsRange": null,
+   "investmentUnitsAreaInSquareMeters": {
+    "from": 69,
+    "to": 217
+   },
+   "investmentUnitsNumber": 17,
+   "investmentUnitsRoomsNumber": {
+    "min": "TWO",
+    "max": "SIX"
+   },
+   "source": "urn:partner:ego",
+   "isCrossListed": false,
+   "agency": {
+    "id": 3394645,
+    "name": "Dils Portugal",
+    "type": "DEVELOPER",
+    "slug": "dils-portugal-ID3394645",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "brandingVisible": true,
+    "highlightedAds": false,
+    "enhancedBrandingFeatures": [
+     "ENHANCED_BRANDING_COMPANY_NAME",
+     "ENHANCED_BRANDING_LOGO_DISPLAY",
+     "ENHANCED_BRANDING_SELLER_TYPE"
+    ]
+   },
+   "areaInSquareMeters": null,
+   "dateCreated": "2026-06-18T08:14:36Z",
+   "createdAtFirst": "2026-06-18T08:14:36+00:00",
+   "developmentId": 0,
+   "developmentTitle": "",
+   "developmentUrl": "",
+   "floorNumber": null,
+   "hasRemoteServices": false,
+   "hidePrice": false,
+   "isExclusiveOffer": false,
+   "isPrivateOwner": false,
+   "isPromoted": false,
+   "extendedAdvertiserType": "business",
+   "links": {
+    "localPlanUrl": "",
+    "walkaroundUrl": "",
+    "videoUrl": "",
+    "view3dUrl": ""
+   },
+   "location": {
+    "mapDetails": {
+     "radius": 0
+    },
+    "address": {
+     "street": {
+      "name": "…",
+      "number": "…"
+     },
+     "city": null,
+     "province": null
+    },
+    "reverseGeocoding": {
+     "locations": [
+      "…",
+      "…",
+      "…"
+     ]
+    }
+   },
+   "openDays": null,
+   "unifiedOpenDays": null,
+   "peoplePerRoom": null,
+   "priceFromPerSquareMeter": {
+    "value": 6739,
+    "currency": "EUR"
+   },
+   "pricePerSquareMeter": null,
+   "pushedUpAt": null,
+   "rentPrice": null,
+   "roomsNumber": null,
+   "shortDescription": null,
+   "specialOffer": null,
+   "terrainAreaInSquareMeters": null,
+   "totalPossibleImages": 21,
+   "totalPrice": null,
+   "showPremiumTile": false,
+   "organisationAssignedMember": null,
+   "advertOwner": {
+    "name": "Dils Portugal",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "contacts": [
+     {
+      "name": "…",
+      "imageURLSmall": "…"
+     }
+    ]
+   },
+   "relatedAds": [
+    {
+     "id": 19182846,
+     "title": "Apartamento T2 com varanda e garagem em Miraflores",
+     "slug": "apartamento-t2-com-varanda-e-garagem-em-miraflores-ID1iukK",
+     "estate": "FLAT",
+     "transaction": "SELL",
+     "images": [
+      "…",
+      "…",
+      "…"
+     ],
+     "tags": [
+      "…",
+      "…"
+     ],
+     "investmentEstimatedDelivery": null,
+     "investmentState": null,
+     "investmentUnitsFloorsRange": null,
+     "investmentUnitsAreaInSquareMeters": null,
+     "investmentUnitsNumber": null,
+     "investmentUnitsRoomsNumber": null,
+     "source": "urn:partner:ego",
+     "isCrossListed": false,
+     "agency": {
+      "id": "…",
+      "name": "…",
+      "type": "…",
+      "slug": "…",
+      "imageUrl": "…",
+      "brandingVisible": "…",
+      "highlightedAds": "…",
+      "enhancedBrandingFeatures": "…"
+     },
+     "areaInSquareMeters": 138,
+     "dateCreated": "2026-06-18T08:45:56Z",
+     "createdAtFirst": "2026-06-18T08:45:56+00:00",
+     "developmentId": 19182790,
+     "developmentTitle": "Future Mirear",
+     "developmentUrl": "https://www.imovirtual.com/pt/empreendimento/future-mirear-ID1iujQ",
+     "floorNumber": "ABOVE_TENTH",
+     "hasRemoteServices": false,
+     "hidePrice": false,
+     "isExclusiveOffer": false,
+     "isPrivateOwner": false,
+     "isPromoted": false,
+     "extendedAdvertiserType": "business",
+     "links": {
+      "localPlanUrl": "…",
+      "walkaroundUrl": "…",
+      "videoUrl": "…",
+      "view3dUrl": "…"
+     },
+     "location": {
+      "mapDetails": "…",
+      "address": "…",
+      "reverseGeocoding": "…"
+     },
+     "openDays": null,
+     "unifiedOpenDays": null,
+     "peoplePerRoom": null,
+     "priceFromPerSquareMeter": null,
+     "pricePerSquareMeter": {
+      "value": "…",
+      "currency": "…"
+     },
+     "pushedUpAt": "2026-11-15T13:07:10Z",
+     "rentPrice": null,
+     "roomsNumber": "THREE",
+     "shortDescription": null,
+     "specialOffer": null,
+     "terrainAreaInSquareMeters": null,
+     "totalPossibleImages": 41,
+     "totalPrice": {
+      "value": "…",
+      "currency": "…"
+     },
+     "showPremiumTile": false,
+     "organisationAssignedMember": null,
+     "advertOwner": {
+      "name": "…",
+      "imageUrl": "…",
+      "contacts": "…"
+     },
+     "href": "[lang]/ad/apartamento-t2-com-varanda-e-garagem-em-miraflores-ID1iukK"
+    },
+    {
+     "id": 19187526,
+     "title": "Apartamento T2 com varanda e garagem em Miraflores",
+     "slug": "apartamento-t2-com-varanda-e-garagem-em-miraflores-ID1iwye",
+     "estate": "FLAT",
+     "transaction": "SELL",
+     "images": [
+      "…",
+      "…",
+      "…"
+     ],
+     "tags": [
+      "…",
+      "…"
+     ],
+     "investmentEstimatedDelivery": null,
+     "investmentState": null,
+     "investmentUnitsFloorsRange": null,
+     "investmentUnitsAreaInSquareMeters": null,
+     "investmentUnitsNumber": null,
+     "investmentUnitsRoomsNumber": null,
+     "source": "urn:partner:ego",
+     "isCrossListed": false,
+     "agency": {
+      "id": "…",
+      "name": "…",
+      "type": "…",
+      "slug": "…",
+      "imageUrl": "…",
+      "brandingVisible": "…",
+      "highlightedAds": "…",
+      "enhancedBrandingFeatures": "…"
+     },
+     "areaInSquareMeters": 79,
+     "dateCreated": "2026-06-22T21:32:14Z",
+     "createdAtFirst": "2026-06-22T21:32:14+00:00",
+     "developmentId": 19182790,
+     "developmentTitle": "Future Mirear",
+     "developmentUrl": "https://www.imovirtual.com/pt/empreendimento/future-mirear-ID1iujQ",
+     "floorNumber": "TENTH",
+     "hasRemoteServices": false,
+     "hidePrice": false,
+     "isExclusiveOffer": false,
+     "isPrivateOwner": false,
+     "isPromoted": false,
+     "extendedAdvertiserType": "business",
+     "links": {
+      "localPlanUrl": "…",
+      "walkaroundUrl": "…",
+      "videoUrl": "…",
+      "view3dUrl": "…"
+     },
+     "location": {
+      "mapDetails": "…",
+      "address": "…",
+      "reverseGeocoding": "…"
+     },
+     "openDays": null,
+     "unifiedOpenDays": null,
+     "peoplePerRoom": null,
+     "priceFromPerSquareMeter": null,
+     "pricePerSquareMeter": {
+      "value": "…",
+      "currency": "…"
+     },
+     "pushedUpAt": "2026-11-10T13:04:16Z",
+     "rentPrice": null,
+     "roomsNumber": "THREE",
+     "shortDescription": null,
+     "specialOffer": null,
+     "terrainAreaInSquareMeters": null,
+     "totalPossibleImages": 41,
+     "totalPrice": {
+      "value": "…",
+      "currency": "…"
+     },
+     "showPremiumTile": false,
+     "organisationAssignedMember": null,
+     "advertOwner": {
+      "name": "…",
+      "imageUrl": "…",
+      "contacts": "…"
+     },
+     "href": "[lang]/ad/apartamento-t2-com-varanda-e-garagem-em-miraflores-ID1iwye"
+    },
+    {
+     "id": 19348324,
+     "title": "Apartamento T3, com varanda e garagem em Miraflores",
+     "slug": "apartamento-t3-com-varanda-e-garagem-em-miraflores-ID1jbnK",
+     "estate": "FLAT",
+     "transaction": "SELL",
+     "images": [
+      "…",
+      "…",
+      "…"
+     ],
+     "tags": [
+      "…"
+     ],
+     "investmentEstimatedDelivery": null,
+     "investmentState": null,
+     "investmentUnitsFloorsRange": null,
+     "investmentUnitsAreaInSquareMeters": null,
+     "investmentUnitsNumber": null,
+     "investmentUnitsRoomsNumber": null,
+     "source": "urn:partner:ego",
+     "isCrossListed": false,
+     "agency": {
+      "id": "…",
+      "name": "…",
+      "type": "…",
+      "slug": "…",
+      "imageUrl": "…",
+      "brandingVisible": "…",
+      "highlightedAds": "…",
+      "enhancedBrandingFeatures": "…"
+     },
+     "areaInSquareMeters": 128,
+     "dateCreated": "2026-11-06T14:16:23Z",
+     "createdAtFirst": "2026-11-06T14:16:23+00:00",
+     "developmentId": 19182790,
+     "developmentTitle": "Future Mirear",
+     "developmentUrl": "https://www.imovirtual.com/pt/empreendimento/future-mirear-ID1iujQ",
+     "floorNumber": "ABOVE_TENTH",
+     "hasRemoteServices": false,
+     "hidePrice": false,
+     "isExclusiveOffer": false,
+     "isPrivateOwner": false,
+     "isPromoted": false,
+     "extendedAdvertiserType": "business",
+     "links": {
+      "localPlanUrl": "…",
+      "walkaroundUrl": "…",
+      "videoUrl": "…",
+      "view3dUrl": "…"
+     },
+     "location": {
+      "mapDetails": "…",
+      "address": "…",
+      "reverseGeocoding": "…"
+     },
+     "openDays": null,
+     "unifiedOpenDays": null,
+     "peoplePerRoom": null,
+     "priceFromPerSquareMeter": null,
+     "pricePerSquareMeter": {
+      "value": "…",
+      "currency": "…"
+     },
+     "pushedUpAt": null,
+     "rentPrice": null,
+     "roomsNumber": "FOUR",
+     "shortDescription": null,
+     "specialOffer": null,
+     "terrainAreaInSquareMeters": null,
+     "totalPossibleImages": 41,
+     "totalPrice": {
+      "value": "…",
+      "currency": "…"
+     },
+     "showPremiumTile": false,
+     "organisationAssignedMember": null,
+     "advertOwner": {
+      "name": "…",
+      "imageUrl": "…",
+      "contacts": "…"
+     },
+     "href": "[lang]/ad/apartamento-t3-com-varanda-e-garagem-em-miraflores-ID1jbnK"
+    }
+   ],
+   "href": "[lang]/investment/future-mirear-ID1iujQ"
+  }
+ ],
+ "data_other": {
+  "searchLinksRelatedLocations": {
+   "__typename": "FoundLinksLocations",
+   "items": [
+    {
+     "name": "Algés, Linda-a-Velha e Cruz Quebrada-Dafundo",
+     "estate": "FLAT",
+     "transaction": "SELL",
+     "location": "lisboa/oeiras/alges-linda-a-velha-e-cruz-quebrada-dafundo",
+     "count": null,
+     "__typename": "LocationLink"
+    },
+    {
+     "name": "Barcarena",
+     "estate": "FLAT",
+     "transaction": "SELL",
+     "location": "lisboa/oeiras/barcarena",
+     "count": null,
+     "__typename": "LocationLink"
+    },
+    {
+     "name": "Carnaxide e Queijas",
+     "estate": "FLAT",
+     "transaction": "SELL",
+     "location": "lisboa/oeiras/carnaxide-e-queijas",
+     "count": null,
+     "__typename": "LocationLink"
+    }
+   ]
+  }
+ }
+}

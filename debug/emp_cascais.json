@@ -1,0 +1,398 @@
+{
+ "items": [
+  {
+   "id": 19351460,
+   "title": "Green Plaza Carcavelos",
+   "slug": "green-plaza-carcavelos-ID1jcck",
+   "estate": "INVESTMENT",
+   "transaction": "SELL",
+   "images": [
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjA5NmNrcWhjMXlmZDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjA5NmNrcWhjMXlmZDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjA5NmNrcWhjMXlmZDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjQxbWdsbmVuYmlkdzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjQxbWdsbmVuYmlkdzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjQxbWdsbmVuYmlkdzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InVkOHM3Y3RwdTkyOC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InVkOHM3Y3RwdTkyOC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InVkOHM3Y3RwdTkyOC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw"
+    }
+   ],
+   "tags": [],
+   "investmentEstimatedDelivery": null,
+   "investmentState": "IN_BUILDING",
+   "investmentUnitsFloorsRange": null,
+   "investmentUnitsAreaInSquareMeters": {
+    "from": 101,
+    "to": 142
+   },
+   "investmentUnitsNumber": 5,
+   "investmentUnitsRoomsNumber": {
+    "min": "THREE",
+    "max": "FOUR"
+   },
+   "source": "urn:partner:ego",
+   "isCrossListed": false,
+   "agency": {
+    "id": 3394645,
+    "name": "Dils Portugal",
+    "type": "DEVELOPER",
+    "slug": "dils-portugal-ID3394645",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "brandingVisible": true,
+    "highlightedAds": false,
+    "enhancedBrandingFeatures": [
+     "ENHANCED_BRANDING_COMPANY_NAME",
+     "ENHANCED_BRANDING_LOGO_DISPLAY",
+     "ENHANCED_BRANDING_SELLER_TYPE"
+    ]
+   },
+   "areaInSquareMeters": null,
+   "dateCreated": "2026-11-10T11:11:53Z",
+   "createdAtFirst": "2026-11-10T11:11:53+00:00",
+   "developmentId": 0,
+   "developmentTitle": "",
+   "developmentUrl": "",
+   "floorNumber": null,
+   "hasRemoteServices": false,
+   "hidePrice": false,
+   "isExclusiveOffer": false,
+   "isPrivateOwner": false,
+   "isPromoted": false,
+   "extendedAdvertiserType": "business",
+   "links": {
+    "localPlanUrl": "",
+    "walkaroundUrl": "",
+    "videoUrl": "",
+    "view3dUrl": ""
+   },
+   "location": {
+    "mapDetails": {
+     "radius": 0
+    },
+    "address": {
+     "street": {
+      "name": "…",
+      "number": "…"
+     },
+     "city": null,
+     "province": null
+    },
+    "reverseGeocoding": {
+     "locations": [
+      "…",
+      "…",
+      "…"
+     ]
+    }
+   },
+   "openDays": null,
+   "unifiedOpenDays": null,
+   "peoplePerRoom": null,
+   "priceFromPerSquareMeter": {
+    "value": 8641,
+    "currency": "EUR"
+   },
+   "pricePerSquareMeter": null,
+   "pushedUpAt": null,
+   "rentPrice": null,
+   "roomsNumber": null,
+   "shortDescription": null,
+   "specialOffer": null,
+   "terrainAreaInSquareMeters": null,
+   "totalPossibleImages": 27,
+   "totalPrice": null,
+   "showPremiumTile": false,
+   "organisationAssignedMember": null,
+   "advertOwner": {
+    "name": "Dils Portugal",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "contacts": [
+     {
+      "name": "…",
+      "imageURLSmall": "…"
+     }
+    ]
+   },
+   "href": "[lang]/investment/green-plaza-carcavelos-ID1jcck"
+  },
+  {
+   "id": 19333718,
+   "title": "Ocean 7",
+   "slug": "ocean-7-ID1j7Aa",
+   "estate": "INVESTMENT",
+   "transaction": "SELL",
+   "images": [
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjA2YjY1aWJxZ3pkZjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjA2YjY1aWJxZ3pkZjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjA2YjY1aWJxZ3pkZjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Inpqc2ZhaGltM2dhNjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Inpqc2ZhaGltM2dhNjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Inpqc2ZhaGltM2dhNjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImFidXVrYndxdHRiNDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImFidXVrYndxdHRiNDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImFidXVrYndxdHRiNDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    }
+   ],
+   "tags": [],
+   "investmentEstimatedDelivery": null,
+   "investmentState": "IN_BUILDING",
+   "investmentUnitsFloorsRange": null,
+   "investmentUnitsAreaInSquareMeters": {
+    "from": 200.4,
+    "to": 378.5
+   },
+   "investmentUnitsNumber": 2,
+   "investmentUnitsRoomsNumber": {
+    "min": "FOUR",
+    "max": "FIVE"
+   },
+   "source": "urn:partner:ego",
+   "isCrossListed": false,
+   "agency": {
+    "id": 3394645,
+    "name": "Dils Portugal",
+    "type": "DEVELOPER",
+    "slug": "dils-portugal-ID3394645",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "brandingVisible": true,
+    "highlightedAds": false,
+    "enhancedBrandingFeatures": [
+     "ENHANCED_BRANDING_COMPANY_NAME",
+     "ENHANCED_BRANDING_LOGO_DISPLAY",
+     "ENHANCED_BRANDING_SELLER_TYPE"
+    ]
+   },
+   "areaInSquareMeters": null,
+   "dateCreated": "2026-11-02T17:06:59Z",
+   "createdAtFirst": "2026-11-02T17:06:59+00:00",
+   "developmentId": 0,
+   "developmentTitle": "",
+   "developmentUrl": "",
+   "floorNumber": null,
+   "hasRemoteServices": false,
+   "hidePrice": false,
+   "isExclusiveOffer": false,
+   "isPrivateOwner": false,
+   "isPromoted": false,
+   "extendedAdvertiserType": "business",
+   "links": {
+    "localPlanUrl": "",
+    "walkaroundUrl": "",
+    "videoUrl": "",
+    "view3dUrl": ""
+   },
+   "location": {
+    "mapDetails": {
+     "radius": 0
+    },
+    "address": {
+     "street": {
+      "name": "…",
+      "number": "…"
+     },
+     "city": null,
+     "province": null
+    },
+    "reverseGeocoding": {
+     "locations": [
+      "…",
+      "…",
+      "…"
+     ]
+    }
+   },
+   "openDays": null,
+   "unifiedOpenDays": null,
+   "peoplePerRoom": null,
+   "priceFromPerSquareMeter": {
+    "value": 5197,
+    "currency": "EUR"
+   },
+   "pricePerSquareMeter": null,
+   "pushedUpAt": null,
+   "rentPrice": null,
+   "roomsNumber": null,
+   "shortDescription": null,
+   "specialOffer": null,
+   "terrainAreaInSquareMeters": null,
+   "totalPossibleImages": 40,
+   "totalPrice": null,
+   "showPremiumTile": false,
+   "organisationAssignedMember": null,
+   "advertOwner": {
+    "name": "Dils Portugal",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "contacts": [
+     {
+      "name": "…",
+      "imageURLSmall": "…"
+     }
+    ]
+   },
+   "href": "[lang]/investment/ocean-7-ID1j7Aa"
+  },
+  {
+   "id": 19283480,
+   "title": "Juzzo Design Villas",
+   "slug": "juzzo-design-villas-ID1iUwS",
+   "estate": "INVESTMENT",
+   "transaction": "SELL",
+   "images": [
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImVybzEycXRrOGhhaDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImVybzEycXRrOGhhaDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6ImVybzEycXRrOGhhaDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Ink4bWhjcW5qZXNtdTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Ink4bWhjcW5qZXNtdTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Ink4bWhjcW5qZXNtdTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiI2OW5scGE3ZWNxbTcxLUFQVCIsInMiOiIxNiIsImEiOiIwIiwicCI6IjEwLC0x"
+    },
+    {
+     "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imt5dGM1aTBkdW1rdy1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imt5dGM1aTBkdW1rdy1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw",
+     "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6Imt5dGM1aTBkdW1rdy1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6IjY5bmxwYTdlY3FtNzEtQVBUIiwicyI6IjE2IiwiYSI6IjAiLCJwIjoiMTAsLTEw"
+    }
+   ],
+   "tags": [],
+   "investmentEstimatedDelivery": null,
+   "investmentState": "IN_BUILDING",
+   "investmentUnitsFloorsRange": null,
+   "investmentUnitsAreaInSquareMeters": {
+    "from": 326.9,
+    "to": 362.2
+   },
+   "investmentUnitsNumber": 32,
+   "investmentUnitsRoomsNumber": {
+    "min": "FOUR",
+    "max": "FIVE"
+   },
+   "source": "urn:partner:ego",
+   "isCrossListed": false,
+   "agency": {
+    "id": 3394645,
+    "name": "Dils Portugal",
+    "type": "DEVELOPER",
+    "slug": "dils-portugal-ID3394645",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "brandingVisible": true,
+    "highlightedAds": false,
+    "enhancedBrandingFeatures": [
+     "ENHANCED_BRANDING_COMPANY_NAME",
+     "ENHANCED_BRANDING_LOGO_DISPLAY",
+     "ENHANCED_BRANDING_SELLER_TYPE"
+    ]
+   },
+   "areaInSquareMeters": null,
+   "dateCreated": "2026-09-22T07:43:29Z",
+   "createdAtFirst": "2026-09-22T07:43:29+00:00",
+   "developmentId": 0,
+   "developmentTitle": "",
+   "developmentUrl": "",
+   "floorNumber": null,
+   "hasRemoteServices": false,
+   "hidePrice": false,
+   "isExclusiveOffer": false,
+   "isPrivateOwner": false,
+   "isPromoted": false,
+   "extendedAdvertiserType": "business",
+   "links": {
+    "localPlanUrl": "",
+    "walkaroundUrl": "",
+    "videoUrl": "",
+    "view3dUrl": ""
+   },
+   "location": {
+    "mapDetails": {
+     "radius": 0
+    },
+    "address": {
+     "street": {
+      "name": "…",
+      "number": "…"
+     },
+     "city": null,
+     "province": null
+    },
+    "reverseGeocoding": {
+     "locations": [
+      "…",
+      "…",
+      "…"
+     ]
+    }
+   },
+   "openDays": null,
+   "unifiedOpenDays": null,
+   "peoplePerRoom": null,
+   "priceFromPerSquareMeter": {
+    "value": 6419,
+    "currency": "EUR"
+   },
+   "pricePerSquareMeter": null,
+   "pushedUpAt": "2026-10-13T20:08:05+01:00",
+   "rentPrice": null,
+   "roomsNumber": null,
+   "shortDescription": null,
+   "specialOffer": null,
+   "terrainAreaInSquareMeters": null,
+   "totalPossibleImages": 41,
+   "totalPrice": null,
+   "showPremiumTile": false,
+   "organisationAssignedMember": null,
+   "advertOwner": {
+    "name": "Dils Portugal",
+    "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6IjRrbmJqMTkzeDhzZDItQVBUIn0.8q-pAufLUMDkMtA7oOWcbPT2_T-SZnF_biG0VpS4gFY/image",
+    "contacts": [
+     {
+      "name": "…",
+      "imageURLSmall": "…"
+     }
+    ]
+   },
+   "href": "[lang]/investment/juzzo-design-villas-ID1iUwS"
+  }
+ ],
+ "data_other": {
+  "searchLinksRelatedLocations": {
+   "__typename": "FoundLinksLocations",
+   "items": [
+    {
+     "name": "Alcabideche",
+     "estate": "INVESTMENT",
+     "transaction": "SELL",
+     "location": "lisboa/cascais/alcabideche",
+     "count": null,
+     "__typename": "LocationLink"
+    },
+    {
+     "name": "Carcavelos e Parede",
+     "estate": "INVESTMENT",
+     "transaction": "SELL",
+     "location": "lisboa/cascais/carcavelos-e-parede",
+     "count": null,
+     "__typename": "LocationLink"
+    },
+    {
+     "name": "Cascais e Estoril",
+     "estate": "INVESTMENT",
+     "transaction": "SELL",
+     "location": "lisboa/cascais/cascais-e-estoril",
+     "count": null,
+     "__typename": "LocationLink"
+    }
+   ]
+  }
+ }
+}
