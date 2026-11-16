@@ -91,11 +91,11 @@ def next_data(html):
         return None
 
 
-def pesquisa(tipo, tipologia, local):
+def pesquisa(tipo, tipologia, local, extra=""):
     """Devolve a lista de slugs dos anúncios de uma pesquisa (todas as páginas)."""
     slugs = []
     for pagina in range(1, 15):
-        url = f"{BASE}/pt/resultados/comprar/{tipo},{tipologia}/{local}?priceMax={PRECO_MAX}&limit=72&page={pagina}"
+        url = f"{BASE}/pt/resultados/comprar/{tipo},{tipologia}/{local}?priceMax={PRECO_MAX}&limit=72&page={pagina}{extra}"
         status, html, _ = get(url)
         pausa()
         if status != 200:
@@ -211,14 +211,19 @@ def ficha(slug, tipologia_pesquisa, tipo):
     else:
         estado = "Não indicado"
     construcao = "Nova" if nova else ("Recente" if ano and ano >= 2015 else "Usada")
+    # Página "em planta / construção nova": tudo o que é construção nova (mercado primário),
+    # vendido em planta, em obra ou acabado de construir.
+    em_planta = bool(nova or (ano and ano > date.today().year)
+                     or re.search(r"em planta|em constru[cç][aã]o|entrega prevista|conclus[aã]o prevista", tl + " " + dl))
 
     entrega = "Não se aplica"
     if nova:
-        m = re.search(r"(entrega|conclus[aã]o|conclu[ií]d[oa]|previs[aã]o)[^.]{0,60}?(20\d\d)", dl)
+        m = re.search(r"(entrega|conclus[aã]o|conclu[ií]d[oa]|previs[aã]o|trimestre)[^.]{0,60}?(20\d\d)", dl)
         entrega = (m.group(0).strip().capitalize() if m else "Não indicado")
 
     arrendado = "Não indicado"
-    if re.search(r"(vendid[oa] com inquilino|com inquilino|atualmente arrendad|actualmente arrendad|encontra-se arrendad|est[aá] arrendad|arrendad[oa] at[eé]|contrato de arrendamento (em vigor|at[eé]|v[aá]lido|ativo)|com rendimento)", dl + " " + tl):
+    m_arr = re.search(r"(vendid[oa] com inquilino|com inquilino|atualmente arrendad|actualmente arrendad|encontra-se arrendad|est[aá] arrendad|arrendad[oa] at[eé]|contrato de arrendamento (em vigor|at[eé]|v[aá]lido|ativo)|com rendimento)", dl + " " + tl)
+    if m_arr:
         arrendado = "Sim"
 
     pref = "Moradia " if tipo == "moradia" else ""
@@ -237,7 +242,8 @@ def ficha(slug, tipologia_pesquisa, tipo):
     if garagem == "Por confirmar":
         notas.append("A descrição fala de estacionamento: confirmar se é privativo.")
     if arrendado == "Sim":
-        notas.append("A descrição refere inquilino/arrendamento: confirmar.")
+        i = m_arr.start(); txt = (dl + " " + tl)[max(0, i - 40): i + 60].strip()
+        notas.append(f"Arrendado? A descrição diz: \"…{txt}…\" — confirmar.")
     piso = ",".join(t.get("Floor_no") or []).replace("floor_", "").replace("ground_floor", "r/c")
     if piso:
         notas.append(f"Andar: {piso}.")
@@ -260,6 +266,7 @@ def ficha(slug, tipologia_pesquisa, tipo):
         "varanda": varanda,
         "elevador": elevador,
         "construcao": construcao,
+        "emPlanta": em_planta,
         "estado": estado,
         "ano": ano,
         "entrega": entrega,
@@ -294,6 +301,8 @@ def main():
             for local in LOCAIS:
                 print(f"Pesquisa: {tipo} {tipologia} {local}")
                 slugs = pesquisa(tipo, tipologia, local)
+                if tipo == "apartamento":
+                    slugs += pesquisa(tipo, tipologia, local, "&market=PRIMARY")  # empreendimentos / construção nova
                 if not slugs:
                     falhas_pesquisa += 0  # pesquisa vazia é normal (ex. moradias T2 em Alfragide)
                 for s in slugs:

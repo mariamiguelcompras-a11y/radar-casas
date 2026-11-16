@@ -10,6 +10,7 @@
 <style>
 /* Plano: lista de fichas ordenadas, cada uma com um mini-radar dos critérios; resumo no topo, controlos numa barra. Cores da costa da linha de Cascais. */
 :root{
+  --opened:#e9ebea; --r1:#cfeedb; --r2:#e2f5e8; --r3:#dcf0f0; --r4:#e1ebf8; --r5:#fbf1cf; --r6:#fbe3d2; --r7:#f7d9d5;
   --bg:#f2f5f4; --card:#ffffff; --ink:#13211f; --muted:#5a6a67; --line:#d5dfdc;
   --accent:#0d6b76; --accent-soft:#d9eef0;
   --good:#1f7a4a; --good-soft:#dcf1e4; --warn:#9a6a00; --warn-soft:#fbefd2; --bad:#b03a2e; --bad-soft:#f8e0dc;
@@ -20,13 +21,15 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0e1716; --card:#162321; --ink:#e3ecea; --muted:#9aaba8; --line:#2a3a37;
+    --opened:#24302e; --r1:#163d27; --r2:#1b3324; --r3:#163636; --r4:#18283d; --r5:#3a3214; --r6:#3d2617; --r7:#3e1d19;
+  --bg:#0e1716; --card:#162321; --ink:#e3ecea; --muted:#9aaba8; --line:#2a3a37;
     --accent:#4fb8c4; --accent-soft:#163a3e;
     --good:#5fcf8f; --good-soft:#173a27; --warn:#e3b54d; --warn-soft:#3a2f12; --bad:#ef8577; --bad-soft:#3e1d19;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"]{
+  --opened:#24302e; --r1:#163d27; --r2:#1b3324; --r3:#163636; --r4:#18283d; --r5:#3a3214; --r6:#3d2617; --r7:#3e1d19;
   --bg:#0e1716; --card:#162321; --ink:#e3ecea; --muted:#9aaba8; --line:#2a3a37;
   --accent:#4fb8c4; --accent-soft:#163a3e;
   --good:#5fcf8f; --good-soft:#173a27; --warn:#e3b54d; --warn-soft:#3a2f12; --bad:#ef8577; --bad-soft:#3e1d19;
@@ -56,6 +59,22 @@ label.chk{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
 .list{display:grid;gap:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:130px 1fr 190px;gap:16px;align-items:start;border-left:5px solid var(--line)}
 .card.full{border-left-color:var(--good)}
+.card.opened{background:var(--opened)}
+.card[data-r]{background:var(--tint);border-left-color:var(--tintb)}
+.card[data-r="Excelente"]{--tint:var(--r1);--tintb:#1f7a4a}
+.card[data-r="Muito bom"]{--tint:var(--r2);--tintb:#3f9a63}
+.card[data-r="Bom"]{--tint:var(--r3);--tintb:#2a8a8a}
+.card[data-r="Aceitável"]{--tint:var(--r4);--tintb:#3b6fb0}
+.card[data-r="Tolerável"]{--tint:var(--r5);--tintb:#b08a1e}
+.card[data-r="Não ideal"]{--tint:var(--r6);--tintb:#c06a28}
+.card[data-r="Mau"]{--tint:var(--r7);--tintb:#b03a2e}
+.card[data-r="Rejeitado"]{--tint:var(--opened);--tintb:#888}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font:600 15px/1 var(--font-body);padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--card)}
+h2.sec{font:700 20px/1.2 var(--font-display);margin:8px 0 0}
+.sec small{font:400 14px var(--font-body);color:var(--muted)}
+textarea.notesIn{font:inherit;font-size:14px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;resize:vertical;min-height:70px;width:100%}
 .card.near{border-left-color:var(--warn)}
 .radarbox{display:grid;justify-items:center;gap:4px}
 .score{font:500 26px/1 var(--font-num);font-variant-numeric:tabular-nums}
@@ -98,6 +117,10 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
     <p class="sub">T2 no mínimo (T3 e maiores também), até 350 000 €, idealmente com 2 casas de banho e garagem. Pesquisa automática no Imovirtual de 2 em 2 dias; cada anúncio é verificado em cada pesquisa. Avalie cada casa: a sua avaliação sobe ou desce a pontuação, e "Rejeitado" tira-a da lista.</p>
   </header>
 
+  <nav class="tabs" aria-label="Páginas">
+    <button id="tabCasas" aria-pressed="true">Casas à venda</button>
+    <button id="tabPlanta" aria-pressed="false">Casas em planta / construção nova</button>
+  </nav>
   <div class="bar" id="tokenBox"></div>
   <p class="legend" id="lastRun"></p>
   <section class="stats" id="stats" aria-label="Resumo"></section>
@@ -120,7 +143,10 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
     <button class="btn" id="copyCsv">Copiar tabela (CSV)</button>
   </div>
 
+  <h2 class="sec" id="secMain">Por avaliar</h2>
   <div class="list" id="list"><div class="msg">A carregar os imóveis…</div></div>
+  <h2 class="sec" id="secRated">Já avaliadas <small>(cor = a sua avaliação)</small></h2>
+  <div class="list" id="listRated"></div>
 
   <p class="legend">Pontuação automática (0–100): preço mais baixo até 25, zona até 20 (Oeiras, Algés, Carcavelos, Cascais e Alcabideche 20; Sintra perto e Alfragide 10), 2 casas de banho 15, garagem 12, estado 10, ano/construção nova 8, varanda 5, elevador 5; menos 15 se estiver arrendado. A sua avaliação soma: Excelente +30, Muito bom +20, Bom +10, Aceitável −5, Tolerável −10, Não ideal −20, Mau −30.</p>
 
@@ -143,7 +169,7 @@ const TOP_ZONES = ["Oeiras","Algés","Carcavelos","Cascais","Alcabideche"];
 const MID_ZONES = ["Sintra (perto)","Alfragide"];
 
 let items = [], excluded = [], db = null, loaded = false;
-const state = { sort:"score", zone:"", contact:"", onlyFull:false, showRejected:false };
+const state = { page: location.hash === "#planta" ? "planta" : "casas", sort:"score", zone:"", contact:"", onlyFull:false, showRejected:false };
 const $ = id => document.getElementById(id);
 const eur = n => (typeof n === "number") ? n.toLocaleString("pt-PT",{maximumFractionDigits:0}) + " €" : "—";
 const clamp = (x,a,b) => Math.max(a, Math.min(b, x));
@@ -206,7 +232,12 @@ function card(p){
   const contact = p.contacto || "Por contactar";
   if (contact !== "Por contactar") chips.push(chip(contact + (contact === "Visita marcada" && p.visita ? " · " + fmtDate(p.visita) : ""), CONTACT_CLS[contact]));
   const copts = CONTACT.map(c => `<option ${c === contact ? "selected" : ""}>${c}</option>`).join("");
-  return `<article class="card ${full ? "full" : near ? "near" : ""}">
+  const rated = p.avaliacao ? ` data-r="${esc(p.avaliacao)}"` : "";
+  const opened = !p.avaliacao && p.aberto ? " opened" : "";
+  if (p.avaliacao && p.avaliacao !== "Rejeitado") chips.unshift(chip("A minha avaliação: " + p.avaliacao, ""));
+  if (p.aberto) chips.push(chip("Já abri · " + fmtDate(p.aberto), ""));
+  if (p.emPlanta) chips.push(chip("Em planta / construção", "warn"));
+  return `<article class="card ${full ? "full" : near ? "near" : ""}${opened}"${rated}>
     <div class="radarbox">${radarSvg(p)}<div class="score" title="Pontuação automática ${as}">${fs}<small> pts</small></div></div>
     <div>
       <h2 class="title">${esc(p.tipologia || "T2")} · ${esc(p.localizacao || "")}</h2>
@@ -227,6 +258,8 @@ function card(p){
         <div><dt>Agência</dt><dd>${esc(p.agencia || "Não indicado")}</dd></div>
       </dl>
       ${p.notas ? `<p class="notes">${esc(p.notas)}</p>` : ""}
+      <label class="legend" for="n-${esc(p.id)}">As minhas anotações</label>
+      <textarea class="notesIn" id="n-${esc(p.id)}" data-id="${esc(p.id)}" placeholder="Escreva aqui (guarda quando sai da caixa)">${esc(p.anotacoes || "")}</textarea>
     </div>
     <div class="side">
       <label for="r-${esc(p.id)}">A minha avaliação</label>
@@ -234,7 +267,7 @@ function card(p){
       <label for="c-${esc(p.id)}">Contacto</label>
       <select id="c-${esc(p.id)}" data-id="${esc(p.id)}" class="contact">${copts}</select>
       ${contact === "Visita marcada" || contact === "Já visitei" ? `<label for="v-${esc(p.id)}">Data da visita</label><input type="date" id="v-${esc(p.id)}" data-id="${esc(p.id)}" class="visit" value="${esc(p.visita || "")}">` : ""}
-      ${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">Abrir anúncio (${esc(p.fonte || "link")})</a>
+      ${p.url ? `<a class="openAd" data-id="${esc(p.id)}" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">Abrir anúncio (${esc(p.fonte || "link")})</a>
       <span class="url">${esc(p.url)}</span>
       <button class="btn copyurl" data-url="${esc(p.url)}">Copiar link do anúncio</button>` : ""}
       <span class="legend">Visto pela 1.ª vez a ${fmtDate(p.primeiraVez)} · verificado a ${fmtDate(p.ultimaVerificacao)}</span>
@@ -244,7 +277,8 @@ function card(p){
 
 function visible(){
   const gone = p => ["Removido","Vendido"].includes(p.disponibilidade);
-  let v = items.filter(p => state.showRejected ? (p.avaliacao === "Rejeitado" || gone(p)) : (p.avaliacao !== "Rejeitado" && !gone(p)));
+  let v = items.filter(p => (state.page === "planta") === !!p.emPlanta);
+  v = v.filter(p => state.showRejected ? (p.avaliacao === "Rejeitado" || gone(p)) : (p.avaliacao !== "Rejeitado" && !gone(p)));
   if (state.zone) v = v.filter(p => p.zona === state.zone);
   if (state.onlyFull) v = v.filter(meetsAll);
   if (state.contact) v = v.filter(p => (p.contacto || "Por contactar") === state.contact);
@@ -254,11 +288,13 @@ function visible(){
 }
 
 function render(){
-  const active = items.filter(p => p.avaliacao !== "Rejeitado" && !["Removido","Vendido"].includes(p.disponibilidade));
+  const pageItems = items.filter(p => (state.page === "planta") === !!p.emPlanta);
+  const active = pageItems.filter(p => p.avaliacao !== "Rejeitado" && !["Removido","Vendido"].includes(p.disponibilidade));
   const prices = active.map(p => p.preco).filter(n => typeof n === "number");
   const lastCheck = items.map(p => p.ultimaVerificacao).filter(Boolean).sort().pop();
   $("stats").innerHTML = `
-    <div class="stat"><b>${active.length}</b><span>casas no radar</span></div>
+    <div class="stat"><b>${active.length}</b><span>${state.page === "planta" ? "casas em planta / construção" : "casas à venda"}</span></div>
+    <div class="stat"><b>${active.filter(p => !p.avaliacao).length}</b><span>por avaliar · ${active.filter(p => p.aberto && !p.avaliacao).length} já abertas</span></div>
     <div class="stat"><b>${active.filter(meetsAll).length}</b><span>cumprem tudo (2 WC + garagem, até 350 mil €)</span></div>
     <div class="stat"><b>${prices.length ? eur(Math.min(...prices)) : "—"}</b><span>preço mais baixo${prices.length ? " · mais alto " + eur(Math.max(...prices)) : ""}</span></div>
     <div class="stat"><b>${fmtDate(lastCheck)}</b><span>última verificação</span></div>`;
@@ -267,8 +303,15 @@ function render(){
   zsel.innerHTML = `<option value="">Todas as zonas</option>` + zones.map(z => `<option ${z === cur ? "selected" : ""}>${esc(z)}</option>`).join("");
   const v = visible();
   if (!loaded) return;
-  $("list").innerHTML = v.length ? v.map(card).join("") :
-    `<div class="empty">${state.showRejected ? "Ainda não rejeitou nenhuma casa." : "Nenhuma casa com estes filtros. A pesquisa automática acrescenta anúncios novos de 2 em 2 dias."}</div>`;
+  const main = state.showRejected ? v : v.filter(p => !p.avaliacao);
+  const rated = state.showRejected ? [] : v.filter(p => p.avaliacao);
+  $("secMain").textContent = state.showRejected ? "Rejeitadas e retiradas" : "Por avaliar";
+  $("secRated").hidden = state.showRejected;
+  $("list").innerHTML = main.length ? main.map(card).join("") :
+    `<div class="empty">${state.showRejected ? "Nenhuma casa rejeitada ou retirada." : state.page === "planta" ? "Ainda não há casas em planta com estes filtros. A pesquisa acrescenta-as de 2 em 2 dias." : "Nenhuma casa por avaliar com estes filtros."}</div>`;
+  $("listRated").innerHTML = rated.length ? rated.map(card).join("") : (state.showRejected ? "" : `<div class="empty">Ainda não avaliou nenhuma casa nesta página.</div>`);
+  $("tabCasas").setAttribute("aria-pressed", state.page === "casas");
+  $("tabPlanta").setAttribute("aria-pressed", state.page === "planta");
 }
 
 function toast(t){ const el = $("toast"); el.textContent = t; el.classList.add("on"); clearTimeout(toast._t); toast._t = setTimeout(()=>el.classList.remove("on"), 2200); }
@@ -288,12 +331,12 @@ async function apiGetRatings(){
   return { data: JSON.parse(unb64(j.content) || "{}"), sha: j.sha };
 }
 let saveChain = Promise.resolve();
-function persist(id, patch){
+function persist(id, patch, quiet){
   ratings[id] = { ...(ratings[id] || {}), ...patch };
   mergeItems(); render();
   if (!token) {
     try { localStorage.setItem("radarPendentes", JSON.stringify(ratings)); } catch {}
-    toast("Guardado só neste dispositivo. Ligue o GitHub (em cima) para guardar em todos.");
+    if (!quiet) toast("Guardado só neste dispositivo. Ligue o GitHub (em cima) para guardar em todos.");
     return;
   }
   saveChain = saveChain.then(async () => {
@@ -308,7 +351,7 @@ function persist(id, patch){
         if (r.status === 409 && n === 0) continue;
         if (!r.ok) throw new Error("PUT " + r.status);
         ratings = { ...data }; mergeItems(); render();
-        toast("Guardado.");
+        if (!quiet) toast("Guardado.");
         return;
       } catch (err) {
         if (n === 1 || !String(err).includes("409")) { toast("Não foi possível guardar no GitHub. Verifique o código de acesso."); return; }
@@ -320,11 +363,21 @@ document.addEventListener("change", e => {
   const t = e.target;
   if (t.classList.contains("contact")) return persist(t.dataset.id, { contacto: t.value });
   if (t.classList.contains("visit")) return persist(t.dataset.id, { visita: t.value });
+  if (t.classList.contains("notesIn")) return persist(t.dataset.id, { anotacoes: t.value });
   if (t.classList.contains("rate")) {
     persist(t.dataset.id, { avaliacao: t.value });
     if (t.value === "Rejeitado") toast("Rejeitado: saiu da lista.");
   }
 });
+document.addEventListener("click", e => {
+  const a = e.target.closest(".openAd"); if (!a) return;
+  const p = items.find(x => x.id === a.dataset.id);
+  if (p && !p.aberto) persist(a.dataset.id, { aberto: new Date().toISOString().slice(0,10) }, true);
+});
+function setPage(pg){ state.page = pg; try { history.replaceState(null, "", pg === "planta" ? "#planta" : location.pathname); } catch {} render(); }
+$("tabCasas").onclick = () => setPage("casas");
+$("tabPlanta").onclick = () => setPage("planta");
+window.addEventListener("hashchange", () => { state.page = location.hash === "#planta" ? "planta" : "casas"; render(); });
 document.addEventListener("click", async e => {
   const b = e.target.closest(".copyurl"); if (!b) return;
   try { await navigator.clipboard.writeText(b.dataset.url); toast("Link copiado. Cole-o no browser."); }
