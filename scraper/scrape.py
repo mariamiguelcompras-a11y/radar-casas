@@ -469,6 +469,11 @@ def main():
             novos += 1
     print(f"Outros portais: {len(vistos_outros)} lidos, {repetidos} repetidos de casas já guardadas")
 
+    # OLX e CustoJusto são percorridos por inteiro em cada pesquisa: o que já não aparece
+    # (retirado ou fora dos critérios) sai da lista.
+    for k in [k for k, x in guardados.items() if x.get("fonte") in ("OLX", "CustoJusto") and k not in vistos_outros]:
+        del guardados[k]
+
     # 3. Anúncios guardados que não apareceram: confirmar se ainda existem
     for k, x in guardados.items():
         if k in vistos or k in vistos_outros or x.get("disponibilidade") == "Removido":
