@@ -153,7 +153,7 @@ def num(v):
 
 
 GAR = r"(garagem|box|parqueamento|lugar(?:es)? de (?:estacionamento|garagem|parqueamento)|estacionamento)"
-GAR_A_PARTE = re.compile(r"(possibilidade de (?:adquirir|comprar)|pode(?:r[aá])? (?:adquirir|comprar)|op[cç]ional|valor adicional|[aà] parte|n[aã]o inclu[ií]d|acresce|por mais|vendid[oa] separadamente|em separado)[^.;\n]{0,60}" + GAR + "|" + GAR + r"[^.;\n]{0,60}(op[cç]ional|[aà] parte|n[aã]o inclu[ií]d|valor adicional|vendid[oa] separadamente|em separado|por mais \d|acresce)")
+GAR_A_PARTE = re.compile(r"(possibilidade de (?:adquirir|comprar)|pode(?:r[aá])? (?:adquirir|comprar)|op[cç]ional|valor adicional|[aà] parte|n[aã]o inclu[ií]d|acresce\b|por mais|vendid[oa] separadamente|em separado)[^.;\n]{0,60}" + GAR + "|" + GAR + r"[^.;\n]{0,60}(op[cç]ional|[aà] parte|n[aã]o inclu[ií]d|valor adicional|vendid[oa] separadamente|em separado|por mais \d|acresce\b)")
 GAR_SIM = re.compile(r"(com|inclui|incluindo|inclu[ií]d[oa]s?|disp[oõ]e de|tem|possui|e|\+)\s+(?:um |uma |dois |duas |\d |o |a )?(?:\w+ ){0,2}(garagem|box|lugar(?:es)? de (?:estacionamento|garagem|parqueamento)|parqueamento|estacionamento privativo)"
                      r"|\b(box (?:fechad|individual|privativ|para \w+ carro)|garagem (?:fechad|individual|privativ|box|com|para \w+ (?:carro|viatura))|lugar de (?:garagem|parqueamento)|estacionamento (?:privativo|coberto|na cave|em cave)|parqueamento (?:privativo|coberto)|lugar(?:es)? de estacionamento (?:na cave|privativ|coberto|em garagem|na garagem))")
 GAR_RUA = re.compile(r"sem garagem|sem estacionamento|estacionamento (?:f[aá]cil|p[uú]blico|na rua|gratuito|abundante)|f[aá]cil estacionamento|facilidade de estacionamento|estacionar na rua")
@@ -177,6 +177,8 @@ def classificar_garagem(extras, tl, dl):
     # "lugares de estacionamento" numa praceta/rua/zona é estacionamento público, não garagem
     if m_sim and re.search(r"estacionamento|parqueamento", m_sim.group(0)) and not re.search(r"privativ|cave|garagem|box|coberto|pr[oó]prio|inclu[ií]d|da fra[cç][aã]o", frase(texto, m_sim)) \
             and re.search(r"pra[cç]eta|v[aá]rios|muitos|p[uú]blic|f[aá]cil|\brua\b|zona|abundante|exterior|em frente|nas imedia", frase(texto, m_sim)):
+        m_sim = None
+    if m_sim and re.search(r"possibilidade de (fazer|construir|criar|ter)|pode(r[aá])? (fazer|construir)", frase(texto, m_sim)):
         m_sim = None
     if m_parte and not ("garage" in extras and not m_sim):
         return "À parte (opcional)", frase(texto, m_parte)
@@ -491,6 +493,22 @@ def main():
             x["disponibilidade"] = "Removido"
             removidos += 1
         x["ultimaVerificacao"] = HOJE
+
+    # A mesma casa anunciada por várias agências (mesma zona, preço e área): fica uma, com os outros links
+    por_casa = {}
+    for k, x in sorted(guardados.items(), key=lambda kv: kv[1].get("noMercadoDesde") or "9999"):
+        if x.get("disponibilidade") == "Removido" or not x.get("area"):
+            continue
+        assin = (x.get("zona"), round(x.get("preco") or 0, -3), round(x["area"]))
+        if assin in por_casa and por_casa[assin] in guardados:
+            principal = guardados[por_casa[assin]]
+            links = principal.setdefault("outrosLinks", [])
+            for u in [x["url"]] + x.get("outrosLinks", []):
+                if u not in links and u != principal["url"]:
+                    links.append(u)
+            del guardados[k]
+        else:
+            por_casa[assin] = k
 
     # Só ficam casas com garagem (incluída ou à venda à parte no mesmo prédio); as outras não são mostradas.
     sem_garagem = [k for k, x in guardados.items() if x.get("garagem") not in ("Sim", "À parte (opcional)")]
