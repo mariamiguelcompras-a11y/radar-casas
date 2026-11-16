@@ -1,53 +1,20 @@
-"""Teste pontual: que sites conseguem ser lidos a partir do GitHub (estado, bloqueio, dados estruturados)."""
-import json, os, re, sys, time
+"""Teste pontual: guarda páginas de exemplo (pesquisa + 1 anúncio) dos portais em debug/amostras/."""
+import os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from scrape import get
+OUT = "debug/amostras"; os.makedirs(OUT, exist_ok=True)
 SITES = {
- "idealista": "https://www.idealista.pt/comprar-casas/oeiras/com-t2/",
- "casasapo": "https://casa.sapo.pt/comprar-apartamentos/t2/oeiras/",
- "supercasa": "https://supercasa.pt/comprar-casas/oeiras/com-t2",
- "portalimobiliario": "https://portalimobiliario.com.pt/",
- "construcaonova": "https://construcaonova.pt/",
- "flatin": "https://flatin.pt/",
- "casayes": "https://www.casayes.pt/",
- "imoportugal": "https://imo-portugal.com/",
- "habitarportugal": "https://www.habitarportugal.pt/",
- "creditocasa": "https://www.creditocasa.pt/",
- "casaportugal": "https://www.casaportugal.pt/",
- "agentecasa": "https://agentecasa.pt/",
- "casatoo": "https://casatoo.pt/pt",
- "olx": "https://www.olx.pt/imoveis/apartamento-casa-a-venda/oeiras/",
- "custojusto": "https://www.custojusto.pt/lisboa/oeiras/imobiliario",
- "hatudo": "https://www.hatudo.pt/",
- "trovit": "https://casa.trovit.pt/index.php/cod.search_homes/type.1/what_d.oeiras%20t2/",
- "mitula": "https://casas.mitula.pt/casas/apartamento-t2-oeiras",
- "nestoria": "https://www.nestoria.pt/oeiras/apartamento/venda",
- "kyero": "https://www.kyero.com/pt/portugal",
- "greenacres": "https://www.green-acres.pt/",
- "properstar": "https://www.properstar.pt/",
- "remax": "https://www.remax.pt/",
- "era": "https://www.era.pt/",
- "century21": "https://www.century21.pt/",
- "zome": "https://www.zome.pt/",
- "kw": "https://www.kwportugal.pt/",
- "engelvoelkers": "https://www.engelvoelkers.com/pt/pt",
- "predimed": "https://www.predimed.pt/",
- "comprarcasa": "https://www.comprarcasa.pt/",
- "veigas": "https://www.veigas.eu/",
- "dils": "https://dils.com/pt/",
+ "casasapo": ("https://casa.sapo.pt/comprar-apartamentos/t2/oeiras/", r'href="(https://casa\.sapo\.pt/comprar-apartamento[^"]+\.html[^"]*)"'),
+ "olx": ("https://www.olx.pt/imoveis/apartamento-casa-a-venda/apartamentos-venda/oeiras/?search%5Bfilter_enum_tipologia%5D%5B0%5D=t2", r'href="(/d/anuncio/[^"]+\.html)"'),
+ "custojusto": ("https://www.custojusto.pt/lisboa/oeiras/imobiliario/apartamentos-casas-venda", r'href="(https://www\.custojusto\.pt/lisboa/[^"]+/\d+)"'),
 }
-res = {}
-for nome, url in SITES.items():
-    t = time.time()
-    st, html, final = get(url, tentativas=1)
-    low = html.lower()
-    res[nome] = {
-        "status": st, "final": final[:120], "bytes": len(html), "s": round(time.time() - t, 1),
-        "bloqueio": bool(re.search(r"captcha|cf-chl|just a moment|access denied|datadome|px-captcha|attention required", low)),
-        "next_data": "__next_data__" in low, "ld_json": low.count("application/ld+json"),
-        "precos_eur": len(re.findall(r"\d{3}[ .]\d{3}\s?€|€\s?\d{3}[ .]\d{3}", html)),
-        "t2": len(re.findall(r"\bT2\b", html)),
-    }
-    print(nome, res[nome])
-os.makedirs("debug", exist_ok=True)
-json.dump(res, open("debug/sites.json", "w"), ensure_ascii=False, indent=1)
+for nome, (url, rx) in SITES.items():
+    st, html, final = get(url, tentativas=2)
+    open(f"{OUT}/{nome}_pesquisa.html", "w", encoding="utf-8").write(html)
+    links = re.findall(rx, html)
+    print(nome, st, final, len(html), "links", len(links), links[:3])
+    if links:
+        u = links[0] if links[0].startswith("http") else "https://www.olx.pt" + links[0]
+        st2, h2, f2 = get(u, tentativas=2)
+        open(f"{OUT}/{nome}_anuncio.html", "w", encoding="utf-8").write(h2)
+        print("  anuncio", st2, f2, len(h2))
