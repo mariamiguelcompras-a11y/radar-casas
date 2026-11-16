@@ -186,7 +186,7 @@ def classificar_garagem(extras, tl, dl):
     return "Não indicado", ""
 
 
-def ficha(slug, tipologia_pesquisa, tipo):
+def ficha(slug, tipologia_pesquisa, tipo, empreendimento=None):
     """Lê a ficha de um anúncio. Devolve (status, dados ou None)."""
     url = f"{BASE}/pt/anuncio/{slug}"
     status, html, final = get(url)
@@ -240,13 +240,13 @@ def ficha(slug, tipologia_pesquisa, tipo):
     else:
         estado = "Não indicado"
     construcao = "Nova" if nova else ("Recente" if ano and ano >= 2015 else "Usada")
-    # Página "em planta / construção nova": tudo o que é construção nova (mercado primário),
-    # vendido em planta, em obra ou acabado de construir.
-    em_planta = bool(nova or (ano and ano > date.today().year)
-                     or re.search(r"em planta|em constru[cç][aã]o|entrega prevista|conclus[aã]o prevista", tl + " " + dl))
+    # Aba "em planta": só frações ainda por construir ou em obra (não basta ser construção nova).
+    em_planta = bool(any(x in cs for x in ("to_completion", "under_construction", "in_project", "in_building"))
+                     or (ano and ano > date.today().year)
+                     or re.search(r"em planta|em constru[cç][aã]o|obra (?:a decorrer|em curso)|entrega prevista|previs[aã]o de (?:entrega|conclus)|conclus[aã]o prevista", tl + " " + dl))
 
     entrega = "Não se aplica"
-    if nova:
+    if nova or re.search(r"em planta|em constru", tl + " " + dl):
         m = re.search(r"(entrega|conclus[aã]o|conclu[ií]d[oa]|previs[aã]o|trimestre)[^.]{0,60}?(20\d\d)", dl)
         entrega = (m.group(0).strip().capitalize() if m else "Não indicado")
 
@@ -296,10 +296,11 @@ def ficha(slug, tipologia_pesquisa, tipo):
         "varanda": varanda,
         "elevador": elevador,
         "construcao": construcao,
-        "emPlanta": em_planta,
+        "emPlanta": em_planta or bool(empreendimento),
+        "empreendimento": (empreendimento or {}).get("titulo"),
         "estado": estado,
         "ano": ano,
-        "entrega": entrega,
+        "entrega": ((empreendimento or {}).get("entrega") or entrega) if (empreendimento or em_planta or nova) else entrega,
         "arrendado": arrendado,
         "noMercadoDesde": (ad.get("createdAtFirst") or ad.get("createdAt") or "")[:10] or None,
         "atualizado": (ad.get("modifiedAt") or "")[:10] or None,
@@ -308,6 +309,55 @@ def ficha(slug, tipologia_pesquisa, tipo):
         "agencia": ((ad.get("agency") or {}).get("name") or (ad.get("owner") or {}).get("name") or "Particular"),
         "notas": " ".join(notas),
     }
+
+
+EMP_LOCAIS = ["lisboa/oeiras", "lisboa/cascais", "lisboa/sintra", "lisboa/amadora"]
+
+
+def empreendimentos_em_obra():
+    """Frações (slug, quartos, info do empreendimento) de empreendimentos em projeto/construção até PRECO_MAX."""
+    fracoes = []
+    for loc in EMP_LOCAIS:
+        for pagina in range(1, 6):
+            st, html, _ = get(f"{BASE}/pt/resultados/comprar/empreendimento/{loc}?limit=72&page={pagina}")
+            pausa()
+            sa = ((((next_data(html) or {}).get("props") or {}).get("pageProps") or {}).get("data") or {}).get("searchAds") or {}
+            items = sa.get("items") or []
+            for it in items:
+                vistos_unid = set()
+                for upag in range(1, 11):
+                    url = f"{BASE}/pt/empreendimento/{it['slug']}" + (f"?page={upag}" if upag > 1 else "")
+                    st2, h2, _ = get(url)
+                    pausa()
+                    ad = (((next_data(h2) or {}).get("props") or {}).get("pageProps") or {}).get("ad") or {}
+                    estado = (ad.get("attributes") or {}).get("state")
+                    if estado == "ready":
+                        break
+                    dl = re.sub(r"<[^>]+>", " ", ad.get("description") or "").lower()
+                    m = re.search(r"(previs[aã]o[^.]{0,40}|conclus[aã]o[^.]{0,40}|entrega[^.]{0,40}|trimestre[^.]{0,20}|final[^.]{0,10})(20\d\d)", dl)
+                    info = {"titulo": ad.get("title"), "estado": estado,
+                            "entrega": (re.sub(r"\s+", " ", m.group(0)).strip().capitalize() if m else "Não indicado")}
+                    unidades = (ad.get("paginatedUnits") or {}).get("items") or []
+                    novas = [u for u in unidades if u.get("slug") not in vistos_unid]
+                    if not novas:
+                        break
+                    for u in novas:
+                        vistos_unid.add(u.get("slug"))
+                        ch = {c.get("key"): c.get("value") for c in (u.get("characteristics") or [])}
+                        try:
+                            preco = float(ch.get("price") or 0)
+                            assoalhadas = int(float(ch.get("rooms_num") or 0))
+                        except ValueError:
+                            continue
+                        # no Imovirtual rooms_num conta assoalhadas: 3 = T2
+                        if preco and preco <= PRECO_MAX and assoalhadas >= 3 and u.get("slug"):
+                            fracoes.append((u["slug"], assoalhadas - 1, info))
+                    tp = (((ad.get("paginatedUnits") or {}).get("pagination")) or {}).get("totalPages") or 1
+                    if upag >= tp:
+                        break
+            if pagina >= ((sa.get("pagination") or {}).get("totalPages") or 1):
+                break
+    return fracoes
 
 
 def chave(url):
@@ -343,10 +393,20 @@ def main():
         print("ERRO: nenhuma pesquisa devolveu anúncios. O Imovirtual pode ter bloqueado o pedido. Nada foi alterado.")
         sys.exit(1)
 
+    # 1b. Empreendimentos em projeto/construção (aba "em planta")
+    emp = {}
+    try:
+        for slug, quartos, info in empreendimentos_em_obra():
+            emp[chave(slug)] = info
+            vistos.setdefault(chave(slug), (slug, f"t{quartos}", "apartamento"))
+    except Exception as e:
+        print("Aviso: falhou a leitura de empreendimentos:", e)
+    print(f"Frações em planta até {PRECO_MAX} €: {len(emp)}")
+
     # 2. Fichas dos anúncios encontrados
     novos = atualizados = removidos = 0
     for k, (slug, tipologia, tipo) in vistos.items():
-        status, d = ficha(slug, tipologia, tipo)
+        status, d = ficha(slug, tipologia, tipo, emp.get(k))
         if status != 200 or not d:
             continue
         if d["zona"] is None or d["preco"] is None or not (PRECO_MIN <= d["preco"] <= PRECO_MAX):
@@ -385,7 +445,9 @@ def main():
         json.dump(lista, f, ensure_ascii=False, indent=1)
     resumo = {"data": HOJE, "encontrados": len(vistos), "novos": novos, "atualizados": atualizados,
               "removidos": removidos, "total": len(lista),
-              "ativos": sum(1 for x in lista if x.get("disponibilidade") == "Ativo")}
+              "ativos": sum(1 for x in lista if x.get("disponibilidade") == "Ativo"),
+              "emPlanta": sum(1 for x in lista if x.get("emPlanta") and x.get("disponibilidade") != "Removido"),
+              "emPlantaNovos": sum(1 for x in lista if x.get("emPlanta") and x.get("primeiraVez") == HOJE)}
     with open(LOG_FILE, "w", encoding="utf-8") as f:
         json.dump(resumo, f, ensure_ascii=False, indent=1)
     print(json.dumps(resumo, ensure_ascii=False))
