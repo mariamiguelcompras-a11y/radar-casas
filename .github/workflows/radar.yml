@@ -1,0 +1,37 @@
+name: Pesquisa de casas
+
+on:
+  schedule:
+    - cron: "23 6 */2 * *"   # de 2 em 2 dias, às 6h23 UTC (hora de Lisboa no inverno)
+  workflow_dispatch: {}       # botão "Run workflow" para correr à mão
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+jobs:
+  pesquisa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pesquisar anúncios
+        run: python scraper/scrape.py
+      - name: Guardar resultados
+        run: |
+          git config user.name "radar-casas"
+          git config user.email "radar-casas@users.noreply.github.com"
+          git add data/imoveis.json data/ultima-execucao.json
+          if git diff --cached --quiet; then
+            echo "Sem alterações."
+          else
+            git commit -m "Pesquisa de $(date +%F)"
+            git pull --rebase origin main
+            git push
+          fi

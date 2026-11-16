@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de Casas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Plano: lista de fichas ordenadas, cada uma com um mini-radar dos critérios; resumo no topo, controlos numa barra. Cores da costa da linha de Cascais. */
+:root{
+  --bg:#f2f5f4; --card:#ffffff; --ink:#13211f; --muted:#5a6a67; --line:#d5dfdc;
+  --accent:#0d6b76; --accent-soft:#d9eef0;
+  --good:#1f7a4a; --good-soft:#dcf1e4; --warn:#9a6a00; --warn-soft:#fbefd2; --bad:#b03a2e; --bad-soft:#f8e0dc;
+  --font-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-num:"IBM Plex Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1716; --card:#162321; --ink:#e3ecea; --muted:#9aaba8; --line:#2a3a37;
+    --accent:#4fb8c4; --accent-soft:#163a3e;
+    --good:#5fcf8f; --good-soft:#173a27; --warn:#e3b54d; --warn-soft:#3a2f12; --bad:#ef8577; --bad-soft:#3e1d19;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1716; --card:#162321; --ink:#e3ecea; --muted:#9aaba8; --line:#2a3a37;
+  --accent:#4fb8c4; --accent-soft:#163a3e;
+  --good:#5fcf8f; --good-soft:#173a27; --warn:#e3b54d; --warn-soft:#3a2f12; --bad:#ef8577; --bad-soft:#3e1d19;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--font-body)}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 48px;display:grid;gap:20px}
+header{display:grid;gap:6px}
+h1{font:700 30px/1.1 var(--font-display);margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:0;max-width:70ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.stat b{display:block;font:500 22px/1.2 var(--font-num);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:13px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink);padding:7px 12px;font:inherit;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--card)}
+select,.btn{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.btn{cursor:pointer}
+.btn:hover,select:hover{border-color:var(--accent)}
+label.chk{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.spacer{flex:1}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.list{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:130px 1fr 190px;gap:16px;align-items:start;border-left:5px solid var(--line)}
+.card.full{border-left-color:var(--good)}
+.card.near{border-left-color:var(--warn)}
+.radarbox{display:grid;justify-items:center;gap:4px}
+.score{font:500 26px/1 var(--font-num);font-variant-numeric:tabular-nums}
+.score small{font-size:12px;color:var(--muted)}
+.title{font:700 18px/1.25 var(--font-display);margin:0 0 4px;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.chip{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--ink)}
+.chip.good{background:var(--good-soft);color:var(--good)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+dl.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px 14px;margin:0}
+dl.facts div{display:grid}
+dt{font-size:12px;color:var(--muted)}
+dd{margin:0;font-weight:500;font-variant-numeric:tabular-nums}
+.market{margin:0 0 2px;font-size:14px}
+.url{font-size:11px;color:var(--muted);word-break:break-all;user-select:all}
+.market span{color:var(--muted)}
+#tokenBox input,.side input[type="date"]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:5px 8px}
+.notes{margin:8px 0 0;color:var(--muted);font-size:14px}
+.side{display:grid;gap:8px}
+.side label{font-size:12px;color:var(--muted)}
+.side a{color:var(--accent);font-weight:600}
+.empty,.msg{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:20px;color:var(--muted)}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tblwrap{overflow-x:auto}
+.legend{font-size:13px;color:var(--muted)}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .2s}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}
+@media (max-width:760px){.card{grid-template-columns:1fr}.radarbox{grid-auto-flow:column;justify-content:start;align-items:center;gap:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Radar de casas T2 ou maiores — Oeiras, Cascais e arredores</h1>
+    <p class="sub">T2 no mínimo (T3 e maiores também), até 350 000 €, idealmente com 2 casas de banho e garagem. Pesquisa automática no Imovirtual de 2 em 2 dias; cada anúncio é verificado em cada pesquisa. Avalie cada casa: a sua avaliação sobe ou desce a pontuação, e "Rejeitado" tira-a da lista.</p>
+  </header>
+
+  <div class="bar" id="tokenBox"></div>
+  <p class="legend" id="lastRun"></p>
+  <section class="stats" id="stats" aria-label="Resumo"></section>
+
+  <div class="bar" role="toolbar" aria-label="Ordenar e filtrar">
+    <div class="seg" role="group" aria-label="Ordenar">
+      <button id="sortScore" aria-pressed="true">Melhor pontuação</button>
+      <button id="sortDate" aria-pressed="false">Mais recentes</button>
+    </div>
+    <select id="zone" aria-label="Zona">
+      <option value="">Todas as zonas</option>
+    </select>
+    <select id="contactF" aria-label="Contacto">
+      <option value="">Todos os contactos</option>
+      <option>Por contactar</option><option>Contactei</option><option>À espera de resposta</option><option>Visita marcada</option><option>Já visitei</option>
+    </select>
+    <label class="chk"><input type="checkbox" id="onlyFull"> Só os que cumprem tudo</label>
+    <label class="chk"><input type="checkbox" id="showRejected"> Ver rejeitados e retirados</label>
+    <span class="spacer"></span>
+    <button class="btn" id="copyCsv">Copiar tabela (CSV)</button>
+  </div>
+
+  <div class="list" id="list"><div class="msg">A carregar os imóveis…</div></div>
+
+  <p class="legend">Pontuação automática (0–100): preço mais baixo até 25, zona até 20 (Oeiras, Algés, Carcavelos, Cascais e Alcabideche 20; Sintra perto e Alfragide 10), 2 casas de banho 15, garagem 12, estado 10, ano/construção nova 8, varanda 5, elevador 5; menos 15 se estiver arrendado. A sua avaliação soma: Excelente +30, Muito bom +20, Bom +10, Aceitável −5, Tolerável −10, Não ideal −20, Mau −30.</p>
+
+
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const RATINGS = ["","Excelente","Muito bom","Bom","Aceitável","Tolerável","Não ideal","Mau","Rejeitado"];
+const CONTACT = ["Por contactar","Contactei","À espera de resposta","Visita marcada","Já visitei"];
+const CONTACT_CLS = {"Por contactar":"","Contactei":"warn","À espera de resposta":"warn","Visita marcada":"good","Já visitei":"good"};
+const BASELINE = "2026-11-16"; // dia da primeira pesquisa: o que já estava anunciado antes não tem data de entrada conhecida
+function marketInfo(p){
+  if (p.noMercadoDesde) return { key: p.noMercadoDesde, text: fmtDate(p.noMercadoDesde), exact: true };
+  if (p.primeiraVez && p.primeiraVez > BASELINE) return { key: p.primeiraVez, text: "≈ " + fmtDate(p.primeiraVez) + " (detetada pelo radar)", exact: false };
+  return { key: "", text: "Não indicado pelo anúncio (já estava à venda a " + fmtDate(p.primeiraVez || BASELINE) + ")", exact: false };
+}
+const RATING_ADJ ={"Excelente":30,"Muito bom":20,"Bom":10,"Aceitável":-5,"Tolerável":-10,"Não ideal":-20,"Mau":-30};
+const TOP_ZONES = ["Oeiras","Algés","Carcavelos","Cascais","Alcabideche"];
+const MID_ZONES = ["Sintra (perto)","Alfragide"];
+
+let items = [], excluded = [], db = null, loaded = false;
+const state = { sort:"score", zone:"", contact:"", onlyFull:false, showRejected:false };
+const $ = id => document.getElementById(id);
+const eur = n => (typeof n === "number") ? n.toLocaleString("pt-PT",{maximumFractionDigits:0}) + " €" : "—";
+const clamp = (x,a,b) => Math.max(a, Math.min(b, x));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtDate = s => { if(!s) return "Não indicado"; const [y,m,d] = String(s).split("-"); return d ? `${d}/${m}/${y}` : s; };
+
+function parts(p){
+  const price = typeof p.preco === "number" ? clamp(25*(360000-p.preco)/100000,0,25) : 0;
+  const zone = TOP_ZONES.includes(p.zona) ? 20 : MID_ZONES.includes(p.zona) ? 10 : 4;
+  const wc = typeof p.wc === "number" ? (p.wc >= 2 ? 15 : 0) : 7;
+  const gar = p.garagem === "Sim" ? 12 : p.garagem === "Por confirmar" ? 5 : 0;
+  const est = ({"Novo":10,"Renovado":9,"Bom":6,"Para remodelar":2})[p.estado] ?? 4;
+  const ext = p.varanda === "Sim" ? 5 : p.varanda === "Não" ? 0 : 2;
+  const elev = p.elevador === "Sim" ? 5 : p.elevador === "Não" ? 0 : 2;
+  let age = 3;
+  if (p.construcao === "Nova") age = 8;
+  else if (typeof p.ano === "number") age = p.ano >= 2015 ? 8 : p.ano >= 2000 ? 6 : p.ano >= 1985 ? 4 : 2;
+  return {price, zone, wc, gar, est, ext, elev, age};
+}
+function autoScore(p){
+  const x = parts(p);
+  let s = x.price + x.zone + x.wc + x.gar + x.est + x.ext + x.elev + x.age;
+  if (p.arrendado === "Sim") s -= 15;
+  return Math.round(s);
+}
+const finalScore = p => autoScore(p) + (RATING_ADJ[p.avaliacao] || 0);
+const meetsAll = p => typeof p.preco === "number" && p.preco <= 350000 && p.wc >= 2 && p.garagem === "Sim" && /^T[2-9]/.test(p.tipologia || "T2");
+
+function radarSvg(p){
+  const x = parts(p);
+  const axes = [["Preço",x.price/25],["Zona",x.zone/20],["WC",x.wc/15],["Garagem",x.gar/12],["Estado",x.est/10],["Exterior",x.ext/5],["Elevador",x.elev/5],["Idade",x.age/8]];
+  const cx=60, cy=60, R=44, n=axes.length;
+  const pt = (i,r) => { const a = -Math.PI/2 + i*2*Math.PI/n; return [cx + r*Math.cos(a), cy + r*Math.sin(a)]; };
+  let grid = "";
+  [0.5,1].forEach(f => { grid += `<polygon points="${axes.map((_,i)=>pt(i,R*f).join(",")).join(" ")}" fill="none" stroke="var(--line)" stroke-width="1"/>`; });
+  axes.forEach((_,i)=>{ const [ex,ey]=pt(i,R); grid += `<line x1="${cx}" y1="${cy}" x2="${ex}" y2="${ey}" stroke="var(--line)" stroke-width="1"/>`; });
+  const poly = axes.map((a,i)=>pt(i,R*clamp(a[1],0,1)).join(",")).join(" ");
+  const labels = axes.map((a,i)=>{ const [lx,ly]=pt(i,R+9); return `<text x="${lx}" y="${ly}" font-size="7.5" text-anchor="middle" dominant-baseline="middle" fill="var(--muted)">${a[0]}</text>`; }).join("");
+  const desc = axes.map(a=>`${a[0]} ${Math.round(a[1]*100)}%`).join(", ");
+  return `<svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Radar dos critérios: ${desc}">${grid}<polygon points="${poly}" fill="var(--accent)" fill-opacity=".28" stroke="var(--accent)" stroke-width="1.5"/>${labels}</svg>`;
+}
+
+function chip(text, cls){ return `<span class="chip ${cls||""}">${esc(text)}</span>`; }
+
+function card(p){
+  const full = meetsAll(p);
+  const near = !full && typeof p.preco === "number" && p.preco <= 360000;
+  const chips = [];
+  chips.push(chip(p.zona || "Zona?", TOP_ZONES.includes(p.zona) ? "good" : ""));
+  chips.push(chip((typeof p.wc === "number" ? p.wc : "?") + " WC", p.wc >= 2 ? "good" : "warn"));
+  chips.push(chip("Garagem: " + (p.garagem || "?"), p.garagem === "Sim" ? "good" : p.garagem === "Não" ? "bad" : "warn"));
+  if (p.arrendado === "Sim") chips.push(chip("Arrendado", "bad"));
+  if (typeof p.preco === "number" && p.preco > 350000) chips.push(chip("Acima do teto por " + eur(p.preco - 350000), "warn"));
+  if (full) chips.push(chip("Cumpre tudo", "good"));
+  if (p.disponibilidade && p.disponibilidade !== "Ativo") chips.push(chip(p.disponibilidade, p.disponibilidade === "Vendido" || p.disponibilidade === "Removido" ? "bad" : "warn"));
+  const m2 = (typeof p.preco === "number" && typeof p.area === "number" && p.area > 0) ? eur(Math.round(p.preco/p.area)) : "—";
+  const opts = RATINGS.map(r => `<option value="${esc(r)}" ${r === (p.avaliacao||"") ? "selected" : ""}>${r || "Sem avaliação"}</option>`).join("");
+  const fs = finalScore(p), as = autoScore(p);
+  const mk = marketInfo(p);
+  const contact = p.contacto || "Por contactar";
+  if (contact !== "Por contactar") chips.push(chip(contact + (contact === "Visita marcada" && p.visita ? " · " + fmtDate(p.visita) : ""), CONTACT_CLS[contact]));
+  const copts = CONTACT.map(c => `<option ${c === contact ? "selected" : ""}>${c}</option>`).join("");
+  return `<article class="card ${full ? "full" : near ? "near" : ""}">
+    <div class="radarbox">${radarSvg(p)}<div class="score" title="Pontuação automática ${as}">${fs}<small> pts</small></div></div>
+    <div>
+      <h2 class="title">${esc(p.tipologia || "T2")} · ${esc(p.localizacao || "")}</h2>
+      <p class="market"><span>No mercado desde</span> <b>${esc(mk.text)}</b></p>
+      <div class="chips">${chips.join("")}</div>
+      <dl class="facts">
+        <div><dt>Preço</dt><dd>${eur(p.preco)}</dd></div>
+        <div><dt>Área</dt><dd>${typeof p.area === "number" ? p.area + " m²" : "Não indicado"}</dd></div>
+        <div><dt>Preço por m²</dt><dd>${m2}</dd></div>
+        <div><dt>Varanda / terraço</dt><dd>${esc(p.varanda || "Não indicado")}</dd></div>
+        <div><dt>Elevador</dt><dd>${esc(p.elevador || "Não indicado")}</dd></div>
+        <div><dt>Construção</dt><dd>${esc(p.construcao || "Não indicado")}</dd></div>
+        <div><dt>Ano de construção</dt><dd>${p.ano ?? "Não indicado"}</dd></div>
+        <div><dt>Entrega de chaves</dt><dd>${esc(p.entrega || "Não se aplica")}</dd></div>
+        <div><dt>Estado</dt><dd>${esc(p.estado || "Não indicado")}</dd></div>
+        <div><dt>Arrendado</dt><dd>${esc(p.arrendado || "Não indicado")}</dd></div>
+        <div><dt>Última atualização do anúncio</dt><dd>${fmtDate(p.atualizado)}</dd></div>
+        <div><dt>Agência</dt><dd>${esc(p.agencia || "Não indicado")}</dd></div>
+      </dl>
+      ${p.notas ? `<p class="notes">${esc(p.notas)}</p>` : ""}
+    </div>
+    <div class="side">
+      <label for="r-${esc(p.id)}">A minha avaliação</label>
+      <select id="r-${esc(p.id)}" data-id="${esc(p.id)}" class="rate">${opts}</select>
+      <label for="c-${esc(p.id)}">Contacto</label>
+      <select id="c-${esc(p.id)}" data-id="${esc(p.id)}" class="contact">${copts}</select>
+      ${contact === "Visita marcada" || contact === "Já visitei" ? `<label for="v-${esc(p.id)}">Data da visita</label><input type="date" id="v-${esc(p.id)}" data-id="${esc(p.id)}" class="visit" value="${esc(p.visita || "")}">` : ""}
+      ${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">Abrir anúncio (${esc(p.fonte || "link")})</a>
+      <span class="url">${esc(p.url)}</span>
+      <button class="btn copyurl" data-url="${esc(p.url)}">Copiar link do anúncio</button>` : ""}
+      <span class="legend">Visto pela 1.ª vez a ${fmtDate(p.primeiraVez)} · verificado a ${fmtDate(p.ultimaVerificacao)}</span>
+    </div>
+  </article>`;
+}
+
+function visible(){
+  const gone = p => ["Removido","Vendido"].includes(p.disponibilidade);
+  let v = items.filter(p => state.showRejected ? (p.avaliacao === "Rejeitado" || gone(p)) : (p.avaliacao !== "Rejeitado" && !gone(p)));
+  if (state.zone) v = v.filter(p => p.zona === state.zone);
+  if (state.onlyFull) v = v.filter(meetsAll);
+  if (state.contact) v = v.filter(p => (p.contacto || "Por contactar") === state.contact);
+  if (state.sort === "score") v.sort((a,b) => finalScore(b) - finalScore(a));
+  else v.sort((a,b) => marketInfo(b).key.localeCompare(marketInfo(a).key) || String(b.atualizado||"").localeCompare(String(a.atualizado||"")) || finalScore(b) - finalScore(a));
+  return v;
+}
+
+function render(){
+  const active = items.filter(p => p.avaliacao !== "Rejeitado" && !["Removido","Vendido"].includes(p.disponibilidade));
+  const prices = active.map(p => p.preco).filter(n => typeof n === "number");
+  const lastCheck = items.map(p => p.ultimaVerificacao).filter(Boolean).sort().pop();
+  $("stats").innerHTML = `
+    <div class="stat"><b>${active.length}</b><span>casas no radar</span></div>
+    <div class="stat"><b>${active.filter(meetsAll).length}</b><span>cumprem tudo (2 WC + garagem, até 350 mil €)</span></div>
+    <div class="stat"><b>${prices.length ? eur(Math.min(...prices)) : "—"}</b><span>preço mais baixo${prices.length ? " · mais alto " + eur(Math.max(...prices)) : ""}</span></div>
+    <div class="stat"><b>${fmtDate(lastCheck)}</b><span>última verificação</span></div>`;
+  const zones = [...new Set(items.map(p => p.zona).filter(Boolean))].sort();
+  const zsel = $("zone"), cur = state.zone;
+  zsel.innerHTML = `<option value="">Todas as zonas</option>` + zones.map(z => `<option ${z === cur ? "selected" : ""}>${esc(z)}</option>`).join("");
+  const v = visible();
+  if (!loaded) return;
+  $("list").innerHTML = v.length ? v.map(card).join("") :
+    `<div class="empty">${state.showRejected ? "Ainda não rejeitou nenhuma casa." : "Nenhuma casa com estes filtros. A pesquisa automática acrescenta anúncios novos de 2 em 2 dias."}</div>`;
+}
+
+function toast(t){ const el = $("toast"); el.textContent = t; el.classList.add("on"); clearTimeout(toast._t); toast._t = setTimeout(()=>el.classList.remove("on"), 2200); }
+
+const OWNER = "mariamiguelcompras-a11y", REPO = "radar-casas", RFILE = "data/avaliacoes.json";
+let ratings = {}, token = null, rawItems = [];
+try { token = localStorage.getItem("radarToken"); } catch {}
+try { ratings = JSON.parse(localStorage.getItem("radarPendentes") || "{}"); } catch { ratings = {}; }
+const b64 = s => btoa(unescape(encodeURIComponent(s)));
+const unb64 = s => decodeURIComponent(escape(atob(s.replace(/\n/g, ""))));
+function mergeItems(){ items = rawItems.map(x => ({ ...x, id: x.chave, ...(ratings[x.chave] || {}) })); }
+async function apiGetRatings(){
+  const r = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${RFILE}?t=${Date.now()}`, { headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" } });
+  if (r.status === 404) return { data: {}, sha: null };
+  if (!r.ok) throw new Error("GET " + r.status);
+  const j = await r.json();
+  return { data: JSON.parse(unb64(j.content) || "{}"), sha: j.sha };
+}
+let saveChain = Promise.resolve();
+function persist(id, patch){
+  ratings[id] = { ...(ratings[id] || {}), ...patch };
+  mergeItems(); render();
+  if (!token) {
+    try { localStorage.setItem("radarPendentes", JSON.stringify(ratings)); } catch {}
+    toast("Guardado só neste dispositivo. Ligue o GitHub (em cima) para guardar em todos.");
+    return;
+  }
+  saveChain = saveChain.then(async () => {
+    for (let n = 0; n < 2; n++) {
+      try {
+        const { data, sha } = await apiGetRatings();
+        data[id] = { ...(data[id] || {}), ...patch };
+        const r = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${RFILE}`, {
+          method: "PUT", headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
+          body: JSON.stringify({ message: "Avaliação: " + id, content: b64(JSON.stringify(data, null, 1)), ...(sha ? { sha } : {}) })
+        });
+        if (r.status === 409 && n === 0) continue;
+        if (!r.ok) throw new Error("PUT " + r.status);
+        ratings = { ...data }; mergeItems(); render();
+        toast("Guardado.");
+        return;
+      } catch (err) {
+        if (n === 1 || !String(err).includes("409")) { toast("Não foi possível guardar no GitHub. Verifique o código de acesso."); return; }
+      }
+    }
+  });
+}
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t.classList.contains("contact")) return persist(t.dataset.id, { contacto: t.value });
+  if (t.classList.contains("visit")) return persist(t.dataset.id, { visita: t.value });
+  if (t.classList.contains("rate")) {
+    persist(t.dataset.id, { avaliacao: t.value });
+    if (t.value === "Rejeitado") toast("Rejeitado: saiu da lista.");
+  }
+});
+document.addEventListener("click", async e => {
+  const b = e.target.closest(".copyurl"); if (!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.url); toast("Link copiado. Cole-o no browser."); }
+  catch { toast("O navegador não deixou copiar; selecione o link acima."); }
+});
+$("sortScore").onclick =() => { state.sort = "score"; $("sortScore").setAttribute("aria-pressed","true"); $("sortDate").setAttribute("aria-pressed","false"); render(); };
+$("sortDate").onclick = () => { state.sort = "date"; $("sortDate").setAttribute("aria-pressed","true"); $("sortScore").setAttribute("aria-pressed","false"); render(); };
+$("zone").onchange = e => { state.zone = e.target.value; render(); };
+$("contactF").onchange = e => { state.contact = e.target.value; render(); };
+$("onlyFull").onchange =e => { state.onlyFull = e.target.checked; render(); };
+$("showRejected").onchange = e => { state.showRejected = e.target.checked; render(); };
+$("copyCsv").onclick = async () => {
+  const cols = ["Pontuação","Avaliação","Contacto","Data da visita","Localização","Zona","Preço","Área m²","€/m²","Tipologia","WC","Garagem","Varanda","Elevador","Construção","Ano","Entrega de chaves","Arrendado","No mercado desde","Última atualização","Estado","Agência","Link do anúncio"];
+  const rows = visible().map(p => [finalScore(p),p.avaliacao||"",p.contacto||"Por contactar",p.visita||"",p.localizacao,p.zona,p.preco,p.area,(p.preco&&p.area)?Math.round(p.preco/p.area):"",p.tipologia,p.wc??"",p.garagem,p.varanda,p.elevador,p.construcao,p.ano??"",p.entrega,p.arrendado,marketInfo(p).text,p.atualizado||"",p.estado,p.agencia,p.url]);
+  const csv = [cols, ...rows].map(r => r.map(c => `"${String(c ?? "").replace(/"/g,'""')}"`).join(";")).join("\n");
+  try { await navigator.clipboard.writeText(csv); toast("Tabela copiada. Cole no Excel."); }
+  catch { toast("O navegador não deixou copiar."); }
+};
+
+function tokenUi(){
+  $("tokenBox").innerHTML = token
+    ? `<span>Ligado ao GitHub: as avaliações ficam guardadas em todos os dispositivos.</span> <button class="btn" id="tokenOff">Desligar neste dispositivo</button>`
+    : `<label for="tokenIn">Para guardar avaliações em todos os dispositivos, cole o seu código de acesso do GitHub:</label> <input id="tokenIn" type="password" autocomplete="off" placeholder="github_pat_…"> <button class="btn" id="tokenOn">Ligar</button>`;
+  const on = $("tokenOn"), off = $("tokenOff");
+  if (on) on.onclick = async () => {
+    const v = $("tokenIn").value.trim(); if (!v) return;
+    token = v;
+    try {
+      const { data } = await apiGetRatings();
+      const pend = ratings; ratings = { ...data };
+      try { localStorage.setItem("radarToken", v); localStorage.removeItem("radarPendentes"); } catch {}
+      for (const [k, p] of Object.entries(pend)) persist(k, p);
+      mergeItems(); render(); tokenUi(); toast("Ligado.");
+    } catch { token = null; toast("O código não funcionou. Confirme que tem acesso de leitura e escrita a radar-casas."); }
+  };
+  if (off) off.onclick = () => { token = null; try { localStorage.removeItem("radarToken"); } catch {} tokenUi(); };
+}
+(async () => {
+  tokenUi();
+  try {
+    const r = await fetch("data/imoveis.json?t=" + Date.now());
+    rawItems = r.ok ? await r.json() : [];
+    if (token) { try { ratings = { ...ratings, ...(await apiGetRatings()).data }; } catch {} }
+    else { try { const a = await fetch("data/avaliacoes.json?t=" + Date.now()); if (a.ok) ratings = { ...(await a.json()), ...ratings }; } catch {} }
+    try { const u = await fetch("data/ultima-execucao.json?t=" + Date.now()); if (u.ok) { const j = await u.json(); $("lastRun").textContent = `Última pesquisa: ${fmtDate(j.data)} · ${j.novos} novos · ${j.removidos} retirados`; } } catch {}
+    loaded = true; mergeItems(); render();
+  } catch {
+    $("list").innerHTML = `<div class="msg">Não foi possível carregar os anúncios. Recarregue a página.</div>`;
+  }
+})();
+render();
+</script>
+</body>
+</html>
