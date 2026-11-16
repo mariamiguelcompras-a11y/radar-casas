@@ -1,0 +1,336 @@
+{
+ "sapo_ficha": [
+  429,
+  "https://casa.sapo.pt/comprar-apartamento-t2-oeiras-carnaxide-e-queijas-db0401b2-b5e0-11f1-b6e5-060000000058.html",
+  0
+ ],
+ "sapo_preco": [
+  429,
+  "https://casa.sapo.pt/comprar-apartamentos/t2/oeiras/?lp=360000",
+  0,
+  0,
+  []
+ ],
+ "sapo_pag2": [
+  429,
+  "https://casa.sapo.pt/comprar-apartamentos/t2/oeiras/?pn=2",
+  0,
+  0,
+  []
+ ],
+ "sapo_cascais": [
+  429,
+  "https://casa.sapo.pt/comprar-apartamentos/t2/cascais/?lp=360000",
+  0,
+  0,
+  []
+ ],
+ "olx_lisboa": [
+  200,
+  "https://www.olx.pt/imoveis/apartamento-casa-a-venda/apartamentos-venda/lisboa/?search%5Bfilter_float_price:to%5D=360000&search%5Bfilter_enum_tipologia",
+  1000,
+  25,
+  43,
+  [
+   [
+    "Apartamento T2 para venda no Bairro do E",
+    "329.900 €",
+    "Santa Iria De Azoia, São João Da Talha E"
+   ],
+   [
+    "Apartamento T2 Venda Lisboa",
+    "359.900 €",
+    "São Vicente"
+   ],
+   [
+    "Apartamento T2 à venda com garagem com t",
+    "325.000 €",
+    "Vila Franca de Xira"
+   ],
+   [
+    "Apartamento T2 para venda",
+    "360.000 €",
+    "Oeiras E São Julião Da Barra, Paço De Ar"
+   ],
+   [
+    "Apartamento T2 no centro de Alverca do R",
+    "278.000 €",
+    "Alverca Do Ribatejo E Sobralinho"
+   ]
+  ]
+ ],
+ "olx_oeiras_q": [
+  200,
+  "https://www.olx.pt/imoveis/apartamento-casa-a-venda/apartamentos-venda/q-oeiras/?search%5Bfilter_float_price:to%5D=360000",
+  218,
+  6,
+  40,
+  [
+   [
+    "Apartamento T2 para venda",
+    "360.000 €",
+    "Oeiras E São Julião Da Barra, Paço De Ar"
+   ],
+   [
+    "Duplex T2 em Algés",
+    "315.000 €",
+    "Algés, Linda-A-Velha E Cruz Quebrada-Daf"
+   ],
+   [
+    "T1 remodelado com 60 m² em Linda-a-Velha",
+    "360.000 €",
+    "Algés, Linda-A-Velha E Cruz Quebrada-Daf"
+   ],
+   [
+    "Apartamento T3 - Paço de Arcos",
+    "320.000 €",
+    "Oeiras E São Julião Da Barra, Paço De Ar"
+   ],
+   [
+    "Apartamento T2 com Terraço Privativo | D",
+    "359.000 €",
+    "Algés, Linda-A-Velha E Cruz Quebrada-Daf"
+   ]
+  ]
+ ],
+ "olx_cat": [
+  200,
+  "https://www.olx.pt/imoveis/apartamento-casa-a-venda/apartamentos-venda/?search%5Bfilter_float_price:to%5D=360000&search%5Bregion_id%5D=11",
+  1000,
+  25,
+  45,
+  [
+   [
+    "Apartamento T3 em Odivelas",
+    "360.000 €",
+    "Odivelas"
+   ],
+   [
+    "Apartamento T2 Venda Lisboa",
+    "359.900 €",
+    "São Vicente"
+   ],
+   [
+    "T1 - lareira - Rinchoa",
+    "234.000 €",
+    "Rio de Mouro"
+   ],
+   [
+    "Apartamento T1+1 Vende-se",
+    "355.000 €",
+    "Campolide"
+   ],
+   [
+    "Apartamento T4 para venda",
+    "274.900 €",
+    "Odivelas"
+   ]
+  ]
+ ],
+ "cj_venda1": [
+  200,
+  "https://www.custojusto.pt/lisboa/oeiras/imobiliario/apartamentos/q/venda",
+  0,
+  [],
+  [
+   "pageTitleInitial",
+   "searchTitleInitial",
+   "pageDescriptionInitial",
+   "breadCrumbsInitial",
+   "user",
+   "pageType",
+   "galleryAds",
+   "savedSearchData",
+   "expiredAdData",
+   "campaigns",
+   "productSnippet",
+   "topCat",
+   "subCat",
+   "v2",
+   "listItems",
+   "queryData",
+   "seoLinks",
+   "isMobile",
+   "metadata",
+   "spotlightPartner",
+   "savedViewMode",
+   "initialState"
+  ]
+ ],
+ "cj_ficha": [
+  200,
+  "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/t2-oeiras-parque-dos-poetas-45519922",
+  108867
+ ],
+ "cj_venda2": [
+  200,
+  "https://www.custojusto.pt/lisboa/oeiras/imobiliario/apartamentos?f=v",
+  8,
+  [
+   [
+    "T2 Oeiras (Parque dos Poetas)",
+    0,
+    "/lisboa/imobiliario/apartamentos/t2-oeiras-parque-dos-poetas-45519922"
+   ],
+   [
+    "Apartamento T2 T3 Vilamoura Quarteira",
+    0,
+    "/lisboa/imobiliario/apartamentos/apartamento-t2-t3-vilamoura-qu-44292862"
+   ],
+   [
+    "T1 perto da estaçao e praia",
+    950,
+    "/lisboa/imobiliario/apartamentos/t1-perto-da-estacao-e-praia-45505280"
+   ],
+   [
+    "Apartamento T3 na Quinta do Marquês",
+    515000,
+    "/lisboa/imobiliario/apartamentos/apartamento-t3-na-quinta-do-ma-45470670"
+   ],
+   [
+    "T2, Carnaxide, perto do Hospital de Sant",
+    1280,
+    "/lisboa/imobiliario/apartamentos/t2-carnaxide-perto-do-hospit-45455878"
+   ]
+  ],
+  [
+   "pageTitleInitial",
+   "searchTitleInitial",
+   "pageDescriptionInitial",
+   "breadCrumbsInitial",
+   "user",
+   "pageType",
+   "galleryAds",
+   "savedSearchData",
+   "expiredAdData",
+   "campaigns",
+   "productSnippet",
+   "itemList",
+   "topCat",
+   "subCat",
+   "v2",
+   "listItems",
+   "queryData",
+   "seoLinks",
+   "isMobile",
+   "metadata",
+   "spotlightPartner",
+   "savedViewMode",
+   "initialState"
+  ]
+ ],
+ "cj_venda3": [
+  200,
+  "https://www.custojusto.pt/lisboa/oeiras/imobiliario/apartamentos-venda",
+  40,
+  [
+   [
+    "T2 Oeiras Remodelado",
+    455000,
+    "/lisboa/imobiliario/apartamentos/t2-oeiras-remodelado-45140486"
+   ],
+   [
+    "T2 Oeiras (Parque dos Poetas)",
+    0,
+    "/lisboa/imobiliario/apartamentos/t2-oeiras-parque-dos-poetas-45519922"
+   ],
+   [
+    "Apartamento T1 Luminoso e Moderno no Cor",
+    298000,
+    "/lisboa/imobiliario/apartamentos/apartamento-t1-luminoso-e-mode-44264355"
+   ],
+   [
+    "Duplex de Luxo T4 no empreendimento Citt",
+    1650000,
+    "/lisboa/imobiliario/apartamentos/duplex-de-luxo-t4-no-empreendi-44849699"
+   ],
+   [
+    "Luxo e Conforto Onde o Rio Encontra o Ma",
+    2250000,
+    "/lisboa/imobiliario/apartamentos/luxo-e-conforto-onde-o-rio-enc-44849609"
+   ]
+  ],
+  [
+   "pageTitleInitial",
+   "searchTitleInitial",
+   "pageDescriptionInitial",
+   "breadCrumbsInitial",
+   "user",
+   "pageType",
+   "galleryAds",
+   "savedSearchData",
+   "expiredAdData",
+   "campaigns",
+   "productSnippet",
+   "itemList",
+   "topCat",
+   "subCat",
+   "v2",
+   "listItems",
+   "queryData",
+   "seoLinks",
+   "isMobile",
+   "metadata",
+   "spotlightPartner",
+   "savedViewMode",
+   "initialState"
+  ]
+ ],
+ "cj_venda4": [
+  200,
+  "https://www.custojusto.pt/lisboa/imobiliario/apartamentos?pe=360000",
+  40,
+  [
+   [
+    "T1 Renovado Com Varanda | Braço De Prata",
+    338000,
+    "/lisboa/imobiliario/apartamentos/t1-renovado-com-varanda-brac-45442562"
+   ],
+   [
+    "Apartamento T2 Lisboa",
+    348000,
+    "/lisboa/imobiliario/apartamentos/apartamento-t2-lisboa-44779309"
+   ],
+   [
+    "Apartamento T2 Com Logradouro, Anexo E..",
+    310000,
+    "/lisboa/imobiliario/apartamentos/apartamento-t2-com-logradouro--44779303"
+   ],
+   [
+    "Apartamento T2 Mafra",
+    1200,
+    "/lisboa/imobiliario/apartamentos/apartamento-t2-mafra-45374272"
+   ],
+   [
+    "Apartamento lisboat2 ameixoeira com gara",
+    345000,
+    "/lisboa/imobiliario/apartamentos/apartamento-lisboat2-ameixoeir-44964192"
+   ]
+  ],
+  [
+   "pageTitleInitial",
+   "searchTitleInitial",
+   "pageDescriptionInitial",
+   "breadCrumbsInitial",
+   "user",
+   "pageType",
+   "galleryAds",
+   "savedSearchData",
+   "expiredAdData",
+   "campaigns",
+   "productSnippet",
+   "itemList",
+   "topCat",
+   "subCat",
+   "v2",
+   "listItems",
+   "queryData",
+   "seoLinks",
+   "isMobile",
+   "metadata",
+   "spotlightPartner",
+   "savedViewMode",
+   "initialState"
+  ]
+ ]
+}
