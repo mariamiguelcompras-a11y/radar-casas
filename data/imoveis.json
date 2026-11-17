@@ -1,5 +1,42 @@
 [
  {
+  "id": 19359022,
+  "titulo": "Apartamento T2 para venda",
+  "localizacao": "Campinas, Rua da Suécia - Campina Grande",
+  "zona": "Sintra (perto)",
+  "preco": 320000.0,
+  "area": 88.6,
+  "tipologia": "T2",
+  "quartos": 2,
+  "wc": 2,
+  "garagem": "Sim",
+  "garagemFrase": "conta ainda com um lugar de estacionamento e arrecadação no sótão.",
+  "varanda": "Sim",
+  "elevador": "Sim",
+  "construcao": "Usada",
+  "emPlanta": false,
+  "empreendimento": null,
+  "estado": "Não indicado",
+  "ano": 2002,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "noMercadoDesde": "2026-11-17",
+  "atualizado": "2026-11-17",
+  "url": "https://www.imovirtual.com/pt/anuncio/apartamento-t2-para-venda-ID1jeai",
+  "fonte": "Imovirtual",
+  "agencia": "Remax Grupo Team",
+  "notas": "Com suite. Garagem: \"conta ainda com um lugar de estacionamento e arrecadação no sótão.\". Andar: 3. Certificado energético C.",
+  "chave": "ID1jeai",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJtQrX.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/124121093-241"
+  ]
+ },
+ {
   "id": 19356513,
   "titulo": "Excelente T2+1 com Muita Luz Natural, Cozinha Remodelada e Amplas Área",
   "localizacao": "Monte Abraão",
@@ -33,7 +70,9 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJHyUM.html",
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJFLWS.html",
-   "https://www.olx.pt/d/anuncio/excelente-t2-1-com-muita-luz-natural-cozinha-remodelada-e-amplas-rea-IDJI4nv.html"
+   "https://www.olx.pt/d/anuncio/excelente-t2-1-com-muita-luz-natural-cozinha-remodelada-e-amplas-rea-IDJI4nv.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/121661111-129",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/126801059-6"
   ]
  },
  {
@@ -69,7 +108,9 @@
   "garagemFrase": "t3 duplex com garagem e arrecadação em monte abraão",
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/t2-1-duplex-no-centro-de-massam-IDJ7SQk.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJI3mE.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJI3mE.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/121961090-53",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/122291002-792"
   ]
  },
  {
@@ -101,6 +142,44 @@
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
+ },
+ {
+  "id": 19355701,
+  "titulo": "Apartamento T2 para venda",
+  "localizacao": "Monte Abraão, Rua João Villaret - Monte Abraão",
+  "zona": "Sintra (perto)",
+  "preco": 310000.0,
+  "area": 73.52,
+  "tipologia": "T2",
+  "quartos": 2,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "apartamento t2 com parqueamento em queluz.",
+  "varanda": "Sim",
+  "elevador": "Sim",
+  "construcao": "Usada",
+  "emPlanta": false,
+  "empreendimento": null,
+  "estado": "Renovado",
+  "ano": 2000,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "noMercadoDesde": "2026-11-13",
+  "atualizado": "2026-11-14",
+  "url": "https://www.imovirtual.com/pt/anuncio/apartamento-t2-para-venda-ID1jdiJ",
+  "fonte": "Imovirtual",
+  "agencia": "Remax Prime",
+  "notas": "Andar: 1. Certificado energético E. Garagem (no RE/MAX): \"apartamento t2 com parqueamento em queluz.\".",
+  "chave": "ID1jdiJ",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJI1Xp.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/120211428-65",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-queluz-e-belas/122291204-129"
+  ]
  },
  {
   "id": 19354801,
@@ -273,7 +352,8 @@
   "emPlanta": false,
   "garagemFrase": "lugar de parqueamento de grandes dimensões;",
   "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t3-em-queluz-ocidental-IDJGUuM.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t3-em-queluz-ocidental-IDJGUuM.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t4-sintra-massama-e-monte-abraao/125911054-1663"
   ]
  },
  {
@@ -310,7 +390,9 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJGXew.html",
-   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJtgIo.html"
+   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJtgIo.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/126301140-4",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/121021534-27"
   ]
  },
  {
@@ -348,7 +430,9 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJE12W.html",
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJGXez.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-em-prdio-com-elevador-na-rinchoa-rio-de-mouro-IDJBoMU.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-prdio-com-elevador-na-rinchoa-rio-de-mouro-IDJBoMU.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/121031232-14",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/120612244-53"
   ]
  },
  {
@@ -417,7 +501,8 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJC3PQ.html",
    "https://www.olx.pt/d/anuncio/t2-com-varanda-lareira-e-elevador-monte-abra-IDJGtlv.html",
-   "https://www.olx.pt/d/anuncio/t2-com-suite-estacionamento-e-arrecadao-campinas-junto-a-mass-IDJBjBM.html"
+   "https://www.olx.pt/d/anuncio/t2-com-suite-estacionamento-e-arrecadao-campinas-junto-a-mass-IDJBjBM.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/124991096-1"
   ]
  },
  {
@@ -489,7 +574,8 @@
   "garagemFrase": "t2 totalmente renovado e mobilado | certificação energética b- | lugar de estacionamento em garagem fechada | arrecadação | 345.000 €",
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/t2-renovado-e-mobilado-estacionamento-ar-IDJGtR1.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJa7yc.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJa7yc.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/122481542-5"
   ]
  },
  {
@@ -600,7 +686,8 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJEkgL.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-na-serra-das-minas-IDJGu5X.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-na-serra-das-minas-IDJGu5X.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/127011035-4"
   ]
  },
  {
@@ -639,7 +726,9 @@
    "https://www.olx.pt/d/anuncio/t2-novo-na-quinta-de-fitares-1-andar-IDJGykL.html",
    "https://www.olx.pt/d/anuncio/t2-novo-na-quinta-de-fitares-4-andar-IDJGyjU.html",
    "https://www.olx.pt/d/anuncio/no-apenas-onde-vai-viver-onde-a-vida-vai-acontecer-IDJzdK0.html",
-   "https://www.olx.pt/d/anuncio/no-apenas-onde-vai-viver-onde-a-vida-vai-acontecer-IDJzdJV.html"
+   "https://www.olx.pt/d/anuncio/no-apenas-onde-vai-viver-onde-a-vida-vai-acontecer-IDJzdJV.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/122081434-11",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031160-281"
   ]
  },
  {
@@ -712,6 +801,36 @@
   "outrosLinks": [
    "https://www.imovirtual.com/pt/anuncio/t2-em-queluz-arrecadacao-varanda-box-ID1j8jX"
   ]
+ },
+ {
+  "tipologia": "T3",
+  "titulo": "Apartamento T3 em Alcabideche",
+  "preco": 289000.0,
+  "area": 75.0,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "Garagem assinalada nas características do anúncio RE/MAX (1 lugar(es))",
+  "varanda": "Não indicado",
+  "elevador": "Não indicado",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 1963,
+  "entrega": "Não se aplica",
+  "arrendado": "Sim",
+  "emPlanta": false,
+  "notas": "Arrendado? A descrição diz: \"…óximo do cascais shpping. a propriedade encontra-se arrendada, com contrato vitalicio.…\" — confirmar.",
+  "zona": "Alcabideche",
+  "localizacao": "Alcabideche, Cascais",
+  "noMercadoDesde": "2026-10-30",
+  "atualizado": "2026-10-30",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t3-cascais-alcabideche/126361026-10",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Horizonte 4 All",
+  "chave": "REMAX-126361026-10",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
  },
  {
   "tipologia": "T2",
@@ -815,7 +934,8 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/t2-renovado-no-8-andar-junto-ao-oeiras-golf-e-taguspark-IDJzvN8.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJFGox.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJFGox.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-cacem-e-sao-marcos/121401445-5"
   ]
  },
  {
@@ -848,7 +968,12 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
-  "garagemFrase": "&nbsp; excelente apartamento t3 a 1 minuto da estação de queluz-belas – com garagem box opcional!&nbsp;"
+  "garagemFrase": "&nbsp; excelente apartamento t3 a 1 minuto da estação de queluz-belas – com garagem box opcional!&nbsp;",
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-queluz-e-belas/125541074-6",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-queluz-e-belas/120211251-512",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/125301133-5"
+  ]
  },
  {
   "id": 19321387,
@@ -880,16 +1005,19 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
-  "garagemFrase": "andar de moradia t3 com garagem | alcabideche &nbsp;"
+  "garagemFrase": "andar de moradia t3 com garagem | alcabideche &nbsp;",
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-moradia-t3-cascais-alcabideche/126361026-9"
+  ]
  },
  {
   "tipologia": "T2",
-  "titulo": "T2 com 114 m² com arrecadação e garagem em Agualva- Cacém",
-  "preco": 345000.0,
+  "titulo": "T2 com 114 m² com arrecadação e possibilidade de garagem em Agualva- Cacém",
+  "preco": 315000.0,
   "area": 101.0,
   "wc": null,
-  "garagem": "Sim",
-  "garagemFrase": "t2 com 114 m² com arrecadação e garagem em agualva- cacém.",
+  "garagem": "À parte (opcional)",
+  "garagemFrase": "t2 com 114 m² com arrecadação e possibilidade de garagem em agualva- cacém.",
   "varanda": "Não indicado",
   "elevador": "Não indicado",
   "construcao": "Usada",
@@ -898,7 +1026,7 @@
   "entrega": "Não se aplica",
   "arrendado": "Não indicado",
   "emPlanta": false,
-  "notas": "Garagem: \"t2 com 114 m² com arrecadação e garagem em agualva- cacém.\".",
+  "notas": "Garagem: \"t2 com 114 m² com arrecadação e possibilidade de garagem em agualva- cacém.\".",
   "zona": "São Marcos",
   "localizacao": "Cacém e São Marcos",
   "noMercadoDesde": "2026-10-24",
@@ -907,6 +1035,42 @@
   "fonte": "CustoJusto",
   "agencia": "Century 21 Imopredial",
   "chave": "CJ-45456304",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": [
+   {
+    "data": "2026-11-17",
+    "de": 345000.0,
+    "para": 315000.0
+   }
+  ]
+ },
+ {
+  "tipologia": "T3",
+  "titulo": "Apartamento T3 em Rio De Mouro",
+  "preco": 359000.0,
+  "area": 83.0,
+  "wc": 2,
+  "garagem": "Sim",
+  "garagemFrase": "Garagem assinalada nas características do anúncio RE/MAX (1 lugar(es))",
+  "varanda": "Sim",
+  "elevador": "Sim",
+  "construcao": "Usada",
+  "estado": "Renovado",
+  "ano": 1982,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "",
+  "zona": "Rio de Mouro",
+  "localizacao": "Rio De Mouro, Sintra",
+  "noMercadoDesde": "2026-10-22",
+  "atualizado": "2026-11-06",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/123751693-44",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Prestige",
+  "chave": "REMAX-123751693-44",
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
@@ -921,7 +1085,7 @@
   "area": 89.0,
   "tipologia": "T2",
   "quartos": 2,
-  "wc": null,
+  "wc": 1,
   "garagem": "Sim",
   "varanda": "Sim",
   "elevador": "Não indicado",
@@ -946,7 +1110,8 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/rua-da-milharada-em-massam-IDJCH0O.html",
    "https://www.olx.pt/d/anuncio/apartamento-t2-com-varanda-estacionamento-e-arrecadao-IDJAh0V.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-monte-abrao-IDJEPjh.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-monte-abrao-IDJEPjh.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/125301070-6"
   ]
  },
  {
@@ -1089,7 +1254,7 @@
   "titulo": "Moradia Geminada T2 em Francos, Rio de Mouro. Para Obras Totais.",
   "localizacao": "Vale Mourão - Paiões, Largo de Francos",
   "zona": "Rio de Mouro",
-  "preco": 240000.0,
+  "preco": 180000.0,
   "area": 80.0,
   "tipologia": "Moradia T2",
   "quartos": 2,
@@ -1106,7 +1271,7 @@
   "entrega": "Não se aplica",
   "arrendado": "Não indicado",
   "noMercadoDesde": "2026-10-14",
-  "atualizado": "2026-10-30",
+  "atualizado": "2026-11-17",
   "url": "https://www.imovirtual.com/pt/anuncio/moradia-geminada-t2-em-francos-rio-de-mouro-para-obras-totais-ID1j1dx",
   "fonte": "Imovirtual",
   "agencia": "Motivo Certo Imobiliária",
@@ -1115,7 +1280,13 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [
+   {
+    "data": "2026-11-17",
+    "de": 240000.0,
+    "para": 180000.0
+   }
+  ]
  },
  {
   "id": 19305740,
@@ -1216,7 +1387,8 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/t2-renovado-centro-de-rio-de-mouro-2-minutos-do-comboio-IDJCJ7V.html",
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDIWlTM.html",
-   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJtgCl.html"
+   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJtgCl.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/122141231-291"
   ]
  },
  {
@@ -1283,7 +1455,9 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJBwLj.html",
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJBmRN.html",
-   "https://www.olx.pt/d/anuncio/apartamento-em-queluz-monte-abro-massam-sintra-oportunidade-nica-IDJdCJo.html"
+   "https://www.olx.pt/d/anuncio/apartamento-em-queluz-monte-abro-massam-sintra-oportunidade-nica-IDJdCJo.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/121011480-4",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/121661111-128"
   ]
  },
  {
@@ -1321,7 +1495,8 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJBswM.html",
    "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJti4T.html",
-   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJthEk.html"
+   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJthEk.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031178-131"
   ]
  },
  {
@@ -1381,7 +1556,8 @@
    "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-t2-para-remodelaca-45408557",
    "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-em-cascais-quint-45499407",
    "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-t2-cascais-45495083",
-   "https://www.custojusto.pt/lisboa/imobiliario/moradias/casa-villa-t2-em-sao-domingo-45384459"
+   "https://www.custojusto.pt/lisboa/imobiliario/moradias/casa-villa-t2-em-sao-domingo-45384459",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-cascais-cascais-e-estoril/121291134-347"
   ]
  },
  {
@@ -1453,6 +1629,36 @@
   "garagemFrase": "estacionamento privativo com 20 m²"
  },
  {
+  "tipologia": "T2",
+  "titulo": "Apartamento T2 em Rio De Mouro",
+  "preco": 349900.0,
+  "area": 127.0,
+  "wc": 2,
+  "garagem": "Sim",
+  "garagemFrase": "Garagem assinalada nas características do anúncio RE/MAX (1 lugar(es))",
+  "varanda": "Não indicado",
+  "elevador": "Não indicado",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 2001,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "",
+  "zona": "Rio de Mouro",
+  "localizacao": "Rio De Mouro, Sintra",
+  "noMercadoDesde": "2026-09-21",
+  "atualizado": "2026-11-12",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121661202-17",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Impacto",
+  "chave": "REMAX-121661202-17",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
+ },
+ {
   "id": 19280121,
   "titulo": "Apartamento T2 para venda",
   "localizacao": "Monte Abraão, Rua Ruy Belo - Monte Abraão",
@@ -1484,7 +1690,8 @@
   "emPlanta": false,
   "garagemFrase": "apartamento t2 com parqueamento e arrecadação | excelente luminosidade e vistas desafogadas",
   "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJAFTv.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJAFTv.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/125201031-140"
   ]
  },
  {
@@ -1522,7 +1729,8 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJESuV.html",
    "https://www.olx.pt/d/anuncio/t2-c-varanda-a-3mins-da-estao-de-rio-de-mouro-IDJAI3V.html",
-   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJti6T.html"
+   "https://www.olx.pt/d/anuncio/novo-empreendimento-de-t2-e-t3-com-acabamentos-de-elevada-qualidade-IDJti6T.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/126911054-49"
   ]
  },
  {
@@ -1560,6 +1768,36 @@
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-venda-em-rio-de-mouro-sintra-IDJAyZv.html"
   ]
+ },
+ {
+  "tipologia": "T2",
+  "titulo": "Apartamento T2 em São Domingos De Rana",
+  "preco": 325000.0,
+  "area": 90.0,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "apartamento t2 com 2 logradouros, anexo e garagem, situado em talaíde em são domingos de rana.",
+  "varanda": "Sim",
+  "elevador": "Não indicado",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 1985,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "Garagem: \"apartamento t2 com 2 logradouros, anexo e garagem, situado em talaíde em são domingos de rana.\".",
+  "zona": "Cascais",
+  "localizacao": "São Domingos De Rana, Cascais",
+  "noMercadoDesde": "2026-09-16",
+  "atualizado": "2026-11-12",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t2-cascais-sao-domingos-de-rana/121291622-456",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Vantagem Metro",
+  "chave": "REMAX-121291622-456",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
  },
  {
   "id": 19275276,
@@ -1629,7 +1867,8 @@
    "https://www.olx.pt/d/anuncio/apartamento-t2-com-terrao-de-50-m2-e-box-fechada-o-seu-novo-refgio-IDJw3T3.html",
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJqruE.html",
    "https://www.olx.pt/d/anuncio/apartamento-t2-na-serra-das-minas-rio-de-mouro-IDJAglX.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-com-terrao-de-50-m-e-box-fechad-IDJGw3w.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-com-terrao-de-50-m-e-box-fechad-IDJGw3w.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/120861373-33"
   ]
  },
  {
@@ -1775,8 +2014,70 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJz44H.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJz44H.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031178-134",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031178-132"
   ]
+ },
+ {
+  "tipologia": "T2",
+  "titulo": "Apartamento T2 em Rio De Mouro",
+  "preco": 269000.0,
+  "area": 72.0,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "Garagem assinalada nas características do anúncio RE/MAX (1 lugar(es))",
+  "varanda": "Sim",
+  "elevador": "Não",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 1997,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "",
+  "zona": "Rio de Mouro",
+  "localizacao": "Rio De Mouro, Sintra",
+  "noMercadoDesde": "2026-08-27",
+  "atualizado": "2026-11-12",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/123751693-40",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Prestige",
+  "chave": "REMAX-123751693-40",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
+ },
+ {
+  "tipologia": "T2",
+  "titulo": "Apartamento T2 em Amadora",
+  "preco": 349000.0,
+  "area": 76.0,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "inserido num edifício servido por dois elevadores, existe ainda a possibilidade de adquirir um lugar de estacionamento no próprio prédio.",
+  "varanda": "Não indicado",
+  "elevador": "Sim",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 1996,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "Garagem: \"inserido num edifício servido por dois elevadores, existe ainda a possibilidade de adquirir um lugar de estacionamento no próprio prédio.\".",
+  "zona": "Alfragide",
+  "localizacao": "Amadora, Amadora",
+  "noMercadoDesde": "2026-08-27",
+  "atualizado": "2026-10-30",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t2-amadora-alfragide/123751693-41",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Prestige",
+  "chave": "REMAX-123751693-41",
+  "primeiraVez": "2026-11-17",
+  "ultimaVerificacao": "2026-11-17",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
  },
  {
   "id": 19254545,
@@ -1918,7 +2219,8 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t3-com-arrecadao-e-parqueamento-em-so-marcos-IDJx1P3.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJtmgp.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJtmgp.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-cacem-e-sao-marcos/120171335-49"
   ]
  },
  {
@@ -1951,7 +2253,10 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
-  "garagemFrase": "Assinalada nas características do anúncio"
+  "garagemFrase": "Assinalada nas características do anúncio",
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-moradia-t3-cascais-sao-domingos-de-rana/120171486-5"
+  ]
  },
  {
   "id": 19222720,
@@ -2128,7 +2433,8 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDIXaXW.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-em-rio-de-mouro-conforto-luz-natural-e-excelente-IDJuKmb.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-rio-de-mouro-conforto-luz-natural-e-excelente-IDJuKmb.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031178-113"
   ]
  },
  {
@@ -2164,7 +2470,8 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJuzLj.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJuzLj.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/126301154-1"
   ]
  },
  {
@@ -2340,7 +2647,10 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031160-282"
+  ]
  },
  {
   "id": 19188321,
@@ -2439,7 +2749,10 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/123761281-52"
+  ]
  },
  {
   "id": 19188122,
@@ -2650,7 +2963,10 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/124931186-2"
+  ]
  },
  {
   "id": 19187928,
@@ -2788,7 +3104,8 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJG0ma.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJG0ma.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/122141247-221"
   ]
  },
  {
@@ -2824,7 +3141,8 @@
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDIX9by.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDIX9by.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-rio-de-mouro/121031178-112"
   ]
  },
  {
@@ -2897,7 +3215,9 @@
    "https://www.olx.pt/d/anuncio/apartamento-t2-em-rio-de-mouro-IDJHy1V.html",
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDIuRpZ.html",
    "https://www.olx.pt/d/anuncio/t3-na-rinchoa-a-1-minuto-da-estao-de-comboios-com-3-quartos-2-wc-e-IDJzfKc.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDIuRqW.html"
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDIuRqW.html",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/122171006-444",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/122171006-440"
   ]
  },
  {
@@ -2931,7 +3251,10 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/122171006-437"
+  ]
  },
  {
   "id": 18354017,
