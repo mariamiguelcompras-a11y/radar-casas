@@ -2,7 +2,7 @@ name: Pesquisa de casas
 
 on:
   schedule:
-    - cron: "23 6 */2 * *"   # de 2 em 2 dias, às 6h23 UTC (hora de Lisboa no inverno)
+    - cron: "23 6 * * *"   # de 2 em 2 dias, às 6h23 UTC (hora de Lisboa no inverno)
   workflow_dispatch: {}       # botão "Run workflow" para correr à mão
 
 permissions:
