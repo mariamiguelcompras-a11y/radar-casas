@@ -512,7 +512,7 @@ def main():
 
     # OLX e CustoJusto são percorridos por inteiro em cada pesquisa: o que já não aparece
     # (retirado ou fora dos critérios) sai da lista.
-    for k in [k for k, x in guardados.items() if x.get("fonte") in ("OLX", "CustoJusto", "RE/MAX", "iad") and x.get("fonte") in fontes_ok and k not in vistos_outros]:
+    for k in [k for k, x in guardados.items() if not x.get("manual") and x.get("fonte") in ("OLX", "CustoJusto", "RE/MAX", "iad") and x.get("fonte") in fontes_ok and k not in vistos_outros]:
         del guardados[k]
 
     # 3. Anúncios guardados que não apareceram: confirmar se ainda existem
@@ -536,7 +536,7 @@ def main():
     # A mesma casa anunciada por várias agências (mesma zona, preço e área): fica uma, com os outros links
     por_casa = {}
     for k, x in sorted(guardados.items(), key=lambda kv: kv[1].get("noMercadoDesde") or "9999"):
-        if x.get("disponibilidade") == "Removido" or not x.get("area"):
+        if x.get("disponibilidade") == "Removido" or not x.get("area") or x.get("manual"):
             continue
         assin = (x.get("zona"), round(x.get("preco") or 0, -3), round(x["area"]))
         if assin in por_casa and por_casa[assin] in guardados:
@@ -549,8 +549,16 @@ def main():
         else:
             por_casa[assin] = k
 
+    # Links que a utilizadora acrescentou à mão no radar
+    import manuais
+    try:
+        novos += manuais.processar(guardados)
+    except Exception as e:
+        print("Aviso: falhou a leitura dos links manuais:", e)
+
     # Só ficam casas com garagem (incluída ou à venda à parte no mesmo prédio); as outras não são mostradas.
-    sem_garagem = [k for k, x in guardados.items() if x.get("garagem") not in ("Sim", "À parte (opcional)")]
+    # (os links acrescentados à mão ficam sempre: foi a utilizadora que os escolheu)
+    sem_garagem = [k for k, x in guardados.items() if x.get("garagem") not in ("Sim", "À parte (opcional)") and not x.get("manual")]
     for k in sem_garagem:
         del guardados[k]
     print(f"Excluídas por não terem garagem: {len(sem_garagem)}")

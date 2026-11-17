@@ -292,6 +292,39 @@ def remax_api(caminho, corpo=None):
     return None
 
 
+def remax_montar(x, det, nome, locs, preco, quartos):
+    """Monta o anúncio RE/MAX no formato do radar (x = linha da pesquisa, det = ficha)."""
+    desc = next((y.get("description") for y in (det.get("descriptions") or []) if y.get("languageID") == 9 or y.get("languageCode") == "PT"), "") or ""
+    tipo = {1: "Apartamento", 3: "Duplex", 11: "Moradia"}.get(x.get("listingTypeID"), "")
+    titulo = f"{tipo} T{quartos} em {x.get('localZone') or x.get('regionName3') or nome}".strip()
+    area = x.get("livingArea") or x.get("totalArea")
+    a = analisar(titulo, desc, float(preco), area, x.get("constructionYear"), f"T{quartos}", quartos)
+    a["tipologia"] = ("Moradia " if x.get("listingTypeID") == 11 else "") + f"T{quartos}"
+    if a["garagem"].startswith("À parte") or a["garagem"] == "Não":
+        pass   # a descrição diz que a garagem se compra à parte (ou que não há): prevalece sobre a ficha
+    elif x.get("garage") or (x.get("garageSpots") or 0) > 0:
+        a["garagem"] = "Sim"
+        a["garagemFrase"] = a.get("garagemFrase") or f"Garagem assinalada nas características do anúncio RE/MAX ({x.get('garageSpots') or 1} lugar(es))"
+    elif x.get("parking") and a["garagem"] in ("Não indicado",):
+        a["garagem"], a["garagemFrase"] = "Sim", "Estacionamento assinalado nas características do anúncio RE/MAX"
+    if x.get("numberOfBathrooms"):
+        a["wc"] = x["numberOfBathrooms"]
+    if x.get("elevator"):
+        a["elevador"] = "Sim"
+    if set(x.get("listingAttributesIds") or []) & {5, 8, 9}:
+        a["varanda"] = "Sim"
+    a.update({
+        "zona": zona_de([l for l in locs if l], titulo + " " + desc),
+        "localizacao": ", ".join(v for v in (x.get("localZone"), x.get("regionName2")) if v),
+        "noMercadoDesde": (x.get("publishDate") or x.get("contractDate") or "")[:10] or None,
+        "atualizado": (x.get("modified") or "")[:10] or None,
+        "url": f"https://remax.pt/pt/imoveis/{x.get('descriptionTags') or 'imovel'}/{x['listingTitle']}",
+        "fonte": "RE/MAX", "agencia": x.get("officeName") or "RE/MAX",
+        "chave": "REMAX-" + x["listingTitle"],
+    })
+    return a
+
+
 def remax():
     out = []
     for nome, rid in REMAX_REGIOES.items():
@@ -319,34 +352,7 @@ def remax():
                     continue   # fora das zonas (sem gastar um pedido com a ficha)
                 det = remax_api("Listing/GetListingByTitle?listingPublicId=" + x["listingTitle"]) or x
                 pausa()
-                desc = next((y.get("description") for y in (det.get("descriptions") or []) if y.get("languageID") == 9 or y.get("languageCode") == "PT"), "") or ""
-                tipo = {1: "Apartamento", 3: "Duplex", 11: "Moradia"}.get(x.get("listingTypeID"), "")
-                titulo = f"{tipo} T{quartos} em {x.get('localZone') or x.get('regionName3') or nome}".strip()
-                area = x.get("livingArea") or x.get("totalArea")
-                a = analisar(titulo, desc, float(preco), area, x.get("constructionYear"), f"T{quartos}", quartos)
-                a["tipologia"] = ("Moradia " if x.get("listingTypeID") == 11 else "") + f"T{quartos}"
-                if a["garagem"].startswith("À parte") or a["garagem"] == "Não":
-                    pass   # a descrição diz que a garagem se compra à parte (ou que não há): prevalece sobre a ficha
-                elif x.get("garage") or (x.get("garageSpots") or 0) > 0:
-                    a["garagem"] = "Sim"
-                    a["garagemFrase"] = a.get("garagemFrase") or f"Garagem assinalada nas características do anúncio RE/MAX ({x.get('garageSpots') or 1} lugar(es))"
-                elif x.get("parking") and a["garagem"] in ("Não indicado",):
-                    a["garagem"], a["garagemFrase"] = "Sim", "Estacionamento assinalado nas características do anúncio RE/MAX"
-                if x.get("numberOfBathrooms"):
-                    a["wc"] = x["numberOfBathrooms"]
-                if x.get("elevator"):
-                    a["elevador"] = "Sim"
-                if set(x.get("listingAttributesIds") or []) & {5, 8, 9}:
-                    a["varanda"] = "Sim"
-                a.update({
-                    "zona": zona_de([l for l in locs if l], titulo + " " + desc),
-                    "localizacao": ", ".join(v for v in (x.get("localZone"), x.get("regionName2")) if v),
-                    "noMercadoDesde": (x.get("publishDate") or x.get("contractDate") or "")[:10] or None,
-                    "atualizado": (x.get("modified") or "")[:10] or None,
-                    "url": f"https://remax.pt/pt/imoveis/{x.get('descriptionTags') or 'imovel'}/{x['listingTitle']}",
-                    "fonte": "RE/MAX", "agencia": x.get("officeName") or "RE/MAX",
-                    "chave": "REMAX-" + x["listingTitle"],
-                })
+                a = remax_montar(x, det, nome, locs, preco, quartos)
                 if valido(a):
                     out.append(a)
             if not (d or {}).get("hasNextPage"):
