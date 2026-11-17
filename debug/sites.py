@@ -1,20 +1,35 @@
 import sys, re, time, json
 sys.path.insert(0, "scraper")
 from scrape import get
-def show(k, u, n=3, around=300):
-    st, h, fu = get(u, tentativas=1); h = h or ""
-    print(f"P {k} {st} {len(h)} {fu}")
-    for m in list(re.finditer(r"€", h))[:n]:
-        print("  E", re.sub(r"\s+", " ", h[max(0, m.start()-around): m.end()+80]))
-    return h
-h = show("habisale", "https://www.habisale.pt/comprar", 2, 900)
-print("  HREF", list(dict.fromkeys(re.findall(r'href="(/[^"]*imovel[^"]*|/[^"]*\d{5,}[^"]*)"', h)))[:8])
-print("  FORMS", re.findall(r'(?:action|data-url|data-href)="([^"]+)"', h)[:10])
-h = show("ds-lisboa", "https://www.decisoesesolucoes.com/pt/imoveis/?pg=1&o=1&dd=11&cc=1110&or=30", 1, 600)
-print("  SELECT", re.findall(r'<select[^>]*name="([^"]+)"', h)[:20])
-print("  OPTS", re.findall(r'<option value="(\d+)"[^>]*>\s*(Oeiras|Cascais|Sintra|Lisboa|Amadora)\s*<', h)[:10])
-h = show("iad", "https://www.iadportugal.pt/anuncios/lisboa/venda", 0)
+def devalue(arr):
+    memo = {}
+    def r(i):
+        if not isinstance(i, int) or i < 0: return None
+        if i in memo: return memo[i]
+        v = arr[i]
+        if isinstance(v, list):
+            if v and isinstance(v[0], str) and v[0] in ("ShallowReactive", "Reactive", "Ref", "ShallowRef"): out = r(v[1])
+            elif v and isinstance(v[0], str) and v[0] in ("Set", "Map", "Date"): out = v[1:]
+            else:
+                out = []; memo[i] = out; out.extend(r(x) for x in v); return out
+        elif isinstance(v, dict):
+            out = {}; memo[i] = out
+            for k, x in v.items(): out[k] = r(x)
+            return out
+        else: out = v
+        memo[i] = out; return out
+    return r(0)
+st, h, fu = get("https://www.iadportugal.pt/anuncios/lisboa/venda", tentativas=1)
 m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', h, re.S)
-print("  NUXTDATA", (m.group(1)[:1500] if m else "none"))
-h = show("predimed", "https://www.predimed.pt/Imovel/34grmg", 2, 400)
-for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S)[:3]: print("  LD", s[:800])
+d = devalue(json.loads(m.group(1)))
+q = d["data"]["vue-query-state"]["queries"][0]["state"]["data"]
+print("IAD total", q["totalItems"], "per", q["itemsPerPage"])
+print("IAD item", json.dumps(q["items"][0], ensure_ascii=False, default=str)[:2500])
+print("IAD seo", json.dumps(q["seoLinks"], ensure_ascii=False, default=str)[:1500])
+st, h, fu = get("https://www.decisoesesolucoes.com/pt/imoveis/?pg=1&o=1&or=30", tentativas=1)
+print("DS links", [x for x in dict.fromkeys(re.findall(r'href="([^"]+)"', h)) if re.search(r"oeiras|cascais|sintra|lisboa", x, re.I)][:15])
+print("DS card", re.sub(r"\s+", " ", h[h.find("_15597") - 1500: h.find("_15597") + 1500])[:3000])
+st, h, fu = get("https://www.rbrokers.pt/imovel-venda-apartamento-t2-sintra-6224222", tentativas=1)
+print("RB", st, len(h))
+for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S)[:2]: print("RBLD", s[:1500])
+i = h.find("€"); print("RBE", re.sub(r"\s+", " ", h[i-800:i+200]))
