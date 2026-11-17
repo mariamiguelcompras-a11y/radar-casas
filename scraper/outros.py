@@ -1,4 +1,4 @@
-"""Outros portais além do Imovirtual: OLX, CustoJusto e Casa Sapo.
+"""Outros portais além do Imovirtual: OLX, CustoJusto, Casa Sapo e RE/MAX.
 
 Cada função devolve anúncios no mesmo formato de data/imoveis.json (sem os campos de controlo,
 que o scrape.py acrescenta). Os sites que bloqueiam são saltados sem estragar o resto da pesquisa.
@@ -9,7 +9,9 @@ import re
 import time
 from datetime import date, datetime, timedelta
 
-from scrape import (EXCLUIR_TITULO, PRECO_MAX, PRECO_MIN, classificar_garagem, get, next_data, pausa)
+import urllib.request
+
+from scrape import (EXCLUIR_TITULO, PRECO_MAX, PRECO_MIN, classificar_garagem, get, next_data, pausa, zona_de)
 
 HOJE = date.today().isoformat()
 
@@ -268,9 +270,92 @@ def casasapo():
     return out
 
 
+# RE/MAX: o site carrega as casas da sua própria API (a mesma que a página usa no browser)
+REMAX_REGIOES = {"Oeiras": 541, "Cascais": 536, "Sintra": 542, "Amadora": 532, "Lisboa": 537}
+REMAX_TIPOS = "1,3,11"   # apartamento, duplex, moradia
+REMAX_H = {"Content-Type": "application/json", "Accept": "application/json", "Origin": "https://remax.pt",
+           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"}
+
+
+def remax_api(caminho, corpo=None):
+    for tentativa in range(3):
+        try:
+            req = urllib.request.Request("https://remax.pt/api/" + caminho, data=json.dumps(corpo).encode() if corpo else None, headers=REMAX_H)
+            with urllib.request.urlopen(req, timeout=40) as x:
+                return json.loads(x.read().decode("utf-8", "replace"))
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return None
+        except Exception:
+            pass
+        time.sleep(5 * (tentativa + 1))
+    return None
+
+
+def remax():
+    out = []
+    for nome, rid in REMAX_REGIOES.items():
+        filtros = [{"field": "businessTypeID", "operationType": "int", "operator": "=", "value": "1"},
+                   {"field": "listingClassID", "operationType": "int", "operator": "=", "value": "1"},
+                   {"field": "listingTypeID", "operationType": "multiple", "operator": "=", "value": REMAX_TIPOS},
+                   {"field": "Region2ID", "operationType": "string", "operator": "=", "value": str(rid)}]
+        for pagina in range(1, 60):
+            d = remax_api("Listing/PaginatedMultiMatchSearch", {"filters": filtros, "pageNumber": pagina, "pageSize": 100, "sort": ["-PublishDate"], "searchValue": ""})
+            pausa()
+            res = (d or {}).get("results") or []
+            if not res:
+                if d is None:
+                    print(f"  RE/MAX falhou: {nome} página {pagina}")
+                break
+            for x in res:
+                preco = x.get("listingPrice") or 0
+                quartos = x.get("numberOfBedrooms")
+                if not (PRECO_MIN <= preco <= PRECO_MAX) or (quartos or 0) < 2 or x.get("privatePrice"):
+                    continue
+                locs = ["Lisboa", x.get("regionName2") or nome, x.get("regionName3") or "", x.get("localZone") or ""]
+                talvez = (x.get("regionName3") or "") in ("Belém", "Lumiar", "Carnide", "Marvila", "Parque das Nações", "Campolide",
+                                                         "Benfica", "Alcântara", "Ajuda", "Cacém e São Marcos")
+                if zona_de([l for l in locs if l]) is None and not talvez:
+                    continue   # fora das zonas (sem gastar um pedido com a ficha)
+                det = remax_api("Listing/GetListingByTitle?listingPublicId=" + x["listingTitle"]) or x
+                pausa()
+                desc = next((y.get("description") for y in (det.get("descriptions") or []) if y.get("languageID") == 9 or y.get("languageCode") == "PT"), "") or ""
+                tipo = {1: "Apartamento", 3: "Duplex", 11: "Moradia"}.get(x.get("listingTypeID"), "")
+                titulo = f"{tipo} T{quartos} em {x.get('localZone') or x.get('regionName3') or nome}".strip()
+                area = x.get("livingArea") or x.get("totalArea")
+                a = analisar(titulo, desc, float(preco), area, x.get("constructionYear"), f"T{quartos}", quartos)
+                a["tipologia"] = ("Moradia " if x.get("listingTypeID") == 11 else "") + f"T{quartos}"
+                if x.get("garage") or (x.get("garageSpots") or 0) > 0:
+                    a["garagem"] = "Sim"
+                    a["garagemFrase"] = a.get("garagemFrase") or f"Garagem assinalada nas características do anúncio RE/MAX ({x.get('garageSpots') or 1} lugar(es))"
+                elif x.get("parking") and a["garagem"] in ("Não indicado",):
+                    a["garagem"], a["garagemFrase"] = "Sim", "Estacionamento assinalado nas características do anúncio RE/MAX"
+                if x.get("numberOfBathrooms"):
+                    a["wc"] = x["numberOfBathrooms"]
+                if x.get("elevator"):
+                    a["elevador"] = "Sim"
+                if set(x.get("listingAttributesIds") or []) & {5, 8, 9}:
+                    a["varanda"] = "Sim"
+                a.update({
+                    "zona": zona_de([l for l in locs if l], titulo + " " + desc),
+                    "localizacao": ", ".join(v for v in (x.get("localZone"), x.get("regionName2")) if v),
+                    "noMercadoDesde": (x.get("publishDate") or x.get("contractDate") or "")[:10] or None,
+                    "atualizado": (x.get("modified") or "")[:10] or None,
+                    "url": f"https://remax.pt/pt/imoveis/{x.get('descriptionTags') or 'imovel'}/{x['listingTitle']}",
+                    "fonte": "RE/MAX", "agencia": x.get("officeName") or "RE/MAX",
+                    "chave": "REMAX-" + x["listingTitle"],
+                })
+                if valido(a):
+                    out.append(a)
+            if not (d or {}).get("hasNextPage"):
+                break
+    print(f"RE/MAX: {len(out)} anúncios válidos")
+    return out
+
+
 def recolher():
     todos = []
-    for fn in (olx, custojusto, casasapo):
+    for fn in (olx, custojusto, casasapo, remax):
         try:
             todos += fn()
         except Exception as e:  # um portal com problemas não pode estragar a pesquisa

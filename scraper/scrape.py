@@ -475,7 +475,9 @@ def main():
     import outros
     vistos_outros = set()
     repetidos = 0
-    for d in outros.recolher():
+    recolhidos = outros.recolher()
+    fontes_ok = {d.get("fonte") for d in recolhidos}   # só se apaga o que falta de um portal que respondeu
+    for d in recolhidos:
         k = d.pop("chave")
         d.pop("quartos", None)
         vistos_outros.add(k)
@@ -510,7 +512,7 @@ def main():
 
     # OLX e CustoJusto são percorridos por inteiro em cada pesquisa: o que já não aparece
     # (retirado ou fora dos critérios) sai da lista.
-    for k in [k for k, x in guardados.items() if x.get("fonte") in ("OLX", "CustoJusto") and k not in vistos_outros]:
+    for k in [k for k, x in guardados.items() if x.get("fonte") in ("OLX", "CustoJusto", "RE/MAX") and x.get("fonte") in fontes_ok and k not in vistos_outros]:
         del guardados[k]
 
     # 3. Anúncios guardados que não apareceram: confirmar se ainda existem
