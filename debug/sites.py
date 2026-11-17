@@ -1,26 +1,20 @@
 import sys, re, time, json
 sys.path.insert(0, "scraper")
 from scrape import get
-P = {
- "c21": "https://century21.pt/comprar/imoveis/distrito-lisboa/concelho-oeiras",
- "zome": "https://www.zome.pt/pt/pesquisar/comprar-casa/apartamento/t2/l1-lisboa/l2-oeiras",
- "iad": "https://www.iadportugal.pt/anuncios/lisboa/venda",
- "ds": "https://www.decisoesesolucoes.com/pt/imoveis/?pg=1&o=1&or=30",
- "era": "https://www.era.pt/comprar?ob=1&tp=1,2&ord=3&page=1",
- "predimed": "https://www.predimed.pt/imoveis",
- "habisale": "https://www.habisale.pt/comprar",
- "citylux": "https://www.citylux.pt/comprar",
- "imojoy": "https://www.imojoy.pt/imoveis/venda",
- "konsultti": "https://www.konsultti.pt/imoveis",
- "rbrokers": "https://www.rbrokers.pt/imoveis?imovel=2&natureza=8&pesquisa=false",
- "elite": "https://www.elitehomes.pt/lista-propriedades",
-}
-for k, u in P.items():
+def show(k, u, n=3, around=300):
     st, h, fu = get(u, tentativas=1); h = h or ""
-    euros = len(re.findall(r"\d[\d.\s ]{3,}\s?€|€\s?\d", h))
-    hrefs = list(dict.fromkeys(re.findall(r'href="([^"#]{12,160})"', h)))
-    det = [x for x in hrefs if re.search(r"\d{4,}|/imovel/|/anuncio|/propriedade|/detalhe|ref", x, re.I)][:6]
-    js = [m for m in ("__NEXT_DATA__", "__NUXT__", "window.__NUXT__", "application/ld+json", "dataLayer", "listings", "properties") if m in h]
-    print(f"P {k} {st} len={len(h)} euros={euros} {js} -> {fu[:80]}\n   DET {det}")
-    m = re.search(r"€", h)
-    time.sleep(1)
+    print(f"P {k} {st} {len(h)} {fu}")
+    for m in list(re.finditer(r"€", h))[:n]:
+        print("  E", re.sub(r"\s+", " ", h[max(0, m.start()-around): m.end()+80]))
+    return h
+h = show("habisale", "https://www.habisale.pt/comprar", 2, 900)
+print("  HREF", list(dict.fromkeys(re.findall(r'href="(/[^"]*imovel[^"]*|/[^"]*\d{5,}[^"]*)"', h)))[:8])
+print("  FORMS", re.findall(r'(?:action|data-url|data-href)="([^"]+)"', h)[:10])
+h = show("ds-lisboa", "https://www.decisoesesolucoes.com/pt/imoveis/?pg=1&o=1&dd=11&cc=1110&or=30", 1, 600)
+print("  SELECT", re.findall(r'<select[^>]*name="([^"]+)"', h)[:20])
+print("  OPTS", re.findall(r'<option value="(\d+)"[^>]*>\s*(Oeiras|Cascais|Sintra|Lisboa|Amadora)\s*<', h)[:10])
+h = show("iad", "https://www.iadportugal.pt/anuncios/lisboa/venda", 0)
+m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', h, re.S)
+print("  NUXTDATA", (m.group(1)[:1500] if m else "none"))
+h = show("predimed", "https://www.predimed.pt/Imovel/34grmg", 2, 400)
+for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S)[:3]: print("  LD", s[:800])
