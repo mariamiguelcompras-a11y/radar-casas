@@ -16,7 +16,13 @@ HOJE = date.today().isoformat()
 # Palavras da localização -> zona (a ordem importa: o mais específico primeiro)
 ZONAS = [
     ("Alfragide", r"alfragide"),
-    ("Oeiras", r"linda-a-velha|linda a velha"),
+    ("Linda-a-Velha", r"linda-a-velha|linda a velha"),
+    ("Restelo", r"restelo"),
+    ("Telheiras", r"telheiras"),
+    ("Braço de Prata", r"bra[cç]o de prata"),
+    ("Monsanto", r"monsanto"),
+    ("Rio de Mouro", r"rio de mouro|rinchoa|serra das minas|albarraque"),
+    ("São Marcos", r"s[aã]o marcos"),
     ("Algés", r"alg[eé]s|cruz quebrada|dafundo|miraflores"),
     ("Carcavelos", r"carcavelos|\bparede\b(?!s)"),
     ("Alcabideche", r"alcabideche|alvide|murches|malveira da serra|amoreira"),
@@ -103,7 +109,8 @@ def valido(d):
 
 # ---------------------------------------------------------------- OLX
 OLX_LOCAIS = ["oeiras", "paco-de-arcos", "carnaxide", "linda-a-velha", "alges", "cascais", "estoril", "carcavelos",
-              "parede", "sao-domingos-de-rana", "alcabideche", "alfragide", "massama", "monte-abraao", "queluz"]
+              "parede", "sao-domingos-de-rana", "alcabideche", "alfragide", "massama", "monte-abraao", "queluz",
+              "rio-de-mouro", "sao-marcos", "restelo", "telheiras", "monsanto", "braco-de-prata"]
 OLX_CATS = ["apartamentos-venda", "moradias-venda"]
 
 
@@ -157,7 +164,7 @@ def olx():
 
 
 # ---------------------------------------------------------------- CustoJusto
-CJ_CONCELHOS = ["oeiras", "cascais", "sintra", "amadora"]
+CJ_CONCELHOS = ["oeiras", "cascais", "sintra", "amadora", "lisboa"]
 CJ_CATS = ["apartamentos-venda", "moradias-venda"]
 
 

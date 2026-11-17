@@ -36,6 +36,18 @@ LOCAIS = [
     "lisboa/amadora/alfragide",
     "lisboa/sintra/massama-e-monte-abraao",
     "lisboa/sintra/queluz-e-belas",
+    # Novas zonas (só ficam os anúncios do bairro pedido; ver zona_de)
+    "lisboa/sintra/rio-de-mouro",
+    "lisboa/sintra/cacem-e-sao-marcos",      # só São Marcos
+    "lisboa/lisboa/belem",                   # só Restelo
+    "lisboa/lisboa/lumiar",                  # só Telheiras
+    "lisboa/lisboa/carnide",                 # só Telheiras
+    "lisboa/lisboa/marvila",                 # só Braço de Prata
+    "lisboa/lisboa/parque-das-nacoes",       # só Braço de Prata
+    "lisboa/lisboa/campolide",               # só junto a Monsanto
+    "lisboa/lisboa/benfica",                 # só junto a Monsanto
+    "lisboa/lisboa/alcantara",               # só junto a Monsanto
+    "lisboa/lisboa/ajuda",                   # só junto a Monsanto
 ]
 TIPOS = ["apartamento", "moradia"]
 TIPOLOGIAS = ["t2", "t3", "t4"]   # "t5" não é um filtro válido no Imovirtual (devolve tudo)
@@ -117,13 +129,15 @@ def pesquisa(tipo, tipologia, local, extra=""):
     return slugs
 
 
-def zona_de(locs):
-    """locs = nomes da localização, do distrito para a rua. Devolve a zona ou None (fora)."""
+def zona_de(locs, texto=""):
+    """locs = nomes da localização, do distrito para a rua; texto = título + descrição.
+    Devolve a zona ou None (fora)."""
     nomes = [n.lower() for n in locs]
     txt = " > ".join(nomes)
+    tudo = txt + " " + (texto or "").lower()
     if "oeiras" in nomes:
         if "algés, linda-a-velha e cruz quebrada-dafundo" in nomes:
-            return "Oeiras" if "linda-a-velha" in nomes else "Algés"
+            return "Linda-a-Velha" if "linda-a-velha" in nomes else "Algés"
         return "Oeiras"
     if "cascais" in nomes:
         if "carcavelos e parede" in nomes:
@@ -133,7 +147,21 @@ def zona_de(locs):
         return "Cascais"
     if "amadora" in nomes:
         return "Alfragide" if "alfragide" in nomes else None
+    if len(nomes) > 1 and nomes[1] == "lisboa":   # concelho de Lisboa (cidade)
+        if "belém" in nomes:
+            return "Restelo" if re.search(r"restelo", tudo) else None
+        if "lumiar" in nomes or "carnide" in nomes:
+            return "Telheiras" if re.search(r"telheiras", tudo) else None
+        if "marvila" in nomes or "parque das nações" in nomes:
+            return "Braço de Prata" if re.search(r"bra[cç]o de prata", tudo) else None
+        if any(x in nomes for x in ("campolide", "benfica", "alcântara", "ajuda")):
+            return "Monsanto" if re.search(r"monsanto|serafina", tudo) else None
+        return None
     if "sintra" in nomes:
+        if "rio de mouro" in nomes:
+            return "Rio de Mouro"
+        if "cacém e são marcos" in nomes:
+            return "São Marcos" if ("são marcos" in nomes or re.search(r"s[aã]o marcos", tudo)) else None
         if not ("massamá e monte abraão" in nomes or "queluz e belas" in nomes):
             return None
         sub = nomes[-1] if nomes else ""
@@ -290,7 +318,7 @@ def ficha(slug, tipologia_pesquisa, tipo, empreendimento=None):
         "id": ad.get("id"),
         "titulo": titulo,
         "localizacao": ", ".join([x for x in [locs[-1] if locs else "", rua] if x]) or titulo,
-        "zona": zona_de(locs),
+        "zona": zona_de(locs, titulo + " " + (ad.get("description") or "")),
         "preco": preco,
         "area": area,
         "tipologia": tip,
