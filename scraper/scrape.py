@@ -182,9 +182,11 @@ def num(v):
 
 
 GAR = r"(garagem|box|parqueamento|lugar(?:es)? de (?:estacionamento|garagem|parqueamento)|estacionamento)"
-GAR_A_PARTE = re.compile(r"(possibilidade de (?:adquirir|comprar)|pode(?:r[aá])? (?:adquirir|comprar)|op[cç]ional|valor adicional|[aà] parte|n[aã]o inclu[ií]d|acresce\b|por mais|vendid[oa] separadamente|em separado)[^.;\n]{0,60}" + GAR + "|" + GAR + r"[^.;\n]{0,60}(op[cç]ional|[aà] parte|n[aã]o inclu[ií]d|valor adicional|vendid[oa] separadamente|em separado|por mais \d|acresce\b)")
+GAR_A_PARTE = re.compile(r"(possibilidade de (?!fazer|construir|criar)|valor simb[oó]lico|pode(?:r[aá])? (?:adquirir|comprar)|op[cç]ional|valor adicional|[aà] parte|n[aã]o inclu[ií]d|acresce\b|por mais|vendid[oa] separadamente|em separado)[^.;\n]{0,60}" + GAR + "|" + GAR + r"[^.;\n]{0,60}(op[cç]ional|[aà] parte|n[aã]o inclu[ií]d|valor adicional|vendid[oa] separadamente|em separado|por mais \d|acresce\b)")
 GAR_SIM = re.compile(r"(com|inclui|incluindo|inclu[ií]d[oa]s?|disp[oõ]e de|tem|possui|e|\+)\s+(?:um |uma |dois |duas |\d |o |a )?(?:\w+ ){0,2}(garagem|box|lugar(?:es)? de (?:estacionamento|garagem|parqueamento)|parqueamento|estacionamento privativo)"
                      r"|\b(box (?:fechad|individual|privativ|para \w+ carro)|garagem (?:fechad|individual|privativ|box|com|para \w+ (?:carro|viatura))|lugar de (?:garagem|parqueamento)|estacionamento (?:privativo|coberto|na cave|em cave)|parqueamento (?:privativo|coberto)|lugar(?:es)? de estacionamento (?:na cave|privativ|coberto|em garagem|na garagem))")
+# "não dispõe de parqueamento", "não tem garagem", "sem lugar de estacionamento"
+GAR_NAO = re.compile(r"n[aã]o (?:disp[oõ]e|tem|possui|inclui|t[eê]m)\s+(?:de\s+)?(?:\w+\s+){0,2}" + GAR + r"|\bsem (?:garagem|parqueamento|box|lugar(?:es)? de (?:estacionamento|garagem|parqueamento))")
 GAR_RUA = re.compile(r"sem garagem|sem estacionamento|estacionamento (?:f[aá]cil|p[uú]blico|na rua|gratuito|abundante)|f[aá]cil estacionamento|facilidade de estacionamento|estacionar na rua")
 
 
@@ -201,6 +203,12 @@ def frase(texto, m):
 def classificar_garagem(extras, tl, dl):
     """Devolve (classificação, frase do anúncio que a justifica)."""
     texto = tl + ". " + dl
+    m_nao = GAR_NAO.search(texto)
+    if m_nao:
+        limpo = GAR_NAO.sub(" ", texto)   # tirar as negações antes de procurar a garagem
+        if not GAR_SIM.search(limpo) and not GAR_A_PARTE.search(limpo):
+            return "Não", frase(texto, m_nao)
+        texto = limpo
     m_parte = GAR_A_PARTE.search(texto)
     m_sim = GAR_SIM.search(texto)
     # "lugares de estacionamento" numa praceta/rua/zona é estacionamento público, não garagem
