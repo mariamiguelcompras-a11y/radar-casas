@@ -1,5 +1,16 @@
-import sys, collections; sys.path.insert(0, "scraper")
+import sys, json; sys.path.insert(0, "scraper")
 import outros
-r = outros.remax()
-print("TOTAL", len(r), collections.Counter((x["zona"], x["garagem"]) for x in r).most_common())
-for x in r[:12]: print("EX", x["zona"], x["tipologia"], x["preco"], x["area"], x["wc"], x["garagem"], "|", (x["garagemFrase"] or "")[:80], "|", x["url"])
+d = outros.remax_api("Listing/GetListingByTitle?listingPublicId=123751650-27")
+print("DESCS", json.dumps(d.get("descriptions"), ensure_ascii=False)[:3000])
+def walk(o, p=""):
+    if isinstance(o, dict):
+        for k, v in o.items(): walk(v, p + "/" + k)
+    elif isinstance(o, list):
+        for i, v in enumerate(o[:3]): walk(v, f"{p}[{i}]")
+    elif isinstance(o, str) and len(o) > 150: print("LONG", p, o[:200].replace("\n", " "))
+walk(d)
+from scrape import get
+st, h, f = get("https://remax.pt/pt/imoveis/venda-apartamento-t2-oeiras-alges-linda-a-velha-e-cruz-quebrada-dafundo/123751650-27")
+import re
+for m in re.finditer(r"garage|parque|estaciona", h, re.I):
+    print("PAGE", h[max(0, m.start()-120): m.end()+120].replace("\n", " ")[:260]); 
