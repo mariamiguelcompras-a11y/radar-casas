@@ -161,7 +161,8 @@ def zona_de(locs, texto=""):
         if "rio de mouro" in nomes:
             return "Rio de Mouro"
         if "cacém e são marcos" in nomes:
-            return "São Marcos" if ("são marcos" in nomes or re.search(r"s[aã]o marcos", tudo)) else None
+            # o nome da freguesia já contém "São Marcos": procurar só no bairro e no texto do anúncio
+            return "São Marcos" if ("são marcos" in nomes or re.search(r"s[aã]o marcos", (texto or "").lower())) else None
         if not ("massamá e monte abraão" in nomes or "queluz e belas" in nomes):
             return None
         sub = nomes[-1] if nomes else ""
