@@ -325,7 +325,9 @@ def remax():
                 area = x.get("livingArea") or x.get("totalArea")
                 a = analisar(titulo, desc, float(preco), area, x.get("constructionYear"), f"T{quartos}", quartos)
                 a["tipologia"] = ("Moradia " if x.get("listingTypeID") == 11 else "") + f"T{quartos}"
-                if x.get("garage") or (x.get("garageSpots") or 0) > 0:
+                if a["garagem"].startswith("À parte") or a["garagem"] == "Não":
+                    pass   # a descrição diz que a garagem se compra à parte (ou que não há): prevalece sobre a ficha
+                elif x.get("garage") or (x.get("garageSpots") or 0) > 0:
                     a["garagem"] = "Sim"
                     a["garagemFrase"] = a.get("garagemFrase") or f"Garagem assinalada nas características do anúncio RE/MAX ({x.get('garageSpots') or 1} lugar(es))"
                 elif x.get("parking") and a["garagem"] in ("Não indicado",):
