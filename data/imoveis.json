@@ -344,7 +344,12 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJE12W.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJGXez.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-prdio-com-elevador-na-rinchoa-rio-de-mouro-IDJBoMU.html"
+  ]
  },
  {
   "id": 19345721,
@@ -629,7 +634,13 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/t2-novo-na-quinta-de-fitares-1-andar-IDJGykL.html",
+   "https://www.olx.pt/d/anuncio/t2-novo-na-quinta-de-fitares-4-andar-IDJGyjU.html",
+   "https://www.olx.pt/d/anuncio/no-apenas-onde-vai-viver-onde-a-vida-vai-acontecer-IDJzdK0.html",
+   "https://www.olx.pt/d/anuncio/no-apenas-onde-vai-viver-onde-a-vida-vai-acontecer-IDJzdJV.html"
+  ]
  },
  {
   "id": 19336332,
@@ -801,7 +812,11 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/t2-renovado-no-8-andar-junto-ao-oeiras-golf-e-taguspark-IDJzvN8.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJFGox.html"
+  ]
  },
  {
   "id": 19321464,
@@ -998,7 +1013,10 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/t3-em-rio-de-mouro-com-lugar-de-parqueamento-a-5-min-da-estao-IDJEbTs.html"
+  ]
  },
  {
   "tipologia": "T2",
@@ -1338,46 +1356,32 @@
   "emPlanta": false,
   "garagemFrase": "no terreno existe atualmente uma moradia térrea t3 com aproximadamente 71,5 m², com garagem e espaço exterior com árvores de fruto.",
   "outrosLinks": [
-   "https://www.imovirtual.com/pt/anuncio/t2-cascais-ID1iYyN"
-  ]
- },
- {
-  "id": 19287379,
-  "titulo": "Apartamento T2 em prédio com elevador na Rinchoa, Rio de Mouro",
-  "localizacao": "Rinchoa, Rua Casal da Serra",
-  "zona": "Rio de Mouro",
-  "preco": 280000.0,
-  "area": 84.0,
-  "tipologia": "T2",
-  "quartos": 2,
-  "wc": 2,
-  "garagem": "Sim",
-  "garagemFrase": "apartamento t3 para venda com 1lugar de parqueamento",
-  "varanda": "Não indicado",
-  "elevador": "Sim",
-  "construcao": "Usada",
-  "emPlanta": false,
-  "empreendimento": null,
-  "estado": "Bom",
-  "ano": 1987,
-  "entrega": "Não se aplica",
-  "arrendado": "Não indicado",
-  "noMercadoDesde": "2026-09-24",
-  "atualizado": "2026-11-03",
-  "url": "https://www.imovirtual.com/pt/anuncio/apartamento-t2-em-predio-com-elevador-na-rinchoa-rio-de-mouro-ID1iWvL",
-  "fonte": "Imovirtual",
-  "agencia": "CENTURY 21 Rise and Shine",
-  "notas": "Andar: 4. Certificado energético D. Garagem (no OLX): \"apartamento t3 para venda com 1lugar de parqueamento\".",
-  "chave": "ID1iWvL",
-  "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-17",
-  "disponibilidade": "Ativo",
-  "historicoPrecos": [],
-  "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJE12W.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJGXez.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-em-prdio-com-elevador-na-rinchoa-rio-de-mouro-IDJBoMU.html",
-   "https://www.imovirtual.com/pt/anuncio/apartamento-t3-para-venda-ID1j0Q7"
+   "https://www.imovirtual.com/pt/anuncio/t2-cascais-ID1iYyN",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJGTN4.html",
+   "https://www.olx.pt/d/anuncio/t2-cascais-guia-junto-ao-mar-comboio-e-excelentes-acessos-IDJDQEr.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-cascais-IDJCXw8.html",
+   "https://www.olx.pt/d/anuncio/oportunidade-de-negcio-t2-com-alta-rentabilidade-e-potencial-de-IDJFZ7U.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-c-varanda-cascais-IDJCCrv.html",
+   "https://www.olx.pt/d/anuncio/t2-em-cascais-a-2-minutos-da-casa-da-guia-e-do-mar-IDJFYWk.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-remodelao-cascais-IDJCDnH.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-remodelao-em-cascais-excelente-oportunidade-IDJFZ1U.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-com-varanda-em-cascais-excelente-oportunidade-de-inve-IDJD8b4.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-c-varanda-IDJCI8s.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-cascais-IDJIhwa.html",
+   "https://www.olx.pt/d/anuncio/situado-na-zona-da-torre-em-cascais-apartamento-t2-IDJDZ7I.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-com-varanda-na-torre-cascais-IDJCL45.html",
+   "https://www.olx.pt/d/anuncio/apartamento-em-cascais-quinta-do-rosrio-IDJGUWN.html",
+   "https://www.olx.pt/d/anuncio/t2-cascais-IDJDQMa.html",
+   "https://www.olx.pt/d/anuncio/t2-cascais-IDJCCdc.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-cruz-da-guia-cascais-IDJCCpK.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-no-bairro-do-rosrio-IDJGTtX.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-cascais-IDJGTrf.html",
+   "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/t2-cascais-45430423",
+   "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-t2-c-varanda-45418880",
+   "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-t2-para-remodelaca-45408557",
+   "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-em-cascais-quint-45499407",
+   "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-t2-cascais-45495083",
+   "https://www.custojusto.pt/lisboa/imobiliario/moradias/casa-villa-t2-em-sao-domingo-45384459"
   ]
  },
  {
@@ -1620,7 +1624,13 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/apartamento-t2-com-terrao-de-50-m2-e-box-fechada-o-seu-novo-refgio-IDJw3T3.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJqruE.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-na-serra-das-minas-rio-de-mouro-IDJAglX.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-com-terrao-de-50-m-e-box-fechad-IDJGw3w.html"
+  ]
  },
  {
   "id": 19273168,
@@ -1656,42 +1666,6 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/promoo-exclusiva-t3-junto-estao-de-rio-de-mouro-IDJA3fH.html"
-  ]
- },
- {
-  "id": 19267394,
-  "titulo": "T2 renovado no 8.º andar, junto ao Oeiras Golf e Taguspark",
-  "localizacao": "São Marcos, Rua Cidade de Rio de Janeiro - Urbanização de São Marcos",
-  "zona": "São Marcos",
-  "preco": 339000.0,
-  "area": 80.0,
-  "tipologia": "T2",
-  "quartos": 2,
-  "wc": 1,
-  "garagem": "Sim",
-  "garagemFrase": "apartamento t2 com arrecadação e garagem para 1 carro | são marcos",
-  "varanda": "Não indicado",
-  "elevador": "Sim",
-  "construcao": "Usada",
-  "emPlanta": false,
-  "empreendimento": null,
-  "estado": "Renovado",
-  "ano": 2001,
-  "entrega": "Não se aplica",
-  "arrendado": "Não indicado",
-  "noMercadoDesde": "2026-09-06",
-  "atualizado": "2026-11-14",
-  "url": "https://www.imovirtual.com/pt/anuncio/t2-renovado-no-8-andar-junto-ao-oeiras-golf-e-taguspark-ID1iQkq",
-  "fonte": "Imovirtual",
-  "agencia": "Century 21 Atlântico - Blakemore, Mendes & Silva, Lda",
-  "notas": "Garagem: \"conta ainda com arrecadação na cave e facilidade de estacionamento à porta do edifício.\". Andar: 8. Certificado energético C. Garagem (no OLX): \"apartamento t2 com arrecadação e garagem para 1 carro | são marcos\".",
-  "chave": "ID1iQkq",
-  "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-17",
-  "disponibilidade": "Ativo",
-  "historicoPrecos": [],
-  "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJFGox.html"
   ]
  },
  {
@@ -1941,7 +1915,11 @@
   "primeiraVez": "2026-11-17",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
-  "historicoPrecos": []
+  "historicoPrecos": [],
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/apartamento-t3-com-arrecadao-e-parqueamento-em-so-marcos-IDJx1P3.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJtmgp.html"
+  ]
  },
  {
   "id": 19229791,
@@ -2051,7 +2029,7 @@
   "tipologia": "T3",
   "quartos": 3,
   "wc": 2,
-  "garagem": "Sim",
+  "garagem": "À parte (opcional)",
   "varanda": "Não indicado",
   "elevador": "Não",
   "construcao": "Usada",
@@ -2064,14 +2042,14 @@
   "url": "https://www.imovirtual.com/pt/anuncio/t3-com-suite-e-garagem-localizacao-tranquila-para-viver-em-familia-ID1iEve",
   "fonte": "Imovirtual",
   "agencia": "Century21 Isidoro Alves",
-  "notas": "Com suite. Garagem: \"t3 com suíte e garagem - localização tranquila para viver em família.\". Andar: 3. Certificado energético D.",
+  "notas": "Com suite. Garagem: \"t3 com suíte, possibilidade de aproveitamento do sótão, garagem e localização tranquila para viver em família\". Andar: 3. Certificado energético D.",
   "chave": "ID1iEve",
   "primeiraVez": "2026-11-16",
   "ultimaVerificacao": "2026-11-17",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
-  "garagemFrase": "t3 com suíte e garagem - localização tranquila para viver em família.",
+  "garagemFrase": "t3 com suíte, possibilidade de aproveitamento do sótão, garagem e localização tranquila para viver em família",
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/apartamento-t3-c-2-wcs-e-sala-c-lareira-em-monte-abrao-sintra-IDJEM9W.html"
   ]
@@ -2291,43 +2269,6 @@
   "historicoPrecos": [],
   "outrosLinks": [
    "https://www.olx.pt/d/anuncio/empreendimento-nova-construo-lt133-t2-2-qta-de-fitares-IDJttAA.html"
-  ]
- },
- {
-  "id": 19189218,
-  "titulo": "Apartamento T2 para venda",
-  "localizacao": "São Marcos, Rua Cidade de São Salvador - Urbanização de São Marcos",
-  "zona": "São Marcos",
-  "preco": 315000.0,
-  "area": 80.0,
-  "tipologia": "T2",
-  "quartos": 2,
-  "wc": 1,
-  "garagem": "Sim",
-  "garagemFrase": "apartamento t3 com arrecadação e parqueamento em são marcos.",
-  "varanda": "Sim",
-  "elevador": "Sim",
-  "construcao": "Usada",
-  "emPlanta": false,
-  "empreendimento": null,
-  "estado": "Bom",
-  "ano": 1998,
-  "entrega": "Não se aplica",
-  "arrendado": "Não indicado",
-  "noMercadoDesde": "2026-06-24",
-  "atualizado": "2026-09-25",
-  "url": "https://www.imovirtual.com/pt/anuncio/apartamento-t2-para-venda-ID1iwZv",
-  "fonte": "Imovirtual",
-  "agencia": "Maxidomus Sociedade Mediação Imobiliária Lda",
-  "notas": "Andar: 9. Certificado energético D. Garagem (no OLX): \"apartamento t3 com arrecadação e parqueamento em são marcos.\".",
-  "chave": "ID1iwZv",
-  "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-17",
-  "disponibilidade": "Ativo",
-  "historicoPrecos": [],
-  "outrosLinks": [
-   "https://www.olx.pt/d/anuncio/apartamento-t3-com-arrecadao-e-parqueamento-em-so-marcos-IDJx1P3.html",
-   "https://www.olx.pt/d/anuncio/apartamento-t2-para-venda-IDJtmgp.html"
   ]
  },
  {
