@@ -512,7 +512,7 @@ def main():
 
     # OLX e CustoJusto são percorridos por inteiro em cada pesquisa: o que já não aparece
     # (retirado ou fora dos critérios) sai da lista.
-    for k in [k for k, x in guardados.items() if x.get("fonte") in ("OLX", "CustoJusto", "RE/MAX") and x.get("fonte") in fontes_ok and k not in vistos_outros]:
+    for k in [k for k, x in guardados.items() if x.get("fonte") in ("OLX", "CustoJusto", "RE/MAX", "iad") and x.get("fonte") in fontes_ok and k not in vistos_outros]:
         del guardados[k]
 
     # 3. Anúncios guardados que não apareceram: confirmar se ainda existem

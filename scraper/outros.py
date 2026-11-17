@@ -355,9 +355,93 @@ def remax():
     return out
 
 
+# iad Portugal: as páginas trazem os dados em __NUXT_DATA__ (formato "devalue" do Nuxt)
+def devalue(arr):
+    """Reconstrói o objeto a partir do formato achatado do Nuxt (lista em que os valores apontam para índices)."""
+    memo = {}
+    def r(i):
+        if not isinstance(i, int) or i < 0: return None
+        if i in memo: return memo[i]
+        v = arr[i]
+        if isinstance(v, list):
+            if v and isinstance(v[0], str) and v[0] in ("ShallowReactive", "Reactive", "Ref", "ShallowRef"): out = r(v[1])
+            elif v and isinstance(v[0], str) and v[0] in ("Set", "Map", "Date"): out = v[1:]
+            else:
+                out = []; memo[i] = out; out.extend(r(x) for x in v); return out
+        elif isinstance(v, dict):
+            out = {}; memo[i] = out
+            for k, x in v.items(): out[k] = r(x)
+            return out
+        else: out = v
+        memo[i] = out; return out
+    return r(0)
+
+
+def iad_dados(html):
+    m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', html or "", re.S)
+    if not m:
+        return []
+    d = devalue(json.loads(m.group(1)))
+    return [q["state"]["data"] for q in ((d.get("data") or {}).get("vue-query-state") or {}).get("queries", []) if (q.get("state") or {}).get("data")]
+
+
+IAD_CONCELHOS = {"oeiras-1110": "Oeiras", "cascais-1105": "Cascais", "sintra-1111": "Sintra", "amadora-1115": "Amadora", "lisboa-1106": "Lisboa"}
+
+
+def iad():
+    out = []
+    for slug, conc in IAD_CONCELHOS.items():
+        for pagina in range(1, 40):
+            st, html, _ = get(f"https://www.iadportugal.pt/anuncios/{slug}/venda" + (f"?page={pagina}" if pagina > 1 else ""))
+            pausa()
+            lista = next((q for q in iad_dados(html) if isinstance(q, dict) and "items" in q), None) if st == 200 else None
+            itens = (lista or {}).get("items") or []
+            if not itens:
+                break
+            for x in itens:
+                preco = ((x.get("price") or {}).get("main")) or 0
+                quartos = next((r.get("value") for r in (x.get("rooms") or []) if r.get("type") == "bedrooms"), None)
+                if not (PRECO_MIN <= preco <= PRECO_MAX) or (quartos or 0) < 2 or x.get("propertyType") not in ("apartment", "house"):
+                    continue
+                place = (x.get("location") or {}).get("place") or ""
+                pre_zona = zona_texto(place, conc if conc != "Lisboa" else "", x.get("title"), x.get("description"))
+                if not pre_zona:
+                    continue
+                ref = x["propertyListingRef"]
+                url = f"https://www.iadportugal.pt/anuncio/{(x.get('slugs') or {}).get('pt') or 'imovel'}/r{ref}"
+                st2, h2, _ = get(url)
+                pausa()
+                det = next((q for q in iad_dados(h2) if isinstance(q, dict) and str(q.get("propertyListingRef")) == str(ref)), None) if st2 == 200 else None
+                det = det or x
+                desc = det.get("description") or x.get("description") or ""
+                if isinstance(desc, dict):
+                    desc = desc.get("pt") or next(iter(desc.values()), "")
+                extras = json.dumps(det.get("features") or det.get("characteristics") or [], ensure_ascii=False)
+                area = det.get("mainSurface") or next((s_.get("value") for s_ in (x.get("surfaceList") or [])), None)
+                tipo = "Moradia " if x.get("propertyType") == "house" else ""
+                titulo = x.get("title") or f"{tipo}T{quartos} em {place}"
+                a = analisar(titulo, desc, float(preco), area, None, f"T{quartos}", quartos)
+                a["tipologia"] = f"{tipo}T{quartos}"
+                if a["garagem"] == "Não indicado" and re.search(r"garag|parking|parqueamento|estacionamento", extras, re.I):
+                    a["garagem"], a["garagemFrase"] = "Sim", "Garagem/estacionamento assinalado nas características do anúncio iad"
+                a.update({
+                    "zona": zona_texto(place, conc if conc != "Lisboa" else "", titulo, desc) or pre_zona,
+                    "localizacao": ", ".join(v for v in (place, conc) if v),
+                    "noMercadoDesde": det.get("firstPublishDate"), "atualizado": None, "url": url,
+                    "fonte": "iad", "agencia": "iad Portugal" + (f" ({(x.get('agent') or {}).get('fullName')})" if (x.get("agent") or {}).get("fullName") else ""),
+                    "chave": "IAD-" + str(ref),
+                })
+                if valido(a):
+                    out.append(a)
+            if pagina * int((lista or {}).get("itemsPerPage") or 30) >= int((lista or {}).get("totalItems") or 0):
+                break
+    print(f"iad: {len(out)} anúncios válidos")
+    return out
+
+
 def recolher():
     todos = []
-    for fn in (olx, custojusto, casasapo, remax):
+    for fn in (olx, custojusto, casasapo, remax, iad):
         try:
             todos += fn()
         except Exception as e:  # um portal com problemas não pode estragar a pesquisa
