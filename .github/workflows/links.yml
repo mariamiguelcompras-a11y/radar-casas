@@ -1,9 +1,7 @@
 name: Analisar links adicionados
 
 on:
-  workflow_dispatch: {}
-  push:
-    paths: ["data/links-manuais.json"]   # corre sozinho quando a lista de links muda
+  workflow_dispatch: {}   # lançado pela tarefa do Claude quando há links novos no radar
 
 permissions:
   contents: write
