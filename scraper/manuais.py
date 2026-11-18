@@ -157,6 +157,21 @@ def analisar_link(e):
     if e.get("zona") and e["zona"] != "Outra":
         a["zona"] = a.get("zona") or e["zona"]
     a["zona"] = a.get("zona") or (e.get("zona") if e.get("zona") and e["zona"] != "Outra" else "Outra zona")
+    # restantes campos do formulário (úteis sobretudo no Idealista e no SuperCasa, que não deixam ler o anúncio)
+    if numero(e.get("area")) and not a.get("area"):
+        a["area"] = numero(e.get("area"))
+    if numero(e.get("wc")) and not a.get("wc"):
+        a["wc"] = int(numero(e.get("wc")))
+    if numero(e.get("ano")) and not a.get("ano"):
+        a["ano"] = int(numero(e.get("ano")))
+        a["construcao"] = "Recente" if a["ano"] >= 2015 else "Usada"
+    for campo in ("varanda", "elevador", "estado", "arrendado"):
+        if e.get(campo) and a.get(campo) in (None, "", "Não indicado"):
+            a[campo] = e[campo]
+    if e.get("titulo") and not lido:
+        a["titulo"] = e["titulo"]
+    if e.get("garagem") == "Não" and a.get("garagem") in (None, "", "Não indicado"):
+        a["garagem"], a["garagemFrase"] = "Não", "Indicado por si ao adicionar o anúncio"
     if e.get("garagem") in ("Sim", "À parte (opcional)") and a.get("garagem") in (None, "", "Não indicado"):
         a["garagem"], a["garagemFrase"] = e["garagem"], "Indicado por si ao adicionar o anúncio"
     if not a.get("titulo"):
