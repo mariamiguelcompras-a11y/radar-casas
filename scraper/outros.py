@@ -295,7 +295,7 @@ def remax_api(caminho, corpo=None):
 def remax_montar(x, det, nome, locs, preco, quartos):
     """Monta o anúncio RE/MAX no formato do radar (x = linha da pesquisa, det = ficha)."""
     desc = next((y.get("description") for y in (det.get("descriptions") or []) if y.get("languageID") == 9 or y.get("languageCode") == "PT"), "") or ""
-    tipo = {1: "Apartamento", 3: "Duplex", 11: "Moradia"}.get(x.get("listingTypeID"), "")
+    tipo = {1: "Apartamento", 3: "Duplex", 11: "Moradia", 21: "Terreno", 13: "Quinta", 24: "Habitação"}.get(x.get("listingTypeID"), "")
     titulo = f"{tipo} T{quartos} em {x.get('localZone') or x.get('regionName3') or nome}".strip()
     area = x.get("livingArea") or x.get("totalArea")
     a = analisar(titulo, desc, float(preco), area, x.get("constructionYear"), f"T{quartos}", quartos)
