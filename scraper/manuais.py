@@ -199,10 +199,12 @@ def processar(guardados):
     # links que ela retirou da lista deixam de ser manuais
     for k, x in list(guardados.items()):
         if x.get("manual") and str(x.get("linkManualId")) not in ids_ativos:
+            # só entrou no radar por ter sido adicionada à mão (primeira vez = análise do link): sai
+            if k.startswith("MAN-") or x.get("soManual"):
+                del guardados[k]
+                continue
             x.pop("manual", None)
             x.pop("linkManualId", None)
-            if k.startswith("MAN-"):
-                del guardados[k]
     for e in entradas:
         if not (e.get("url") or "").startswith("http"):
             continue
@@ -222,7 +224,7 @@ def processar(guardados):
             antigo.update({"historicoPrecos": hist, "ultimaVerificacao": HOJE})
             antigo.setdefault("disponibilidade", "Ativo")
         else:
-            a.update({"chave": k, "primeiraVez": HOJE, "ultimaVerificacao": HOJE, "disponibilidade": "Ativo", "historicoPrecos": []})
+            a.update({"chave": k, "primeiraVez": HOJE, "ultimaVerificacao": HOJE, "disponibilidade": "Ativo", "historicoPrecos": [], "soManual": True})
             guardados[k] = a
             novos += 1
     print(f"Links adicionados à mão: {len(entradas)} ({novos} novos)")
