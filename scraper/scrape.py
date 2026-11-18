@@ -203,6 +203,8 @@ def frase(texto, m):
 def classificar_garagem(extras, tl, dl):
     """Devolve (classificação, frase do anúncio que a justifica)."""
     texto = tl + ". " + dl
+    # lugar só para mota/bicicleta não é garagem para carro
+    texto = re.sub(r"(?:lugar|estacionamento|parqueamento)(?:(?!garagem|box)[^.;\n]){0,30}?para (?:mota|moto|motociclo|bicicleta)s?", " ", texto)
     m_nao = GAR_NAO.search(texto)
     if m_nao:
         limpo = GAR_NAO.sub(" ", texto)   # tirar as negações antes de procurar a garagem
@@ -565,6 +567,8 @@ def main():
     lista = sorted(guardados.values(), key=lambda x: (x.get("noMercadoDesde") or ""), reverse=True)
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(lista, f, ensure_ascii=False, indent=1)
+    # "novos" = casas que entraram hoje no radar (depois de todos os filtros, garagem incluída)
+    novos = sum(1 for x in guardados.values() if x.get("primeiraVez") == HOJE)
     resumo = {"data": HOJE, "encontrados": len(vistos), "novos": novos, "atualizados": atualizados,
               "removidos": removidos, "total": len(lista),
               "ativos": sum(1 for x in lista if x.get("disponibilidade") == "Ativo"),
