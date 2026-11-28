@@ -1,5 +1,35 @@
 [
  {
+  "tipologia": "T2",
+  "titulo": "Apartamento T2 em São Domingos De Rana",
+  "preco": 300000.0,
+  "area": 72.0,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "apartamento t2 com varandas, espaço exterior e garagem box | rana – são domingos de rana",
+  "varanda": "Sim",
+  "elevador": "Não indicado",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 1989,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "Garagem: \"apartamento t2 com varandas, espaço exterior e garagem box | rana – são domingos de rana\".",
+  "zona": "Cascais",
+  "localizacao": "São Domingos De Rana, Cascais",
+  "noMercadoDesde": "2026-11-27",
+  "atualizado": "2026-11-27",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t2-cascais-sao-domingos-de-rana/125731103-52",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Viva",
+  "chave": "REMAX-125731103-52",
+  "primeiraVez": "2026-11-28",
+  "ultimaVerificacao": "2026-11-28",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
+ },
+ {
   "id": 19369221,
   "titulo": "Apartamento para venda em Oeiras - Lagoas Park",
   "localizacao": "Porto Salvo, Rua Cidade de Portalegre - Casal da Choca",
@@ -28,7 +58,7 @@
   "notas": "Garagem: \"parqueamento coberto para 1 viatura\". Certificado energético C.",
   "chave": "ID1jgON",
   "primeiraVez": "2026-11-27",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -64,7 +94,7 @@
   "notas": "Garagem: \"conta com varanda e 1 lugar de estacionamento incluído, oferecendo maior comodidade no dia a dia.\". Certificado energético A.",
   "chave": "ID1jg1N",
   "primeiraVez": "2026-11-25",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -105,7 +135,7 @@
   "notas": "Garagem: \"destaca-se pela sua funcionalidade, pelas melhorias realizadas, pelo aproveitamento do piso superior e pela comodidade de dispor de parqueamento privativo para \". Andar: 4. Certificado energético C.",
   "chave": "ID1jf07",
   "primeiraVez": "2026-11-20",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -213,7 +243,7 @@
   "notas": "Andar: 5. Certificado energético EXEMPT. Garagem (no OLX): \"apartamento t2 para venda com box, comando e arrecadação, em bom estado de conservação, sala com lareira, casa de banho com banheira, cozinha equipada,to\".",
   "chave": "ID1jdwP",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -223,7 +253,8 @@
    "https://www.olx.pt/d/anuncio/apartamento-t3-para-venda-IDJFLWS.html",
    "https://www.olx.pt/d/anuncio/excelente-t2-1-com-muita-luz-natural-cozinha-remodelada-e-amplas-rea-IDJI4nv.html",
    "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-massama-e-monte-abraao/121661111-129",
-   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/126801059-6"
+   "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-massama-e-monte-abraao/126801059-6",
+   "https://remax.pt/pt/imoveis/venda-apartamento-t2-sintra-queluz-e-belas/125541074-6"
   ]
  },
  {
@@ -252,7 +283,7 @@
   "notas": "Garagem: \"t3 duplex com garagem e arrecadação em monte abraão\". Andar: 5. Certificado energético B.",
   "chave": "ID1jdoh",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -290,7 +321,7 @@
   "agencia": "Profissional (OLX)",
   "chave": "OLX-675435615",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -326,7 +357,7 @@
   "notas": "Andar: 1. Certificado energético E. Garagem (no RE/MAX): \"apartamento t2 com parqueamento em queluz.\".",
   "chave": "ID1jdiJ",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -396,7 +427,7 @@
   "notas": "Garagem: \"moradia t2+1 com garagem e espaço exterior em albarraque\". Certificado energético E.",
   "chave": "ID1jda7",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -430,7 +461,7 @@
   "notas": "Garagem: \"apartamento t2 para venda com box, comando e arrecadação, em bom estado de conservação, sala com lareira, casa de banho com banheira, cozinha equipada,to\". Andar: 1. Certificado energético C.",
   "chave": "ID1jcfT",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -540,7 +571,7 @@
   "notas": "Com suite. Garagem: \"apartamento t2 com suite e parqueamento | avenida de fitares – rio de mouro&nbsp;\". Andar: 4. Certificado energético C.",
   "chave": "ID1jbwP",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -579,7 +610,7 @@
   "notas": "Garagem: \"apartamento t3 para venda com 1lugar de parqueamento&nbsp;\". Andar: 3. Certificado energético E.",
   "chave": "ID1jbwQ",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -623,6 +654,36 @@
   "garagemFrase": "Assinalada nas características do anúncio"
  },
  {
+  "tipologia": "T3",
+  "titulo": "Apartamento T3 em Rio De Mouro",
+  "preco": 295000.0,
+  "area": 87.0,
+  "wc": 1,
+  "garagem": "Sim",
+  "garagemFrase": "apartamento t3 para venda com 1lugar de parqueamento",
+  "varanda": "Sim",
+  "elevador": "Não indicado",
+  "construcao": "Usada",
+  "estado": "Não indicado",
+  "ano": 1977,
+  "entrega": "Não se aplica",
+  "arrendado": "Não indicado",
+  "emPlanta": false,
+  "notas": "Garagem: \"apartamento t3 para venda com 1lugar de parqueamento\".",
+  "zona": "Rio de Mouro",
+  "localizacao": "Rio De Mouro, Sintra",
+  "noMercadoDesde": "2026-11-05",
+  "atualizado": "2026-11-27",
+  "url": "https://remax.pt/pt/imoveis/venda-apartamento-t3-sintra-rio-de-mouro/121031232-14",
+  "fonte": "RE/MAX",
+  "agencia": "RE/MAX Riviera",
+  "chave": "REMAX-121031232-14",
+  "primeiraVez": "2026-11-28",
+  "ultimaVerificacao": "2026-11-28",
+  "disponibilidade": "Ativo",
+  "historicoPrecos": []
+ },
+ {
   "id": 19337556,
   "titulo": "T2 com Varanda, Lareira e Elevador | Monte Abraã",
   "localizacao": "Monte Abraão, Rua Ribeiro Sanches - Monte Abraão",
@@ -648,7 +709,7 @@
   "notas": "Certificado energético C. Garagem (no OLX): \"dispõe ainda de um lugar de estacionamento em garagem e de uma boa arrecadação, com acesso direto por elevador: espaço para guardar o que importa e a comodidade\".",
   "chave": "ID1j8A4",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -686,7 +747,7 @@
   "notas": "Garagem: \", serviços, transportes e bons acessos a lisboa, o apartamento situa-se no 1.º andar de um edifício com dois elevadores e inclui lugar de estacionamento e arrec\". Certificado energético D.",
   "chave": "ID1j9v0",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -725,7 +786,7 @@
   "notas": "Garagem: \"t2 totalmente renovado e mobilado | certificação energética b- | lugar de estacionamento em garagem fechada | arrecadação | 345.000 €\". Certificado energético BMINUS.",
   "chave": "ID1j8OG",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -802,7 +863,7 @@
   "notas": "Certificado energético E. Garagem (no OLX): \"lugar de estacionamento privativo;\".",
   "chave": "ID1j8J9",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -839,7 +900,7 @@
   "notas": "Andar: 1. Certificado energético EXEMPT. Garagem (no OLX): \"apartamento t2 na rinchoa – 6.º andar, com box\".",
   "chave": "ID1j8RR",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -877,7 +938,7 @@
   "notas": "Garagem: \"conta com varanda e 1 lugar de estacionamento incluído, oferecendo uma solução completa para o dia a dia.\". Certificado energético EXEMPT.",
   "chave": "ID1jak4",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -918,7 +979,7 @@
   "notas": "Garagem: \"a garagem tem uma fração autónoma e um valor extra (não incluído no preço deste anúncio).\". Certificado energético C.",
   "chave": "ID1j8gk",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -988,7 +1049,7 @@
   "notas": "Garagem: \"apartamento t2 com terraço de 50 m² e box fechad.\". Certificado energético D.",
   "chave": "ID1j9e5",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -1097,7 +1158,7 @@
   "agencia": "RE/MAX Horizonte 4 All",
   "chave": "REMAX-126361026-10",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -1168,7 +1229,7 @@
   "notas": "Garagem: \"&nbsp; apartamento t2 com arrecadação e garagem para 1 carro | são marcos\". Andar: 8. Certificado energético C.",
   "chave": "ID1j59D",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [
    {
@@ -1250,7 +1311,7 @@
   "notas": "Garagem: \"andar de moradia t3 com garagem | alcabideche &nbsp;\". Arrendado? A descrição diz: \"…ideche, cascais. \no imóvel encontra-se  arrendado até março de 2027  e apresenta características mai…\" — confirmar. Certificado energético E.",
   "chave": "ID1j4nh",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -1285,7 +1346,7 @@
   "notas": "Certificado energético C. Garagem (no OLX): \"dispõe ainda de lugar de estacionamento e arrecadação, acrescentando comodidade e capacidade de arrumação.\".",
   "chave": "ID1j3cS",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -1326,7 +1387,7 @@
   "notas": "Garagem: \"apartamento t2 na rinchoa – 6.º andar, com box\". Andar: 6. Certificado energético C.",
   "chave": "ID1j23A",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -1352,14 +1413,14 @@
   "entrega": "Não se aplica",
   "arrendado": "Não indicado",
   "noMercadoDesde": "2026-10-15",
-  "atualizado": "2026-11-25",
+  "atualizado": "2026-11-27",
   "url": "https://www.imovirtual.com/pt/anuncio/t3-em-rio-de-mouro-com-lugar-de-parqueamento-a-5-min-da-estacao-ID1j1vX",
   "fonte": "Imovirtual",
   "agencia": "TrustHome",
   "notas": "Garagem: \"t3 em rio de mouro com lugar de parqueamento a 5 min.\". Andar: 3. Certificado energético C.",
   "chave": "ID1j1vX",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -1395,7 +1456,7 @@
   "notas": "Garagem: \"- possibilidade de lugar de garagem por um valor simbólico\". Andar: 5. Certificado energético C.",
   "chave": "ID1j1cB",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -1446,7 +1507,7 @@
   "titulo": "Apartamento T2 com 90m² e parqueamento em Monte Abraão – Queluz",
   "localizacao": "Monte Abraão, Sintra",
   "zona": "Sintra (perto)",
-  "preco": 300000.0,
+  "preco": 290000.0,
   "area": 90.0,
   "tipologia": "T2",
   "quartos": 2,
@@ -1460,18 +1521,29 @@
   "entrega": "Não se aplica",
   "arrendado": "Não indicado",
   "noMercadoDesde": "2026-10-12",
-  "atualizado": "2026-11-02",
+  "atualizado": "2026-11-27",
   "url": "https://www.imovirtual.com/pt/anuncio/apartamento-t2-com-90m-e-parqueamento-em-monte-abraao-queluz-ID1j0iU",
   "fonte": "Imovirtual",
   "agencia": "Listoo.pt",
   "notas": "Garagem: \"apartamento t2 com 90m² e parqueamento em monte abraão – queluz.\". Andar: 1. Certificado energético E.",
   "chave": "ID1j0iU",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
-  "historicoPrecos": [],
+  "historicoPrecos": [
+   {
+    "data": "2026-11-28",
+    "de": 300000.0,
+    "para": 290000.0
+   }
+  ],
   "emPlanta": false,
-  "garagemFrase": "apartamento t2 com 90m² e parqueamento em monte abraão – queluz."
+  "garagemFrase": "apartamento t2 com 90m² e parqueamento em monte abraão – queluz.",
+  "outrosLinks": [
+   "https://www.olx.pt/d/anuncio/apartamento-t2-em-monte-abro-com-arrecadao-IDJDYln.html",
+   "https://www.olx.pt/d/anuncio/apartamento-t2-com-90m-e-parqueamento-em-monte-abrao-queluz-IDJDS0l.html",
+   "https://www.custojusto.pt/lisboa/imobiliario/apartamentos/apartamento-t2-monte-abraao-45450894"
+  ]
  },
  {
   "id": 19304408,
@@ -1570,7 +1642,7 @@
   "agencia": "Profissional (OLX)",
   "chave": "OLX-674166410",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -1600,7 +1672,7 @@
   "notas": "Andar: r/c. Certificado energético D. Garagem (no OLX): \"como mais-valias, destaca-se a possibilidade de garagem (opcional) e uma arrecadação, ideal para arrumação adicional.\".",
   "chave": "ID1iV3h",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -1643,7 +1715,7 @@
   "notas": "Garagem: \"os apartamentos incluem lugar de parqueamento e foram concebidos para maximizar o conforto.\". Andar: 1. Certificado energético APLUS.",
   "chave": "ID1iWNh",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -1679,7 +1751,7 @@
   "notas": "Garagem: \"no terreno existe atualmente uma moradia térrea t3 com aproximadamente 71,5 m², com garagem e espaço exterior com árvores de fruto.\". Certificado energético E.",
   "chave": "ID1iWzc",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [
    {
@@ -1747,7 +1819,7 @@
   "notas": "Com suite. Garagem: \"dispõe ainda de um lugar de estacionamento em garagem e de uma boa arrecadação, com acesso direto por elevador: espaço para guardar o que importa e a comodidade\". Certificado energético C.",
   "chave": "ID1iW46",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -1815,7 +1887,7 @@
   "agencia": "iad Portugal (Isabelle Peretti)",
   "chave": "IAD-1005963",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [
    {
@@ -1851,7 +1923,7 @@
   "agencia": "RE/MAX Impacto",
   "chave": "REMAX-121661202-17",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -1881,7 +1953,7 @@
   "notas": "Garagem: \"apartamento t2 com parqueamento e arrecadação | excelente luminosidade e vistas desafogadas\". Andar: 2. Certificado energético D.",
   "chave": "ID1iTDH",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -1920,7 +1992,7 @@
   "notas": "Andar: 2. Certificado energético C. Garagem (no OLX): \"lugar de estacionamento privativo;\".",
   "chave": "ID1iTUr",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -1959,7 +2031,7 @@
   "notas": "Com suite. Garagem: \"apartamento t2, novo a estrear com parqueamento em rio de mouro\". Certificado energético A.",
   "chave": "ID1iTeq",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -1992,7 +2064,7 @@
   "agencia": "RE/MAX Vantagem Metro",
   "chave": "REMAX-121291622-456",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -2022,7 +2094,7 @@
   "notas": "Garagem: \"dispõe ainda de lugar de estacionamento e arrecadação, acrescentando comodidade e capacidade de arrumação.\". Andar: 4. Certificado energético C.",
   "chave": "ID1iSny",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -2057,7 +2129,7 @@
   "notas": "Garagem: \"dispõe ainda de despensa, arrecadação e lugar de parqueamento, três características que fazem uma verdadeira diferença na organização e conforto de uma família.\". Andar: 2. Certificado energético C.",
   "chave": "ID1iSmp",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2097,7 +2169,7 @@
   "notas": "Garagem: \"estacionamento privativo exclusivo dos condóminos, sem lugares marcados , com portão automático.\". Andar: 1. Certificado energético D.",
   "chave": "ID1iRPy",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2133,7 +2205,7 @@
   "notas": "Com suite. Garagem: \"apartamentos t2 2 apartamentos t2 duplex 1 apartamento t3 1 apartamento t1 todos os apartamentos incluem estacionamento privativo , distribuído por três pisos d\". Certificado energético EXEMPT.",
   "chave": "ID1iPoz",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2174,7 +2246,7 @@
   "notas": "Com suite. Garagem: \"apartamentos t2 2 apartamentos t2 duplex 1 apartamento t3 1 apartamento t1 todos os apartamentos incluem estacionamento privativo , distribuído por três pisos d\". Certificado energético EXEMPT.",
   "chave": "ID1iPoB",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -2207,7 +2279,7 @@
   "notas": "Garagem: \"os apartamentos incluem lugar de parqueamento e foram concebidos para maximizar o conforto.\". Andar: 2. Certificado energético APLUS.",
   "chave": "ID1iP5V",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2242,7 +2314,7 @@
   "agencia": "RE/MAX Prestige",
   "chave": "REMAX-123751693-40",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [
    {
@@ -2287,7 +2359,7 @@
   "agencia": "RE/MAX Prestige",
   "chave": "REMAX-123751693-41",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -2317,7 +2389,7 @@
   "agencia": "RE/MAX Prestige",
   "chave": "REMAX-123751631-7",
   "primeiraVez": "2026-11-19",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -2347,7 +2419,7 @@
   "notas": "Garagem: \"Assinalada nas características do anúncio\". Andar: 2. Certificado energético D.",
   "chave": "ID1iMZb",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -2376,14 +2448,14 @@
   "entrega": "Não se aplica",
   "arrendado": "Não indicado",
   "noMercadoDesde": "2026-08-24",
-  "atualizado": "2026-11-26",
+  "atualizado": "2026-11-27",
   "url": "https://www.imovirtual.com/pt/anuncio/moradia-t2-para-remodelacao-com-projeto-aprovado-ID1iMNV",
   "fonte": "Imovirtual",
   "agencia": "ZOME PR1ME",
   "notas": "Garagem: \"erreno, com uma moradia existente e projeto aprovado para a construção de uma nova moradia t3, distribuída por 3 pisos, com garagem e piscina.\". Certificado energético F.",
   "chave": "ID1iMNV",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [
    {
@@ -2424,7 +2496,7 @@
   "notas": "Certificado energético C. Garagem (no OLX): \"lugar de estacionamento privativo;\".",
   "chave": "ID1iMdA",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2462,7 +2534,7 @@
   "notas": "Garagem: \"apartamento t3 com arrecadação e parqueamento em são marcos.\". Certificado energético D.",
   "chave": "ID1iJwC",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2498,7 +2570,7 @@
   "notas": "Garagem: \"Assinalada nas características do anúncio\". Certificado energético F.",
   "chave": "ID1iGxW",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -2536,7 +2608,7 @@
   "notas": "Garagem: \"apartamento t2 com parqueamento | rio de mouro | casais de mem martins.\". Andar: 1. Certificado energético BMINUS.",
   "chave": "ID1iEHS",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2569,7 +2641,7 @@
   "agencia": "Profissional (OLX)",
   "chave": "OLX-672465718",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -2677,7 +2749,7 @@
   "notas": "Com suite. Certificado energético C. Garagem (no OLX): \"os apartamentos incluem lugar de parqueamento e foram\".",
   "chave": "ID1iAJa",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2715,7 +2787,7 @@
   "notas": "Com suite. Garagem: \"o apartamento dispõe ainda de um lugar de estacionamento e arrecadação.\". Andar: 5. Certificado energético D.",
   "chave": "ID1iA9H",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2752,7 +2824,7 @@
   "notas": "Garagem: \"o imóvel destaca-se pelas áreas generosas, boa distribuição dos espaços e pela funcionalidade, contando ainda com lugar de garagem e arrecadação, o que acrescen\". Certificado energético F.",
   "chave": "ID1iz3m",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2823,7 +2895,7 @@
   "notas": "Garagem: \"atributos: área bruta 78 m2; prédio com 6 pisos acima da cota da soleira e 3 pisos de estacionamento na cave; prédio com 2 frentes, e cada apartamento tem 1 fre\". Andar: 5. Certificado energético A.",
   "chave": "ID1ivDT",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2859,7 +2931,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 4. Certificado energético EXEMPT.",
   "chave": "ID1iwLZ",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2899,7 +2971,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 4. Certificado energético EXEMPT.",
   "chave": "ID1iwLn",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -2935,7 +3007,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 4. Certificado energético EXEMPT.",
   "chave": "ID1iwL3",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -2968,7 +3040,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 3. Certificado energético EXEMPT.",
   "chave": "ID1iwI5",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -3001,7 +3073,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 3. Certificado energético EXEMPT.",
   "chave": "ID1iwHV",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3037,7 +3109,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 3. Certificado energético EXEMPT.",
   "chave": "ID1iwHQ",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3073,7 +3145,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 2. Certificado energético EXEMPT.",
   "chave": "ID1iwHI",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3109,7 +3181,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 2. Certificado energético EXEMPT.",
   "chave": "ID1iwHz",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3145,7 +3217,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 2. Certificado energético EXEMPT.",
   "chave": "ID1iwFK",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3182,7 +3254,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 1. Certificado energético EXEMPT.",
   "chave": "ID1iwFf",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -3215,7 +3287,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 1. Certificado energético EXEMPT.",
   "chave": "ID1iwF2",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3251,7 +3323,7 @@
   "notas": "Garagem: \"lugar de estacionamento privativo;\". Andar: 1. Certificado energético EXEMPT.",
   "chave": "ID1iwEI",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": []
  },
@@ -3281,7 +3353,7 @@
   "notas": "Garagem: \"Assinalada nas características do anúncio\". Andar: 1. Certificado energético E.",
   "chave": "ID1id1E",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -3323,7 +3395,7 @@
   "notas": "Com suite. Garagem: \"- garagem box privada com arrecadação incluída\". Andar: 3. Certificado energético D.",
   "chave": "ID1i7rE",
   "primeiraVez": "2026-11-23",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3356,7 +3428,7 @@
   "notas": "Garagem: \"como mais-valias, destaca-se a possibilidade de garagem (opcional) e uma arrecadação, ideal para arrumação adicional.\". Andar: 1. Certificado energético C.",
   "chave": "ID1hNM3",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
@@ -3391,7 +3463,7 @@
   "notas": "Certificado energético D. Garagem (no RE/MAX): \"o edifício não dispõe de elevador nem de estacionamento privativo.\".",
   "chave": "ID1h6FH",
   "primeiraVez": "2026-11-19",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3430,7 +3502,7 @@
   "notas": "Garagem: \"os apartamentos incluem lugar de parqueamento e foram concebidos para maximizar o conforto.\". Andar: 3. Certificado energético APLUS.",
   "chave": "ID1h1h0",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3467,7 +3539,7 @@
   "notas": "Garagem: \"os apartamentos incluem lugar de parqueamento e foram concebidos para maximizar o conforto.\". Andar: 4. Certificado energético APLUS.",
   "chave": "ID1h190",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3536,7 +3608,7 @@
   "notas": "Garagem: \"apartamento t3 remodelado com garagem, 1 andar sem elevador.\". Arrendado? A descrição diz: \"…do com garagem, 1 andar sem elevador. \n encontra-se arrendado com contrato por 1 ano.  \n localiza-se…\" — confirmar. Andar: 1. Certificado energético C.",
   "chave": "ID1frXQ",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3582,7 +3654,7 @@
   "notas": "Garagem: \"apartamento t3 remodelado com garagem, 1 andar sem elevador.\". Arrendado? A descrição diz: \"…do com garagem, 1 andar sem elevador. \n encontra-se arrendado com contrato anual.  \n localiza-se em…\" — confirmar. Andar: 1. Certificado energético D.",
   "chave": "ID1frCx",
   "primeiraVez": "2026-11-17",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "outrosLinks": [
@@ -3615,7 +3687,7 @@
   "notas": "Garagem: \"iban, 2 frentes solares: quartos orientados a nascente e a sala e a cozinha a poente.&nbsp; &nbsp; &nbsp; &nbsp; tem lugar de garagem e uma grande arrecadação.&\". Certificado energético C.",
   "chave": "ID1f0Ix",
   "primeiraVez": "2026-11-16",
-  "ultimaVerificacao": "2026-11-27",
+  "ultimaVerificacao": "2026-11-28",
   "disponibilidade": "Ativo",
   "historicoPrecos": [],
   "emPlanta": false,
